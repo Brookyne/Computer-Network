@@ -1,0 +1,13 @@
+2025-04-08 15:49:17,137 - INFO - PeerClient started.
+2025-04-08 15:49:17,138 - INFO - Kết nối tới tracker 127.0.0.1:12345 thành công.
+2025-04-08 15:49:17,141 - INFO - Nhận từ tracker: GUEST_LOGIN_SUCCESS 5549e253-7c19-43ef-8918-5138069997c1
+2025-04-08 15:49:17,141 - INFO - Đăng nhập thành công với session_id: 5549e253-7c19-43ef-8918-5138069997c1
+2025-04-08 15:49:17,141 - INFO - PeerClient started successfully.
+2025-04-08 15:49:17,141 - INFO - P2P Server đang lắng nghe trên cổng 5777
+2025-04-08 15:49:17,142 - INFO - Lấy danh sách peer thành công.
+2025-04-08 15:49:18,453 - INFO - Lấy danh sách peer thành công.
+2025-04-08 15:49:26,683 - INFO - Nhận từ tracker: JOINED a
+2025-04-08 15:49:26,683 - INFO - Đã chuyển sang kênh 'a'
+2025-04-08 15:49:26,683 - INFO - Đã tham gia kênh 'a'
+2025-04-08 15:49:34,442 - INFO - Nhận tin nhắn từ 10.0.138.11:20000 trên kênh 'a': a
+2025-04-08 15:49:40,160 - INFO - PeerClient stopped.

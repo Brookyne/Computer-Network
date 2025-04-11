@@ -1,0 +1,12 @@
+2025-04-08 13:12:17,472 - INFO - P2P Chat GUI started.
+2025-04-08 13:12:34,702 - INFO - P2P Server đang lắng nghe trên cổng 20000
+2025-04-08 13:12:34,702 - INFO - Kết nối tới tracker 127.0.0.1:12345 thành công.
+2025-04-08 13:12:34,702 - INFO - Nhận từ tracker: LOGIN_SUCCESS 926a0acb-41d4-435f-85e9-fe791d49c05a
+2025-04-08 13:12:34,709 - INFO - Đăng nhập thành công với session_id: 926a0acb-41d4-435f-85e9-fe791d49c05a
+2025-04-08 13:12:34,709 - INFO - Lấy danh sách peer thành công.
+2025-04-08 13:12:39,933 - INFO - Nhận từ tracker: JOINED a
+2025-04-08 13:12:39,933 - INFO - Đã chuyển sang kênh 'a'
+2025-04-08 13:12:42,412 - INFO - Đã chuyển sang kênh 'a'
+2025-04-08 13:12:45,902 - INFO - Lấy danh sách peer thành công.
+2025-04-08 13:12:45,912 - INFO - Đã gửi tin nhắn đến 0 peer: hi
+2025-04-08 13:19:32,698 - INFO - Ứng dụng đã đóng

@@ -1,0 +1,61 @@
+2025-04-08 15:49:05,506 - INFO - PeerClient started.
+2025-04-08 15:49:05,507 - INFO - Kết nối tới tracker 127.0.0.1:12345 thành công.
+2025-04-08 15:49:05,509 - INFO - Nhận từ tracker: LOGIN_SUCCESS 7136e380-88d1-4ef1-85a4-fc83c313a4d5
+2025-04-08 15:49:05,509 - INFO - Đăng nhập thành công với session_id: 7136e380-88d1-4ef1-85a4-fc83c313a4d5
+2025-04-08 15:49:05,510 - INFO - PeerClient started successfully.
+2025-04-08 15:49:05,510 - INFO - P2P Server đang lắng nghe trên cổng 20000
+2025-04-08 15:49:05,511 - INFO - Lấy danh sách peer thành công.
+2025-04-08 15:49:23,384 - INFO - Nhận từ tracker: JOINED a
+2025-04-08 15:49:23,384 - INFO - Đã chuyển sang kênh 'a'
+2025-04-08 15:49:23,384 - INFO - Đã tham gia kênh 'a'
+2025-04-08 15:49:32,402 - INFO - Lấy danh sách peer thành công.
+2025-04-08 15:49:32,403 - INFO - Đã gửi tin nhắn đến bob (10.0.138.11:20000)
+2025-04-08 15:49:32,403 - INFO - Nhận tin nhắn từ 10.0.138.11:20000 trên kênh 'a': a
+2025-04-08 15:49:32,404 - INFO - Đã gửi tin nhắn đến nguyen (10.0.138.11:20000)
+2025-04-08 15:49:32,404 - INFO - Nhận tin nhắn từ 10.0.138.11:20000 trên kênh 'a': a
+2025-04-08 15:49:34,440 - ERROR - Lỗi gửi tin nhắn đến bob (10.0.138.11:5001): [WinError 10061] No connection could be made because the target machine actively refused it
+2025-04-08 15:49:34,442 - INFO - Đã gửi tin nhắn đến a (10.0.138.11:5777)
+2025-04-08 15:49:34,442 - INFO - Đã gửi tin nhắn đến 3 peer: a
+2025-04-08 15:49:42,060 - INFO - PeerClient stopped.
+2025-04-08 15:50:19,306 - INFO - PeerClient started.
+2025-04-08 15:50:19,307 - INFO - Kết nối tới tracker 127.0.0.1:12345 thành công.
+2025-04-08 15:50:19,311 - INFO - Nhận từ tracker: LOGIN_SUCCESS fa3daa80-4796-4d35-9208-ffc0fdeb77d1
+2025-04-08 15:50:19,311 - INFO - Đăng nhập thành công với session_id: fa3daa80-4796-4d35-9208-ffc0fdeb77d1
+2025-04-08 15:50:19,313 - INFO - PeerClient started successfully.
+2025-04-08 15:50:19,314 - INFO - P2P Server đang lắng nghe trên cổng 20000
+2025-04-08 15:50:19,314 - INFO - Lấy danh sách peer thành công.
+2025-04-08 15:50:32,178 - INFO - Nhận từ tracker: JOINED a
+2025-04-08 15:50:32,178 - INFO - Đã chuyển sang kênh 'a'
+2025-04-08 15:50:32,178 - INFO - Đã tham gia kênh 'a'
+2025-04-08 15:50:34,197 - INFO - Lấy danh sách peer thành công.
+2025-04-08 15:50:40,724 - INFO - Lấy danh sách peer thành công.
+2025-04-08 15:50:40,724 - INFO - Đã gửi tin nhắn đến nguyen (10.0.138.11:20000)
+2025-04-08 15:50:40,725 - INFO - Nhận tin nhắn từ 10.0.138.11:20000 trên kênh 'a': a
+2025-04-08 15:50:40,725 - INFO - Đã gửi tin nhắn đến 1 peer: a
+2025-04-08 15:51:44,229 - INFO - Đã chuyển sang kênh 'a'
+2025-04-08 15:51:46,881 - INFO - Lấy danh sách peer thành công.
+2025-04-08 15:51:46,881 - INFO - Đã gửi tin nhắn đến nguyen (10.0.138.11:20000)
+2025-04-08 15:51:46,889 - INFO - Nhận tin nhắn từ 10.0.138.11:20000 trên kênh 'a': hi
+2025-04-08 15:51:46,889 - INFO - Đã gửi tin nhắn đến 1 peer: hi
+2025-04-08 15:56:06,811 - INFO - PeerClient started.
+2025-04-08 15:56:06,812 - INFO - Kết nối tới tracker 127.0.0.1:12345 thành công.
+2025-04-08 15:56:06,813 - INFO - Nhận từ tracker: LOGIN_SUCCESS ca3bba82-105b-4394-a6eb-c4701d964c36
+2025-04-08 15:56:06,813 - INFO - Đăng nhập thành công với session_id: ca3bba82-105b-4394-a6eb-c4701d964c36
+2025-04-08 15:56:06,814 - INFO - PeerClient started successfully.
+2025-04-08 15:56:06,814 - INFO - P2P Server đang lắng nghe trên cổng 20000
+2025-04-08 15:56:06,815 - INFO - Lấy danh sách peer thành công.
+2025-04-08 15:56:27,978 - INFO - Nhận từ tracker: JOINED a
+2025-04-08 15:56:27,978 - INFO - Đã chuyển sang kênh 'a'
+2025-04-08 15:56:27,978 - INFO - Đã tham gia kênh 'a'
+2025-04-08 15:56:29,594 - INFO - Lấy danh sách peer thành công.
+2025-04-08 15:56:36,009 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: hi
+2025-04-08 15:56:36,009 - INFO - Lấy danh sách peer thành công.
+2025-04-08 15:56:36,009 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-08 15:56:36,012 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1744102596.0125673 SENDER_IP:10.0.138.11 SENDER_PORT:20000 SENDER_USERNAME:alice MESSAGE_ID:765fe003-3a9a-4976-bc54-d7aed54810bd MESSAGE:hi
+2025-04-08 15:56:36,012 - INFO - Bỏ qua gửi cho chính mình alice (10.0.138.11:20000)
+2025-04-08 15:56:36,012 - INFO - Đã gửi tin nhắn đến nguyen (10.0.138.11:20000)
+2025-04-08 15:56:36,012 - INFO - Đã gửi tin nhắn đến 1 peer: hi
+2025-04-08 15:56:36,012 - INFO - Nhận dữ liệu thô từ ('10.0.138.11', 53749): CHANNEL:a TIMESTAMP:1744102596.0125673 SENDER_IP:10.0.138.11 SENDER_PORT:20000 SENDER_USERNAME:alice MESSAGE_ID:765fe003-3a9a-4976-bc54-d7aed54810bd MESSAGE:hi
+2025-04-08 15:56:36,012 - INFO - Đã phân tích tin nhắn: kênh=a, timestamp=1744102596.0125673, sender=10.0.138.11:20000, username=alice, id=765fe003-3a9a-4976-bc54-d7aed54810bd, message=hi
+2025-04-08 15:56:36,012 - INFO - Nhận tin nhắn từ 10.0.138.11:20000 trên kênh 'a': hi
+2025-04-08 15:56:49,477 - INFO - PeerClient stopped.

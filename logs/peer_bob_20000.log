@@ -1,0 +1,30 @@
+2025-04-08 15:47:03,192 - INFO - PeerClient started.
+2025-04-08 15:47:03,193 - INFO - Kết nối tới tracker 127.0.0.1:12345 thành công.
+2025-04-08 15:47:03,194 - INFO - Nhận từ tracker: LOGIN_SUCCESS 37583a11-4e9d-4e5f-8f52-25addc43d3a5
+2025-04-08 15:47:03,196 - INFO - Đăng nhập thành công với session_id: 37583a11-4e9d-4e5f-8f52-25addc43d3a5
+2025-04-08 15:47:03,196 - INFO - PeerClient started successfully.
+2025-04-08 15:47:03,196 - INFO - P2P Server đang lắng nghe trên cổng 20000
+2025-04-08 15:47:03,197 - INFO - Lấy danh sách peer thành công.
+2025-04-08 15:47:06,692 - INFO - Lấy danh sách peer thành công.
+2025-04-08 15:47:27,458 - INFO - Nhận từ tracker: JOINED a
+2025-04-08 15:47:27,458 - INFO - Đã chuyển sang kênh 'a'
+2025-04-08 15:47:27,458 - INFO - Đã tham gia kênh 'a'
+2025-04-08 15:47:30,010 - INFO - Đã chuyển sang kênh 'a'
+2025-04-08 15:47:33,859 - INFO - Lấy danh sách peer thành công.
+2025-04-08 15:47:33,859 - INFO - Đã gửi tin nhắn đến nguyen (10.0.138.11:20000)
+2025-04-08 15:47:33,860 - INFO - Nhận tin nhắn từ 10.0.138.11:20000 trên kênh 'a': hi
+2025-04-08 15:47:33,860 - INFO - Đã gửi tin nhắn đến 1 peer: hi
+2025-04-08 15:47:38,799 - INFO - Lấy danh sách peer thành công.
+2025-04-08 15:47:38,799 - INFO - Đã gửi tin nhắn đến nguyen (10.0.138.11:20000)
+2025-04-08 15:47:38,800 - INFO - Đã gửi tin nhắn đến 1 peer: hello
+2025-04-08 15:47:38,800 - INFO - Nhận tin nhắn từ 10.0.138.11:20000 trên kênh 'a': hello
+2025-04-08 15:47:48,368 - INFO - Lấy danh sách peer thành công.
+2025-04-08 15:47:48,368 - INFO - Đã gửi tin nhắn đến nguyen (10.0.138.11:20000)
+2025-04-08 15:47:48,369 - INFO - Nhận tin nhắn từ 10.0.138.11:20000 trên kênh 'a': allo
+2025-04-08 15:47:48,369 - INFO - Đã gửi tin nhắn đến 1 peer: allo
+2025-04-08 15:48:00,495 - INFO - Lấy danh sách peer thành công.
+2025-04-08 15:48:04,147 - INFO - Lấy danh sách peer thành công.
+2025-04-08 15:48:04,148 - INFO - Đã gửi tin nhắn đến nguyen (10.0.138.11:20000)
+2025-04-08 15:48:04,151 - INFO - Nhận tin nhắn từ 10.0.138.11:20000 trên kênh 'a': hi
+2025-04-08 15:48:04,153 - INFO - Đã gửi tin nhắn đến 1 peer: hi
+2025-04-08 15:48:09,876 - INFO - PeerClient stopped.
