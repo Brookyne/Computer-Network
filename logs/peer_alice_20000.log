@@ -107,3 +107,26 @@
 2025-04-15 15:20:18,680 - INFO - Đã gửi tin nhắn đến 1 peer: i dont know man
 2025-04-15 15:20:18,680 - INFO - Đã phân tích tin nhắn: kênh=1, timestamp=1744705218.6787555, sender=172.17.0.77:20000, username=alice, id=50d27eff-ae43-4e92-9593-c66e6eb6ce95, message=i dont know man
 2025-04-15 15:20:18,680 - INFO - Nhận tin nhắn từ 172.17.0.77:20000 trên kênh '1': i dont know man
+2025-04-15 15:47:01,057 - INFO - Lấy danh sách peer thành công.
+2025-04-15 15:47:05,254 - INFO - PeerClient stopped.
+2025-04-15 20:47:35,678 - INFO - PeerClient started.
+2025-04-15 20:47:35,678 - INFO - Kết nối tới tracker 127.0.0.1:12345 thành công.
+2025-04-15 20:47:35,702 - INFO - Nhận từ tracker: LOGIN_SUCCESS d1412acc-6a59-4004-972c-53274c1ce1c8
+2025-04-15 20:47:35,702 - INFO - Đăng nhập thành công với session_id: d1412acc-6a59-4004-972c-53274c1ce1c8
+2025-04-15 20:47:35,702 - INFO - PeerClient started successfully.
+2025-04-15 20:47:35,702 - INFO - P2P Server đang lắng nghe trên cổng 20000
+2025-04-15 20:47:35,702 - INFO - Lấy danh sách peer thành công.
+2025-04-15 20:47:48,560 - INFO - Nhận từ tracker: JOINED 1
+2025-04-15 20:47:48,560 - INFO - Đã chuyển sang kênh '1'
+2025-04-15 20:47:48,561 - INFO - Đã tham gia kênh '1'
+2025-04-15 20:47:51,542 - INFO - Đã chuyển sang kênh '1'
+2025-04-15 20:47:52,138 - INFO - Đã chuyển sang kênh '1'
+2025-04-15 20:47:55,099 - INFO - Chuẩn bị gửi tin nhắn trong kênh 1: hello
+2025-04-15 20:47:55,099 - INFO - Lấy danh sách peer thành công.
+2025-04-15 20:47:55,099 - INFO - Tìm thấy 1 peers để gửi tin nhắn
+2025-04-15 20:47:55,122 - INFO - Tin nhắn định dạng mạng: CHANNEL:1 TIMESTAMP:1744724875.099378 SENDER_IP:172.17.0.77 SENDER_PORT:20000 SENDER_USERNAME:alice MESSAGE_ID:e9238c9f-1178-454b-b5f6-5a981a116b1f MESSAGE:hello
+2025-04-15 20:47:55,122 - INFO - Bỏ qua gửi cho chính mình alice (172.17.0.77:20000)
+2025-04-15 20:47:55,122 - INFO - Đã gửi tin nhắn đến 0 peer: hello
+2025-04-15 20:48:23,776 - INFO - Nhận dữ liệu thô từ ('172.17.0.77', 49160): CHANNEL:1 TIMESTAMP:1744724903.7769606 SENDER_IP:172.17.0.77 SENDER_PORT:20000 SENDER_USERNAME:bob MESSAGE_ID:66470ef2-8bb5-452d-a670-28894f99405f MESSAGE:hello
+2025-04-15 20:48:23,776 - INFO - Đã phân tích tin nhắn: kênh=1, timestamp=1744724903.7769606, sender=172.17.0.77:20000, username=bob, id=66470ef2-8bb5-452d-a670-28894f99405f, message=hello
+2025-04-15 20:48:23,776 - INFO - Nhận tin nhắn từ 172.17.0.77:20000 trên kênh '1': hello

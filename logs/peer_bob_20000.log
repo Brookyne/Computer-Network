@@ -65,3 +65,22 @@
 2025-04-15 15:20:26,180 - INFO - Lấy danh sách peer thành công.
 2025-04-15 15:20:26,876 - INFO - Đã chuyển sang kênh '1'
 2025-04-15 15:20:27,364 - INFO - Đã chuyển sang kênh '1'
+2025-04-15 15:36:13,988 - INFO - PeerClient stopped.
+2025-04-15 20:48:11,928 - INFO - PeerClient started.
+2025-04-15 20:48:11,928 - INFO - Kết nối tới tracker 127.0.0.1:12345 thành công.
+2025-04-15 20:48:11,928 - INFO - Nhận từ tracker: LOGIN_SUCCESS d01aac63-34a9-45d0-b9c1-8d656b4023fc
+2025-04-15 20:48:11,928 - INFO - Đăng nhập thành công với session_id: d01aac63-34a9-45d0-b9c1-8d656b4023fc
+2025-04-15 20:48:11,928 - INFO - PeerClient started successfully.
+2025-04-15 20:48:11,928 - ERROR - Lỗi khởi động P2P server: [WinError 10048] Only one usage of each socket address (protocol/network address/port) is normally permitted
+2025-04-15 20:48:11,928 - INFO - Lấy danh sách peer thành công.
+2025-04-15 20:48:13,970 - INFO - Lấy danh sách peer thành công.
+2025-04-15 20:48:20,008 - INFO - Nhận từ tracker: JOINED 1
+2025-04-15 20:48:20,008 - INFO - Đã chuyển sang kênh '1'
+2025-04-15 20:48:20,008 - INFO - Đã tham gia kênh '1'
+2025-04-15 20:48:23,761 - INFO - Chuẩn bị gửi tin nhắn trong kênh 1: hello
+2025-04-15 20:48:23,776 - INFO - Lấy danh sách peer thành công.
+2025-04-15 20:48:23,776 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-15 20:48:23,776 - INFO - Tin nhắn định dạng mạng: CHANNEL:1 TIMESTAMP:1744724903.7769606 SENDER_IP:172.17.0.77 SENDER_PORT:20000 SENDER_USERNAME:bob MESSAGE_ID:66470ef2-8bb5-452d-a670-28894f99405f MESSAGE:hello
+2025-04-15 20:48:23,776 - INFO - Đã gửi tin nhắn đến alice (172.17.0.77:20000)
+2025-04-15 20:48:23,776 - INFO - Bỏ qua gửi cho chính mình bob (172.17.0.77:20000)
+2025-04-15 20:48:23,776 - INFO - Đã gửi tin nhắn đến 1 peer: hello
