@@ -99,3 +99,18 @@
 2025-04-08 15:58:37,136 - INFO - Nhận dữ liệu thô từ ('10.0.138.11', 53810): CHANNEL:a TIMESTAMP:1744102717.1366522 SENDER_IP:10.0.138.11 SENDER_PORT:5000 SENDER_USERNAME:alice MESSAGE_ID:5e936d30-3b62-41c4-85b5-db1293d0584f MESSAGE:hi
 2025-04-08 15:58:37,143 - INFO - Đã phân tích tin nhắn: kênh=a, timestamp=1744102717.1366522, sender=10.0.138.11:5000, username=alice, id=5e936d30-3b62-41c4-85b5-db1293d0584f, message=hi
 2025-04-08 15:58:37,143 - INFO - Nhận tin nhắn từ 10.0.138.11:5000 trên kênh 'a': hi
+2025-04-13 23:04:27,076 - INFO - PeerClient started.
+2025-04-13 23:04:27,078 - INFO - Kết nối tới tracker 127.0.0.1:12345 thành công.
+2025-04-13 23:04:27,079 - INFO - Nhận từ tracker: GUEST_LOGIN_SUCCESS 1a7526fd-d783-4969-8381-7b2078ee0e03
+2025-04-13 23:04:27,079 - INFO - Đăng nhập thành công với session_id: 1a7526fd-d783-4969-8381-7b2078ee0e03
+2025-04-13 23:04:27,080 - INFO - PeerClient started successfully.
+2025-04-13 23:04:27,082 - INFO - P2P Server đang lắng nghe trên cổng 20000
+2025-04-13 23:04:27,083 - INFO - Lấy danh sách peer thành công.
+2025-04-13 23:04:28,450 - INFO - Lấy danh sách peer thành công.
+2025-04-13 23:04:28,984 - INFO - Lấy danh sách peer thành công.
+2025-04-13 23:04:54,668 - INFO - Nhận từ tracker: JOINED a
+2025-04-13 23:04:54,668 - INFO - Đã chuyển sang kênh 'a'
+2025-04-13 23:04:54,668 - INFO - Đã tham gia kênh 'a'
+2025-04-13 23:04:56,821 - INFO - Lấy danh sách peer thành công.
+2025-04-13 23:05:01,946 - INFO - Lấy danh sách peer thành công.
+2025-04-13 23:05:03,197 - INFO - Lấy danh sách peer thành công.

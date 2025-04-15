@@ -17,7 +17,7 @@ class P2PChatGUI:
         self.root.minsize(800, 600)
         
         # Logger
-        self.setup_logger()
+        self.set_logger()
         
         # Thiết lập các biến trạng thái
         self.peer_client = None
@@ -28,7 +28,7 @@ class P2PChatGUI:
         # Hiển thị màn hình đăng nhập
         self.show_login_screen()
         
-    def setup_logger(self):
+    def set_logger(self):
         """Cài đặt logger cho ứng dụng"""
         self.logger = logging.getLogger("P2PChatGUI")
         self.logger.setLevel(logging.INFO)
@@ -395,27 +395,15 @@ class P2PChatGUI:
             self.logger.info("Ứng dụng đã đóng")
             self.root.destroy()
 
-def run_tracker():
-    """Khởi động tracker server trong một luồng riêng"""
-    try:
-        from tracker import TrackerServer
-        server = TrackerServer()
-        server.start()
-    except ImportError:
-        print("Không tìm thấy module tracker.py. Chỉ khởi động phần GUI.")
-    except Exception as e:
-        print(f"Lỗi khởi động Tracker Server: {e}")
+
 
 def main():
     """Hàm chính khởi động ứng dụng"""
     parser = argparse.ArgumentParser(description="P2P Chat Application with GUI")
-    parser.add_argument("--start-tracker", action="store_true", help="Khởi động cả Tracker Server")
+    
     args = parser.parse_args()
     
-    # Khởi động Tracker nếu được yêu cầu
-    if args.start_tracker:
-        threading.Thread(target=run_tracker, daemon=True).start()
-        print("Đã khởi động Tracker Server")
+    
     
     # Khởi động ứng dụng GUI
     root = tk.Tk()

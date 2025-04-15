@@ -28,3 +28,7 @@
 2025-04-08 15:48:04,151 - INFO - Nhận tin nhắn từ 10.0.138.11:20000 trên kênh 'a': hi
 2025-04-08 15:48:04,153 - INFO - Đã gửi tin nhắn đến 1 peer: hi
 2025-04-08 15:48:09,876 - INFO - PeerClient stopped.
+2025-04-14 16:35:00,317 - INFO - PeerClient started.
+2025-04-14 16:35:00,331 - ERROR - Lỗi kết nối tới tracker: an integer is required (got type str)
+2025-04-14 16:35:00,331 - ERROR - Failed to start PeerClient.
+2025-04-14 16:35:11,183 - INFO - PeerClient stopped.

@@ -188,23 +188,39 @@ class PeerServer:
     def _run_server(self):
         """Chạy server"""
         self.server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        try:
-            self.server_socket.bind(('', self.local_port))
-            self.server_socket.listen(5)
-            self.logger.info(f"P2P Server đang lắng nghe trên cổng {self.local_port}")
+        
+
+        self.server_socket.bind(('', self.local_port))
+        self.server_socket.listen(5)
+        self.logger.info(f"P2P Server đang lắng nghe trên cổng {self.local_port}")
             
-            while self.running:
-                try:
-                    conn, addr = self.server_socket.accept()
-                    threading.Thread(target=self._handle_connection, args=(conn, addr), daemon=True).start()
-                except Exception as e:
-                    if self.running:  # Chỉ log nếu vẫn đang chạy
-                        self.logger.error(f"Lỗi chấp nhận kết nối: {e}")
-        except Exception as e:
-            self.logger.error(f"Lỗi khởi động P2P server: {e}")
-        finally:
-            if self.server_socket:
-                self.server_socket.close()
+        while self.running:
+            try:
+                conn, addr = self.server_socket.accept()
+                threading.Thread(target=self._handle_connection, args=(conn, addr), daemon=True).start()
+            except Exception as e:
+                if self.running:  # Chỉ log nếu vẫn đang chạy
+                    self.logger.error(f"Lỗi chấp nhận kết nối: {e}")
+        if self.server_socket:
+            self.server_socket.close()
+
+        # try:
+        #     self.server_socket.bind(('', self.local_port))
+        #     self.server_socket.listen(5)
+        #     self.logger.info(f"P2P Server đang lắng nghe trên cổng {self.local_port}")
+            
+        #     while self.running:
+        #         try:
+        #             conn, addr = self.server_socket.accept()
+        #             threading.Thread(target=self._handle_connection, args=(conn, addr), daemon=True).start()
+        #         except Exception as e:
+        #             if self.running:  # Chỉ log nếu vẫn đang chạy
+        #                 self.logger.error(f"Lỗi chấp nhận kết nối: {e}")
+        # except Exception as e:
+        #     self.logger.error(f"Lỗi khởi động P2P server: {e}")
+        # finally:
+        #     if self.server_socket:
+        #         self.server_socket.close()
                 
     def _handle_connection(self, conn, addr):
         """Xử lý kết nối từ peer khác"""

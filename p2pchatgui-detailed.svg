@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1200" font-family="Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" 
+      markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="black"/>
+    </marker>
+  </defs>
+  
+  <!-- Main Class Box -->
+  <rect x="50" y="50" width="900" height="1100" fill="#f8f8f8" stroke="#888" stroke-width="2" rx="10" ry="10"/>
+  <text x="500" y="90" text-anchor="middle" font-weight="bold" font-size="24">P2PChatGUI</text>
+  
+  <!-- Attributes Section -->
+  <rect x="100" y="110" width="800" height="300" fill="#e8f4ea" stroke="#888" stroke-width="2" rx="5" ry="5"/>
+  <text x="500" y="135" text-anchor="middle" font-weight="bold" font-size="18">Thuộc tính</text>
+  <line x1="100" y1="145" x2="900" y2="145" stroke="#888" stroke-width="1"/>
+  
+  <!-- Key Attributes -->
+  <text x="120" y="175" font-size="16">- root: Tk</text>
+  <text x="120" y="205" font-size="16">- peer_client: PeerClient</text>
+  <text x="120" y="235" font-size="16">- logger: Logger</text>
+  <text x="120" y="265" font-size="16">- main_frame: Frame</text>
+  <text x="120" y="295" font-size="16">- login_frame: Frame</text>
+  <text x="120" y="325" font-size="16">- sidebar_frame: Frame</text>
+  <text x="120" y="355" font-size="16">- content_frame: Frame</text>
+  <text x="120" y="385" font-size="16">- messages_text: ScrolledText</text>
+  
+  <!-- Attribute descriptions -->
+  <text x="400" y="175" font-size="16">// Cửa sổ chính của ứng dụng Tkinter</text>
+  <text x="400" y="205" font-size="16">// Đối tượng xử lý logic chat P2P</text>
+  <text x="400" y="235" font-size="16">// Ghi log hoạt động của GUI</text>
+  <text x="400" y="265" font-size="16">// Frame chứa giao diện chính</text>
+  <text x="400" y="295" font-size="16">// Frame chứa giao diện đăng nhập</text>
+  <text x="400" y="325" font-size="16">// Frame chứa danh sách kênh và người dùng</text>
+  <text x="400" y="355" font-size="16">// Frame chứa nội dung tin nhắn</text>
+  <text x="400" y="385" font-size="16">// Vùng hiển thị tin nhắn</text>
+  
+  <!-- Methods Section -->
+  <rect x="100" y="430" width="800" height="680" fill="#e8eaf4" stroke="#888" stroke-width="2" rx="5" ry="5"/>
+  <text x="500" y="455" text-anchor="middle" font-weight="bold" font-size="18">Phương thức</text>
+  <line x1="100" y1="465" x2="900" y2="465" stroke="#888" stroke-width="1"/>
+  
+  <!-- Initialization Methods -->
+  <rect x="120" y="485" width="760" height="110" fill="#f2f2f2" stroke="#888" stroke-width="1" rx="5" ry="5"/>
+  <text x="500" y="505" text-anchor="middle" font-weight="bold" font-size="16">Phương thức khởi tạo</text>
+  <text x="130" y="535" font-size="16">+ __init__(root): Khởi tạo GUI với cửa sổ gốc</text>
+  <text x="130" y="565" font-size="16">+ set_logger(): Cài đặt logger cho ứng dụng</text>
+  <text x="130" y="595" font-size="16">+ setup_ui(): Tạo các thành phần giao diện</text>
+  
+  <!-- UI Setup Methods -->
+  <rect x="120" y="615" width="760" height="110" fill="#f2f2f2" stroke="#888" stroke-width="1" rx="5" ry="5"/>
+  <text x="500" y="635" text-anchor="middle" font-weight="bold" font-size="16">Phương thức thiết lập giao diện</text>
+  <text x="130" y="665" font-size="16">+ setup_main_ui(): Thiết lập giao diện chính của ứng dụng</text>
+  <text x="130" y="695" font-size="16">+ show_login_screen(): Hiển thị màn hình đăng nhập</text>
+  <text x="130" y="725" font-size="16">+ show_main_ui(): Hiển thị giao diện chính sau khi đăng nhập</text>
+  
+  <!-- Login Methods -->
+  <rect x="120" y="745" width="760" height="100" fill="#f2f2f2" stroke="#888" stroke-width="1" rx="5" ry="5"/>
+  <text x="500" y="765" text-anchor="middle" font-weight="bold" font-size="16">Phương thức xử lý đăng nhập</text>
+  <text x="130" y="795" font-size="16">+ login(): Xử lý đăng nhập thông thường</text>
+  <text x="130" y="825" font-size="16">+ login_as_guest(): Xử lý đăng nhập khách</text>
+  <text x="130" y="855" font-size="16">+ do_login(is_guest): Thực hiện đăng nhập với Tracker</text>
+  
+  <!-- Channel Methods -->
+  <rect x="120" y="865" width="760" height="110" fill="#f2f2f2" stroke="#888" stroke-width="1" rx="5" ry="5"/>
+  <text x="500" y="885" text-anchor="middle" font-weight="bold" font-size="16">Phương thức xử lý kênh chat</text>
+  <text x="130" y="915" font-size="16">+ join_channel_dialog(): Hiển thị hộp thoại để tham gia kênh</text>
+  <text x="130" y="945" font-size="16">+ join_channel(channel_name): Tham gia kênh chat</text>
+  <text x="130" y="975" font-size="16">+ update_channel_list(): Cập nhật danh sách kênh trên giao diện</text>
+  <text x="130" y="1005" font-size="16">+ on_channel_select(event): Xử lý sự kiện khi người dùng chọn kênh</text>
+  
+  <!-- Message Methods -->
+  <rect x="120" y="995" width="760" height="90" fill="#f2f2f2" stroke="#888" stroke-width="1" rx="5" ry="5"/>
+  <text x="500" y="1015" text-anchor="middle" font-weight="bold" font-size="16">Phương thức xử lý tin nhắn</text>
+  <text x="130" y="1045" font-size="16">+ handle_new_message(message): Xử lý khi có tin nhắn mới</text>
+  <text x="130" y="1075" font-size="16">+ update_messages_display(): Cập nhật khu vực hiển thị tin nhắn</text>
+  <text x="130" y="1105" font-size="16">+ send_message(): Gửi tin nhắn đến tất cả peer trong kênh hiện tại</text>
+  
+  <!-- Interactions with PeerClient -->
+  <rect x="900" y="300" width="300" height="200" fill="#f5eae6" stroke="#888" stroke-width="2" rx="5" ry="5" transform="translate(100 20)"/>
+  <text x="1050" y="330" text-anchor="middle" font-weight="bold" font-size="18" transform="translate(100 20)">PeerClient</text>
+  <line x1="900" y1="340" x2="1200" y2="340" stroke="#888" stroke-width="1" transform="translate(100 20)"/>
+  <text x="920" y="370" font-size="16" transform="translate(100 20)">+ start()</text>
+  <text x="920" y="400" font-size="16" transform="translate(100 20)">+ stop()</text>
+  <text x="920" y="430" font-size="16" transform="translate(100 20)">+ join_channel()</text>
+  <text x="920" y="460" font-size="16" transform="translate(100 20)">+ send_message()</text>
+  <text x="920" y="490" font-size="16" transform="translate(100 20)">+ get_peers()</text>
+  
+  <!-- Connections -->
+  <line x1="900" y1="200" x2="1000" y2="340" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="930" y="290" font-size="14" fill="#333">Uses</text>
+  
+  <!-- Event Flow -->
+  <path d="M 950 600 L 990 600 L 990 670 L 950 670 Z" fill="none" stroke="#333" stroke-width="1.5"/>
+  <text x="970" y="640" text-anchor="middle" font-size="16" fill="#333">UI Events</text>
+  <line x1="950" y1="640" x2="880" y2="640" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+  
+  <path d="M 950 800 L 990 800 L 990 870 L 950 870 Z" fill="none" stroke="#333" stroke-width="1.5"/>
+  <text x="970" y="840" text-anchor="middle" font-size="16" fill="#333">P2P Events</text>
+  <line x1="950" y1="840" x2="880" y2="840" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+  
+  <!-- Title -->
+  <text x="500" y="30" text-anchor="middle" font-weight="bold" font-size="28" fill="#333">Chi tiết lớp P2PChatGUI</text>
+</svg>
