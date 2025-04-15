@@ -28,3 +28,40 @@
 2025-04-08 15:48:04,151 - INFO - Nhận tin nhắn từ 10.0.138.11:20000 trên kênh 'a': hi
 2025-04-08 15:48:04,153 - INFO - Đã gửi tin nhắn đến 1 peer: hi
 2025-04-08 15:48:09,876 - INFO - PeerClient stopped.
+2025-04-15 15:18:03,428 - INFO - PeerClient started.
+2025-04-15 15:18:03,428 - INFO - Kết nối tới tracker 127.0.0.1:12345 thành công.
+2025-04-15 15:18:03,430 - INFO - Nhận từ tracker: LOGIN_SUCCESS c1e5be44-843c-4807-b433-ad55ec7c72d2
+2025-04-15 15:18:03,430 - INFO - Đăng nhập thành công với session_id: c1e5be44-843c-4807-b433-ad55ec7c72d2
+2025-04-15 15:18:03,431 - ERROR - Lỗi khởi động P2P server: [WinError 10048] Only one usage of each socket address (protocol/network address/port) is normally permitted
+2025-04-15 15:18:03,431 - INFO - PeerClient started successfully.
+2025-04-15 15:18:03,433 - INFO - Lấy danh sách peer thành công.
+2025-04-15 15:18:17,355 - INFO - Lấy danh sách peer thành công.
+2025-04-15 15:18:18,140 - INFO - Lấy danh sách peer thành công.
+2025-04-15 15:18:18,284 - INFO - Lấy danh sách peer thành công.
+2025-04-15 15:18:24,553 - INFO - Nhận từ tracker: JOINED 1
+2025-04-15 15:18:24,553 - INFO - Đã chuyển sang kênh '1'
+2025-04-15 15:18:24,553 - INFO - Đã tham gia kênh '1'
+2025-04-15 15:19:50,372 - INFO - Lấy danh sách peer thành công.
+2025-04-15 15:19:50,956 - INFO - Lấy danh sách peer thành công.
+2025-04-15 15:19:53,513 - INFO - Chuẩn bị gửi tin nhắn trong kênh 1: hi
+2025-04-15 15:19:53,514 - INFO - Lấy danh sách peer thành công.
+2025-04-15 15:19:53,514 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-15 15:19:53,514 - INFO - Tin nhắn định dạng mạng: CHANNEL:1 TIMESTAMP:1744705193.5144281 SENDER_IP:172.17.0.77 SENDER_PORT:20000 SENDER_USERNAME:bob MESSAGE_ID:5382779a-e57b-410d-9b15-3cc8511df07e MESSAGE:hi
+2025-04-15 15:19:53,514 - INFO - Đã gửi tin nhắn đến alice (172.17.0.77:20000)
+2025-04-15 15:19:53,515 - INFO - Bỏ qua gửi cho chính mình bob (172.17.0.77:20000)
+2025-04-15 15:19:53,515 - INFO - Đã gửi tin nhắn đến 1 peer: hi
+2025-04-15 15:19:59,988 - INFO - Lấy danh sách peer thành công.
+2025-04-15 15:20:00,459 - INFO - Lấy danh sách peer thành công.
+2025-04-15 15:20:00,612 - INFO - Lấy danh sách peer thành công.
+2025-04-15 15:20:00,755 - INFO - Lấy danh sách peer thành công.
+2025-04-15 15:20:00,908 - INFO - Lấy danh sách peer thành công.
+2025-04-15 15:20:11,689 - INFO - Chuẩn bị gửi tin nhắn trong kênh 1: why i dont see ur message?
+2025-04-15 15:20:11,690 - INFO - Lấy danh sách peer thành công.
+2025-04-15 15:20:11,690 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-15 15:20:11,690 - INFO - Tin nhắn định dạng mạng: CHANNEL:1 TIMESTAMP:1744705211.6907148 SENDER_IP:172.17.0.77 SENDER_PORT:20000 SENDER_USERNAME:bob MESSAGE_ID:ac863a63-e620-4a2b-9bea-84e542ff8f95 MESSAGE:why i dont see ur message?
+2025-04-15 15:20:11,713 - INFO - Đã gửi tin nhắn đến alice (172.17.0.77:20000)
+2025-04-15 15:20:11,713 - INFO - Bỏ qua gửi cho chính mình bob (172.17.0.77:20000)
+2025-04-15 15:20:11,715 - INFO - Đã gửi tin nhắn đến 1 peer: why i dont see ur message?
+2025-04-15 15:20:26,180 - INFO - Lấy danh sách peer thành công.
+2025-04-15 15:20:26,876 - INFO - Đã chuyển sang kênh '1'
+2025-04-15 15:20:27,364 - INFO - Đã chuyển sang kênh '1'

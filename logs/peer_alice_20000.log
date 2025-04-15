@@ -59,3 +59,51 @@
 2025-04-08 15:56:36,012 - INFO - Đã phân tích tin nhắn: kênh=a, timestamp=1744102596.0125673, sender=10.0.138.11:20000, username=alice, id=765fe003-3a9a-4976-bc54-d7aed54810bd, message=hi
 2025-04-08 15:56:36,012 - INFO - Nhận tin nhắn từ 10.0.138.11:20000 trên kênh 'a': hi
 2025-04-08 15:56:49,477 - INFO - PeerClient stopped.
+2025-04-15 15:14:45,451 - INFO - PeerClient started.
+2025-04-15 15:14:45,452 - INFO - Kết nối tới tracker 127.0.0.1:12345 thành công.
+2025-04-15 15:14:45,464 - INFO - Nhận từ tracker: LOGIN_SUCCESS 08071869-badc-4d91-8c07-3a0e95c6cb81
+2025-04-15 15:14:45,464 - INFO - Đăng nhập thành công với session_id: 08071869-badc-4d91-8c07-3a0e95c6cb81
+2025-04-15 15:14:45,465 - INFO - PeerClient started successfully.
+2025-04-15 15:14:45,465 - INFO - P2P Server đang lắng nghe trên cổng 20000
+2025-04-15 15:16:45,156 - INFO - PeerClient stopped.
+2025-04-15 15:17:10,196 - INFO - PeerClient started.
+2025-04-15 15:17:10,196 - INFO - Kết nối tới tracker 127.0.0.1:12345 thành công.
+2025-04-15 15:17:10,197 - INFO - Nhận từ tracker: LOGIN_SUCCESS 9e5f27bd-271f-4850-a3e3-3a3871edefe3
+2025-04-15 15:17:10,197 - INFO - Đăng nhập thành công với session_id: 9e5f27bd-271f-4850-a3e3-3a3871edefe3
+2025-04-15 15:17:10,198 - INFO - PeerClient started successfully.
+2025-04-15 15:17:10,198 - INFO - P2P Server đang lắng nghe trên cổng 20000
+2025-04-15 15:17:10,200 - INFO - Lấy danh sách peer thành công.
+2025-04-15 15:17:34,438 - INFO - Nhận từ tracker: JOINED 1
+2025-04-15 15:17:34,438 - INFO - Đã chuyển sang kênh '1'
+2025-04-15 15:17:34,438 - INFO - Đã tham gia kênh '1'
+2025-04-15 15:17:40,204 - INFO - Đã chuyển sang kênh '1'
+2025-04-15 15:17:41,067 - INFO - Đã chuyển sang kênh '1'
+2025-04-15 15:17:43,181 - INFO - Đã chuyển sang kênh '1'
+2025-04-15 15:19:39,244 - INFO - Lấy danh sách peer thành công.
+2025-04-15 15:19:40,571 - INFO - Đã chuyển sang kênh '1'
+2025-04-15 15:19:46,536 - INFO - Chuẩn bị gửi tin nhắn trong kênh 1: helllo man
+2025-04-15 15:19:46,537 - INFO - Lấy danh sách peer thành công.
+2025-04-15 15:19:46,537 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-15 15:19:46,548 - INFO - Tin nhắn định dạng mạng: CHANNEL:1 TIMESTAMP:1744705186.5373552 SENDER_IP:172.17.0.77 SENDER_PORT:20000 SENDER_USERNAME:alice MESSAGE_ID:d12e1575-244a-4d1a-945d-15762bf6f742 MESSAGE:helllo man
+2025-04-15 15:19:46,550 - INFO - Bỏ qua gửi cho chính mình alice (172.17.0.77:20000)
+2025-04-15 15:19:46,550 - INFO - Đã gửi tin nhắn đến bob (172.17.0.77:20000)
+2025-04-15 15:19:46,551 - INFO - Nhận dữ liệu thô từ ('172.17.0.77', 63164): CHANNEL:1 TIMESTAMP:1744705186.5373552 SENDER_IP:172.17.0.77 SENDER_PORT:20000 SENDER_USERNAME:alice MESSAGE_ID:d12e1575-244a-4d1a-945d-15762bf6f742 MESSAGE:helllo man
+2025-04-15 15:19:46,552 - INFO - Đã phân tích tin nhắn: kênh=1, timestamp=1744705186.5373552, sender=172.17.0.77:20000, username=alice, id=d12e1575-244a-4d1a-945d-15762bf6f742, message=helllo man
+2025-04-15 15:19:46,553 - INFO - Nhận tin nhắn từ 172.17.0.77:20000 trên kênh '1': helllo man
+2025-04-15 15:19:46,554 - INFO - Đã gửi tin nhắn đến 1 peer: helllo man
+2025-04-15 15:19:53,515 - INFO - Nhận dữ liệu thô từ ('172.17.0.77', 63165): CHANNEL:1 TIMESTAMP:1744705193.5144281 SENDER_IP:172.17.0.77 SENDER_PORT:20000 SENDER_USERNAME:bob MESSAGE_ID:5382779a-e57b-410d-9b15-3cc8511df07e MESSAGE:hi
+2025-04-15 15:19:53,515 - INFO - Đã phân tích tin nhắn: kênh=1, timestamp=1744705193.5144281, sender=172.17.0.77:20000, username=bob, id=5382779a-e57b-410d-9b15-3cc8511df07e, message=hi
+2025-04-15 15:19:53,516 - INFO - Nhận tin nhắn từ 172.17.0.77:20000 trên kênh '1': hi
+2025-04-15 15:20:11,713 - INFO - Nhận dữ liệu thô từ ('172.17.0.77', 63166): CHANNEL:1 TIMESTAMP:1744705211.6907148 SENDER_IP:172.17.0.77 SENDER_PORT:20000 SENDER_USERNAME:bob MESSAGE_ID:ac863a63-e620-4a2b-9bea-84e542ff8f95 MESSAGE:why i dont see ur message?
+2025-04-15 15:20:11,713 - INFO - Đã phân tích tin nhắn: kênh=1, timestamp=1744705211.6907148, sender=172.17.0.77:20000, username=bob, id=ac863a63-e620-4a2b-9bea-84e542ff8f95, message=why i dont see ur message?
+2025-04-15 15:20:11,713 - INFO - Nhận tin nhắn từ 172.17.0.77:20000 trên kênh '1': why i dont see ur message?
+2025-04-15 15:20:18,677 - INFO - Chuẩn bị gửi tin nhắn trong kênh 1: i dont know man
+2025-04-15 15:20:18,678 - INFO - Lấy danh sách peer thành công.
+2025-04-15 15:20:18,678 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-15 15:20:18,678 - INFO - Tin nhắn định dạng mạng: CHANNEL:1 TIMESTAMP:1744705218.6787555 SENDER_IP:172.17.0.77 SENDER_PORT:20000 SENDER_USERNAME:alice MESSAGE_ID:50d27eff-ae43-4e92-9593-c66e6eb6ce95 MESSAGE:i dont know man
+2025-04-15 15:20:18,678 - INFO - Bỏ qua gửi cho chính mình alice (172.17.0.77:20000)
+2025-04-15 15:20:18,679 - INFO - Đã gửi tin nhắn đến bob (172.17.0.77:20000)
+2025-04-15 15:20:18,680 - INFO - Nhận dữ liệu thô từ ('172.17.0.77', 63167): CHANNEL:1 TIMESTAMP:1744705218.6787555 SENDER_IP:172.17.0.77 SENDER_PORT:20000 SENDER_USERNAME:alice MESSAGE_ID:50d27eff-ae43-4e92-9593-c66e6eb6ce95 MESSAGE:i dont know man
+2025-04-15 15:20:18,680 - INFO - Đã gửi tin nhắn đến 1 peer: i dont know man
+2025-04-15 15:20:18,680 - INFO - Đã phân tích tin nhắn: kênh=1, timestamp=1744705218.6787555, sender=172.17.0.77:20000, username=alice, id=50d27eff-ae43-4e92-9593-c66e6eb6ce95, message=i dont know man
+2025-04-15 15:20:18,680 - INFO - Nhận tin nhắn từ 172.17.0.77:20000 trên kênh '1': i dont know man

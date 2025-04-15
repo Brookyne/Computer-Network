@@ -90,7 +90,17 @@ class TrackerServer:
                         self.peers[i] = (peer[0], peer[1], peer[2], peer[3], peer[4], peer[5] + [channel])
                     return True
         return False
+    
+    # Cập nhật trạng thái của người dùng (online/invisible)
+    def set_user_status(self, session_id, status):
+        with self.peers_lock:
+            for i, peer in enumerate(self.peers):
+                if peer[3] == session_id:
+                    self.peers[i] = (*peer[:6], status)
+                    return True
+        return False
 
+    # Lấy danh sách các kênh mà các peer đã tham gia   
     def list_channels(self):
         channels = set()
         with self.peers_lock:

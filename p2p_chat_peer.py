@@ -29,8 +29,9 @@ class Message:
 
 class Channel:
     """Đại diện cho một kênh chat"""
-    def __init__(self, name):
+    def __init__(self, name, is_host=False):
         self.name = name
+        self.is_host = is_host
         self.messages = []
         self.message_ids = set()  # Dùng để lưu ID các tin nhắn đã nhận, tránh trùng lặp
         self.switch_time = time.time()  # Thời điểm tham gia/chuyển đến kênh
@@ -333,6 +334,19 @@ class PeerClient:
         self.logger.addHandler(fh)
         
         self.logger.info("PeerClient started.")
+
+    def log_connection(self, target_type, target_id, operation, status):
+    
+        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        log_entry = f"{timestamp} | {target_type} | {target_id} | {operation} | {status}"
+    
+        # Ensure the logs directory exists
+        if not os.path.exists("connection_logs"):
+            os.makedirs("connection_logs")
+        
+        # Write to connection log file
+        with open(f"connection_logs/{self.username}_{self.local_port}_connections.log", "a") as f:
+            f.write(log_entry + "\n")
         
     def _get_local_ip(self):
         """Lấy địa chỉ IP local của máy"""
@@ -342,6 +356,32 @@ class PeerClient:
                 return s.getsockname()[0]
         except:
             return "127.0.0.1"
+        
+    def create_host_channel(self, channel_name):
+        #Tao channel host
+        if channel_name in self.channels:
+            self.logger.error(f"Kênh '{channel_name}' đã tồn tại.")
+            return False
+        
+        # Đánh dấu peer là host
+        channel = Channel(channel_name, is_host=True)
+        self.channels[channel_name] = channel
+
+        ## Đăng ký kênh với tracker
+        if self.tracker_conn.join_channel(channel_name):
+            self.switch_channel(channel_name)
+            self.logger.info(f"Đã tạo kênh '{channel_name}' và tham gia thành công.")
+            return True
+        return False
+    
+    def sync_hosted_channel_with_tracker(self):
+        hosted_channels = [channel for channel in self.channels.values() if channel.is_host]
+        for channel_name in hosted_channels:
+            messages = self.channels[channel_name].messages
+        
+        if self.tracker_conn.backup_channel_messages(channel_name, messages):
+            self.logger.info(f"Synced channel '{channel_name}' with centralized server")
+
             
     def start(self):
         """Khởi động client"""
@@ -497,6 +537,60 @@ class PeerClient:
             
         self.logger.info(f"Đã gửi tin nhắn đến {sent_count} peer: {message_text}")
         return True
+    
+    def save_offline_messages(self):
+        cache_dir = f"cache/{self.username}"
+        if not os.path.exists(cache_dir):
+            os.makedirs(cache_dir)
+        
+        for channel_name, channel in self.channels.items():
+            messages_data = []
+        for msg in channel.messages:
+            messages_data.append({
+                'id': msg.id,
+                'channel': msg.channel,
+                'sender': msg.sender,
+                'sender_username': msg.sender_username,
+                'content': msg.content,
+                'timestamp': msg.timestamp
+            })
+            
+        # Save to file
+        with open(f"{cache_dir}/{channel_name}.json", "w") as f:
+            json.dump(messages_data, f)
+            
+        self.logger.info("Saved offline messages to cache")
+
+    def load_offline_messages(self):
+        """Load cached messages when coming back online"""
+        cache_dir = f"cache/{self.username}"
+        if not os.path.exists(cache_dir):
+            return
+        
+        for filename in os.listdir(cache_dir):
+            if filename.endswith(".json"):
+                channel_name = filename[:-5]  # Remove .json extension
+            
+                # Create channel if doesn't exist
+                if channel_name not in self.channels:
+                    self.channels[channel_name] = Channel(channel_name)
+                
+                # Load messages
+                with open(f"{cache_dir}/{filename}", "r") as f:
+                    messages_data = json.load(f)
+                
+                for msg_data in messages_data:
+                    message = Message(
+                    channel=msg_data['channel'],
+                    sender=msg_data['sender'],
+                    content=msg_data['content'],
+                    timestamp=msg_data['timestamp'],
+                    message_id=msg_data['id'],
+                    sender_username=msg_data['sender_username']
+                )
+                self.channels[channel_name].add_message(message)
+                
+        self.logger.info("Loaded offline messages from cache")
         
     def get_peers(self):
         """Lấy danh sách peer từ tracker"""
