@@ -1,0 +1,11 @@
+2025-04-15 22:16:02,270 - INFO - PeerClient started.
+2025-04-15 22:16:02,270 - INFO - Kết nối tới tracker 127.0.0.1:12345 thành công.
+2025-04-15 22:16:02,270 - INFO - Nhận từ tracker: GUEST_LOGIN_SUCCESS 534bbd0e-cfb2-498f-8d89-114884783cc1
+2025-04-15 22:16:02,270 - INFO - Đăng nhập thành công với session_id: 534bbd0e-cfb2-498f-8d89-114884783cc1
+2025-04-15 22:16:02,270 - INFO - PeerClient started successfully.
+2025-04-15 22:16:02,270 - INFO - Lấy danh sách peer thành công.
+2025-04-15 22:16:03,554 - INFO - Lấy danh sách peer thành công.
+2025-04-15 22:16:05,355 - INFO - Nhận từ tracker: JOINED a
+2025-04-15 22:16:05,355 - INFO - Đã chuyển sang kênh 'a'
+2025-04-15 22:16:05,355 - INFO - Đã tham gia kênh 'a'
+2025-04-15 22:17:19,301 - INFO - PeerClient stopped.

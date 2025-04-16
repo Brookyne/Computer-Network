@@ -4,8 +4,8 @@ import uuid
 import logging
 
 class TrackerServer:
-    def __init__(self, host='', port=12345):
-        self.host = host
+    def __init__(self, host='', port=22110):
+        self.host = self._get_local_ip() if host == '' else host
         self.port = port
         # Danh sách lưu thông tin các peer: (username, ip, port, session_id, is_guest, channels)
         self.peers = []
@@ -14,7 +14,8 @@ class TrackerServer:
         self.users = {
             "alice": "password1",
             "bob": "password2",
-            "charlie": "password3"
+            "charlie": "password3",
+            "nguyen":"2212311"
         }
         # Setup logger cho tracker
         self.logger = logging.getLogger("TrackerServer")
@@ -23,13 +24,20 @@ class TrackerServer:
         fh = logging.FileHandler("tracker.log", encoding="utf-8")
         fh.setFormatter(formatter)
         self.logger.addHandler(fh)
-
+    def _get_local_ip(self):
+        """Lấy địa chỉ IP local của máy"""
+        try:
+            with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+                s.connect(("8.8.8.8", 80))
+                return s.getsockname()[0]
+        except:
+            return "127.0.0.1"
     def start(self):
         threading.Thread(target=self.command_loop, daemon=True).start()
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             s.bind((self.host, self.port))
-            s.listen(5)
-            self.logger.info(f"Tracker Server lắng nghe trên {self.host}:{self.port}")
+            s.listen(10) #10 kết nối đồng thời
+            self.logger.info(f"[Tracker] Tracker Server lắng nghe trên {self.host}:{self.port}")
             print(f"[Tracker] Tracker Server lắng nghe trên {self.host}:{self.port}")
             while True:
                 conn, addr = s.accept()
@@ -100,7 +108,11 @@ class TrackerServer:
 
     def deregister_peer(self, session_id):
         with self.peers_lock:
-            self.peers = [p for p in self.peers if p[3] != session_id]
+            new_list = []
+            for p in self.peers:
+                if p[3] != session_id:
+                    new_list.append(p)
+            self.peers = new_list
 
 class ClientHandler(threading.Thread):
     def __init__(self, conn, addr, tracker):
@@ -122,10 +134,12 @@ class ClientHandler(threading.Thread):
                     data = self.conn.recv(1024).decode().strip()
                     if not data:
                         break
+                    
                     print(f"[Tracker] Nhận từ {self.addr}: {data}")
                     self.tracker.logger.info(f"Nhận từ {self.addr}: {data}")
                     tokens = data.split()
                     command = tokens[0].upper()
+                    
                     if command == "LOGIN":
                         if len(tokens) < 5:
                             self.conn.sendall(b"ERROR Invalid LOGIN format\n")

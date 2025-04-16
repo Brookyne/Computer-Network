@@ -44,15 +44,8 @@ python tracker.py
 
 Máy chủ Tracker mặc định sẽ lắng nghe trên cổng 12345.
 
-### 2. Khởi động ứng dụng Client với Tracker tích hợp
 
-Để chạy ứng dụng với một máy chủ Tracker tích hợp, sử dụng lệnh:
-
-```bash
-python p2p_chat_gui.py --start-tracker
-```
-
-### 3. Khởi động chỉ ứng dụng Client
+### 2. Khởi động chỉ ứng dụng Client
 
 Để chạy ứng dụng client kết nối đến một máy chủ Tracker hiện có:
 
@@ -60,7 +53,7 @@ python p2p_chat_gui.py --start-tracker
 python p2p_chat_gui.py
 ```
 
-### 4. Đăng nhập và bắt đầu chat
+### 3. Đăng nhập và bắt đầu chat
 
 1. **Đăng nhập**: Nhập thông tin đăng nhập, hoặc chọn "Đăng nhập khách"
    - Tài khoản mẫu: alice/password1, bob/password2, charlie/password3
@@ -130,14 +123,14 @@ python p2p_chat_gui.py
 - Đảm bảo đã nhập đúng username và password
 - Thử đăng nhập ở chế độ khách
 
-## Log và Debug
+## Log
 
 Ứng dụng tự động tạo và lưu các file log trong thư mục "logs". Kiểm tra các file này để theo dõi quá trình gửi và nhận tin nhắn khi gặp vấn đề.
 
 ## Mở rộng
 
 Dự án này có thể được mở rộng với các tính năng như:
-- Truyền file
+- Truyền file và chế độ live stream
 - Tin nhắn riêng tư
 - Mã hóa tin nhắn
 - Giao diện người dùng nâng cao

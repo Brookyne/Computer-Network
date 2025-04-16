@@ -1,0 +1,17 @@
+2025-04-16 14:14:03,981 - INFO - PeerClient started.
+2025-04-16 14:14:03,981 - INFO - [Tracker] Kết nối tới tracker 127.0.0.1:22110 thành công.
+2025-04-16 14:14:03,981 - INFO - Nhận từ tracker: GUEST_LOGIN_SUCCESS 96d792d8-fa7c-4825-b91f-7609c23bf2d6
+2025-04-16 14:14:03,981 - INFO - Đăng nhập thành công với session_id: 96d792d8-fa7c-4825-b91f-7609c23bf2d6
+2025-04-16 14:14:03,981 - INFO - PeerClient started successfully.
+2025-04-16 14:14:03,981 - INFO - P2P Server đang lắng nghe trên cổng 20001
+2025-04-16 14:14:03,981 - INFO - Lấy danh sách peer thành công.
+2025-04-16 14:14:05,668 - INFO - Lấy danh sách peer thành công.
+2025-04-16 14:40:02,886 - INFO - PeerClient started.
+2025-04-16 14:40:02,886 - INFO - [Tracker] Kết nối tới tracker 10.0.138.67:22110 thành công.
+2025-04-16 14:40:02,886 - INFO - Nhận từ tracker: GUEST_LOGIN_SUCCESS 9f85161f-8b5f-46ea-9594-8d0207f4184c
+2025-04-16 14:40:02,886 - INFO - Đăng nhập thành công với session_id: 9f85161f-8b5f-46ea-9594-8d0207f4184c
+2025-04-16 14:40:02,886 - INFO - PeerClient started successfully.
+2025-04-16 14:40:02,886 - INFO - P2P Server đang lắng nghe trên cổng 20001
+2025-04-16 14:40:02,886 - INFO - Lấy danh sách peer thành công.
+2025-04-16 14:40:04,415 - INFO - Lấy danh sách peer thành công.
+2025-04-16 16:22:18,917 - INFO - PeerClient stopped.

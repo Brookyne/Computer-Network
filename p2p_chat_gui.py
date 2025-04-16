@@ -159,12 +159,12 @@ class P2PChatGUI:
         
         ttk.Label(login_inner_frame, text="Tracker IP:").grid(row=2, column=0, sticky=tk.W, pady=5)
         self.tracker_ip_entry = ttk.Entry(login_inner_frame, width=30)
-        self.tracker_ip_entry.insert(0, "127.0.0.1")
+        self.tracker_ip_entry.insert(0, "10.0.138.67")
         self.tracker_ip_entry.grid(row=2, column=1, sticky=tk.W, pady=5)
         
         ttk.Label(login_inner_frame, text="Tracker Port:").grid(row=3, column=0, sticky=tk.W, pady=5)
         self.tracker_port_entry = ttk.Entry(login_inner_frame, width=30)
-        self.tracker_port_entry.insert(0, "12345")
+        self.tracker_port_entry.insert(0, "22110")
         self.tracker_port_entry.grid(row=3, column=1, sticky=tk.W, pady=5)
         
         ttk.Label(login_inner_frame, text="Local Port:").grid(row=4, column=0, sticky=tk.W, pady=5)
@@ -176,7 +176,7 @@ class P2PChatGUI:
         buttons_frame.grid(row=5, column=0, columnspan=2, pady=20)
         
         ttk.Button(buttons_frame, text="Đăng nhập", command=self.login).pack(side=tk.LEFT, padx=10)
-        ttk.Button(buttons_frame, text="Đăng nhập khách", command=self.login_as_guest).pack(side=tk.LEFT, padx=10)
+        ttk.Button(buttons_frame, text="Đăng nhập với chế độ khách", command=self.login_as_guest).pack(side=tk.LEFT, padx=10)
         
         # Thông tin demo
         ttk.Label(self.login_frame, text="Các tài khoản mẫu: alice/password1, bob/password2, charlie/password3").pack(pady=10)
@@ -195,12 +195,8 @@ class P2PChatGUI:
         password = self.password_entry.get().strip() if not is_guest else ""
         tracker_ip = self.tracker_ip_entry.get().strip()
         
-        try:
-            tracker_port = int(self.tracker_port_entry.get().strip())
-            local_port = int(self.local_port_entry.get().strip())
-        except ValueError:
-            messagebox.showerror("Lỗi", "Port phải là số nguyên")
-            return
+        tracker_port = int(self.tracker_port_entry.get().strip())
+        local_port = int(self.local_port_entry.get().strip())
             
         if not username:
             messagebox.showerror("Lỗi", "Username không được trống")
@@ -402,9 +398,7 @@ def main():
     parser = argparse.ArgumentParser(description="P2P Chat Application with GUI")
     
     args = parser.parse_args()
-    
-    
-    
+        
     # Khởi động ứng dụng GUI
     root = tk.Tk()
     app = P2PChatGUI(root)

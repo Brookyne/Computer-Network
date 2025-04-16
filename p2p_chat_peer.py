@@ -5,6 +5,7 @@ import time
 import uuid
 from datetime import datetime
 import os
+import traceback
 
 class Message:
     """Đại diện cho một tin nhắn"""
@@ -67,43 +68,47 @@ class TrackerConnection:
         
     def connect(self):
         """Thiết lập kết nối đến tracker server"""
-        try:
-            self.tracker_conn = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            self.tracker_conn.connect((self.tracker_ip, self.tracker_port))
-            self.logger.info(f"Kết nối tới tracker {self.tracker_ip}:{self.tracker_port} thành công.")
-            return True
-        except Exception as e:
-            self.logger.error(f"Lỗi kết nối tới tracker: {e}")
-            self.tracker_conn = None
-            return False
+        
+        self.tracker_conn = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.tracker_conn.connect((self.tracker_ip, self.tracker_port))
+        self.logger.info(f"[Tracker] Kết nối tới tracker {self.tracker_ip}:{self.tracker_port} thành công.")
+        return True
+        
+        # try:
+        #     self.tracker_conn = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        #     self.tracker_conn.connect((self.tracker_ip, self.tracker_port))
+        #     self.logger.info(f"Kết nối tới tracker {self.tracker_ip}:{self.tracker_port} thành công.")
+        #     return True
+        # except Exception as e:
+        #     self.logger.error(f"Lỗi kết nối tới tracker: {e}")
+        #     self.tracker_conn = None
+        #     return False
             
     def login(self):
         """Đăng nhập vào tracker server"""
         if self.tracker_conn is None:
             if not self.connect():
                 return False
+
+        if self.is_guest:
+            cmd = f"GUEST {self.username} {self.local_ip} {self.local_port}\n"
+        else:
+            cmd = f"LOGIN {self.username} {self.password} {self.local_ip} {self.local_port}\n"
                 
-        try:
-            if self.is_guest:
-                cmd = f"GUEST {self.username} {self.local_ip} {self.local_port}\n"
-            else:
-                cmd = f"LOGIN {self.username} {self.password} {self.local_ip} {self.local_port}\n"
-                
-            self.tracker_conn.sendall(cmd.encode())
-            response = self.tracker_conn.recv(1024).decode().strip()
-            self.logger.info(f"Nhận từ tracker: {response}")
+        self.tracker_conn.sendall(cmd.encode())
+        response = self.tracker_conn.recv(1024).decode().strip()
+        self.logger.info(f"Nhận từ tracker: {response}")
             
-            if (self.is_guest and response.startswith("GUEST_LOGIN_SUCCESS")) or \
-               (not self.is_guest and response.startswith("LOGIN_SUCCESS")):
-                parts = response.split()
-                if len(parts) >= 2:
-                    self.session_id = parts[1]
-                    self.logger.info(f"Đăng nhập thành công với session_id: {self.session_id}")
-                    return True
-            return False
-        except Exception as e:
-            self.logger.error(f"Lỗi đăng nhập: {e}")
-            return False
+        if (self.is_guest and response.startswith("GUEST_LOGIN_SUCCESS")) or \
+            (not self.is_guest and response.startswith("LOGIN_SUCCESS")):
+            parts = response.split()
+            if len(parts) >= 2:
+                self.session_id = parts[1]
+                self.logger.info(f"Đăng nhập thành công với session_id: {self.session_id}")
+                return True
+        return False
+
+
             
     def get_peers(self):
         """Lấy danh sách các peer đang online"""
@@ -189,7 +194,6 @@ class PeerServer:
         """Chạy server"""
         self.server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         
-
         self.server_socket.bind(('', self.local_port))
         self.server_socket.listen(5)
         self.logger.info(f"P2P Server đang lắng nghe trên cổng {self.local_port}")
@@ -204,23 +208,7 @@ class PeerServer:
         if self.server_socket:
             self.server_socket.close()
 
-        # try:
-        #     self.server_socket.bind(('', self.local_port))
-        #     self.server_socket.listen(5)
-        #     self.logger.info(f"P2P Server đang lắng nghe trên cổng {self.local_port}")
-            
-        #     while self.running:
-        #         try:
-        #             conn, addr = self.server_socket.accept()
-        #             threading.Thread(target=self._handle_connection, args=(conn, addr), daemon=True).start()
-        #         except Exception as e:
-        #             if self.running:  # Chỉ log nếu vẫn đang chạy
-        #                 self.logger.error(f"Lỗi chấp nhận kết nối: {e}")
-        # except Exception as e:
-        #     self.logger.error(f"Lỗi khởi động P2P server: {e}")
-        # finally:
-        #     if self.server_socket:
-        #         self.server_socket.close()
+        
                 
     def _handle_connection(self, conn, addr):
         """Xử lý kết nối từ peer khác"""
@@ -254,11 +242,10 @@ class PeerServer:
                             
                             # Lấy username người gửi nếu có
                             sender_username = None
-                            try:
-                                sender_username_part = [p for p in header_parts if p.startswith("SENDER_USERNAME:")][0]
-                                sender_username = sender_username_part.split(":", 1)[1].strip()
-                            except:
-                                pass  # Không có username trong tin nhắn
+                            
+                            sender_username_part = [p for p in header_parts if p.startswith("SENDER_USERNAME:")][0]
+                            sender_username = sender_username_part.split(":", 1)[1].strip()
+                            
                             
                             # Lấy Message ID để tránh trùng lặp
                             message_id_part = [p for p in header_parts if p.startswith("MESSAGE_ID:")][0]
@@ -271,13 +258,12 @@ class PeerServer:
                                 self.message_callback(channel, sender_ip, sender_port, msg_timestamp, message_text, message_id, sender_username)
                         except Exception as ex:
                             self.logger.error(f"Lỗi phân tích tin nhắn từ {addr}: {ex}")
-                            import traceback
+                            
                             self.logger.error(traceback.format_exc())
                     else:
                         self.logger.info(f"Tin nhắn không đúng định dạng từ {addr}: {data}")
             except Exception as e:
                 self.logger.error(f"Lỗi nhận dữ liệu từ {addr}: {e}")
-                import traceback
                 self.logger.error(traceback.format_exc())
                 
     def stop(self):
@@ -523,4 +509,4 @@ class PeerClient:
         channel = channel_name or self.current_channel
         if not channel or channel not in self.channels:
             return []
-        return self.channels[channel].messages
+        return self.channels[channel].messages  
