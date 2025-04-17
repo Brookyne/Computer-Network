@@ -1,0 +1,8 @@
+2025-04-17 16:50:43,507 - INFO - PeerClient started.
+2025-04-17 16:51:04,560 - ERROR - Lỗi kết nối tới tracker: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2025-04-17 16:51:04,560 - ERROR - Failed to start PeerClient.
+2025-04-17 16:51:17,067 - INFO - PeerClient stopped.
+2025-04-17 16:52:16,611 - INFO - PeerClient started.
+2025-04-17 16:52:37,670 - ERROR - Lỗi kết nối tới tracker: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2025-04-17 16:52:37,670 - ERROR - Failed to start PeerClient.
+2025-04-17 16:52:42,858 - INFO - PeerClient stopped.
