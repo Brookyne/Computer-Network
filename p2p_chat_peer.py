@@ -19,9 +19,11 @@ class Message:
         
     def format(self):
         """Định dạng tin nhắn để hiển thị"""
-        time_str = datetime.fromtimestamp(self.timestamp).strftime("%H:%M:%S") if isinstance(self.timestamp, (int, float)) else self.timestamp.strftime("%H:%M:%S")
-        # Ưu tiên hiển thị username nếu có
-        display_sender = self.sender_username if self.sender_username else self.sender
+        time_str = datetime.fromtimestamp(self.timestamp).strftime("%H:%M:%S") \
+                   if isinstance(self.timestamp, (int, float)) \
+                   else self.timestamp.strftime("%H:%M:%S")
+        # Ưu tiên hiển thị username 
+        display_sender = self.sender_username
         return f"[{time_str}] {display_sender}: {self.content}"
     
     def to_network_format(self, sender_ip, sender_port, sender_username):
@@ -68,21 +70,15 @@ class TrackerConnection:
         
     def connect(self):
         """Thiết lập kết nối đến tracker server"""
-        
-        self.tracker_conn = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.tracker_conn.connect((self.tracker_ip, self.tracker_port))
-        self.logger.info(f"[Tracker] Kết nối tới tracker {self.tracker_ip}:{self.tracker_port} thành công.")
+        try:
+            self.tracker_conn = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            self.tracker_conn.connect((self.tracker_ip, self.tracker_port)) # Kết nối đến tracker
+            self.logger.info(f"[Tracker] Kết nối tới tracker {self.tracker_ip}:{self.tracker_port} thành công.")
+        except Exception as e:
+            self.logger.error(f"Lỗi kết nối tới tracker {self.tracker_ip}:{self.tracker_port}: {e}")
+            return False
         return True
         
-        # try:
-        #     self.tracker_conn = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        #     self.tracker_conn.connect((self.tracker_ip, self.tracker_port))
-        #     self.logger.info(f"Kết nối tới tracker {self.tracker_ip}:{self.tracker_port} thành công.")
-        #     return True
-        # except Exception as e:
-        #     self.logger.error(f"Lỗi kết nối tới tracker: {e}")
-        #     self.tracker_conn = None
-        #     return False
             
     def login(self):
         """Đăng nhập vào tracker server"""
@@ -101,10 +97,10 @@ class TrackerConnection:
             
         if (self.is_guest and response.startswith("GUEST_LOGIN_SUCCESS")) or \
             (not self.is_guest and response.startswith("LOGIN_SUCCESS")):
-            parts = response.split()
+            parts = response.split()    
             if len(parts) >= 2:
                 self.session_id = parts[1]
-                self.logger.info(f"Đăng nhập thành công với session_id: {self.session_id}")
+                self.logger.info(f"Login with session_id: {self.session_id}")
                 return True
         return False
 
@@ -134,7 +130,7 @@ class TrackerConnection:
             self.logger.info("Lấy danh sách peer thành công.")
             return peers
         except Exception as e:
-            self.logger.error(f"Lỗi lấy danh sách peer: {e}")
+            self.logger.error(f"Error get list: {e}")
             return []
             
     def join_channel(self, channel):
@@ -205,6 +201,8 @@ class PeerServer:
             except Exception as e:
                 if self.running:  # Chỉ log nếu vẫn đang chạy
                     self.logger.error(f"Lỗi chấp nhận kết nối: {e}")
+                # tắt ở đây này
+
         if self.server_socket:
             self.server_socket.close()
 
@@ -257,8 +255,7 @@ class PeerServer:
                             if self.message_callback:
                                 self.message_callback(channel, sender_ip, sender_port, msg_timestamp, message_text, message_id, sender_username)
                         except Exception as ex:
-                            self.logger.error(f"Lỗi phân tích tin nhắn từ {addr}: {ex}")
-                            
+                            self.logger.error(f"Lỗi phân tích tin nhắn từ {addr}: {ex}")    
                             self.logger.error(traceback.format_exc())
                     else:
                         self.logger.info(f"Tin nhắn không đúng định dạng từ {addr}: {data}")

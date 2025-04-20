@@ -114,3 +114,16 @@
 2025-04-13 23:04:56,821 - INFO - Lấy danh sách peer thành công.
 2025-04-13 23:05:01,946 - INFO - Lấy danh sách peer thành công.
 2025-04-13 23:05:03,197 - INFO - Lấy danh sách peer thành công.
+2025-04-17 09:22:10,794 - INFO - PeerClient started.
+2025-04-17 09:22:10,794 - INFO - [Tracker] Kết nối tới tracker 127.0.0.1:22110 thành công.
+2025-04-17 09:22:10,794 - INFO - Nhận từ tracker: GUEST_LOGIN_SUCCESS c2cba3d2-1044-477f-8faa-feaecc4de35a
+2025-04-17 09:22:10,794 - INFO - Đăng nhập thành công với session_id: c2cba3d2-1044-477f-8faa-feaecc4de35a
+2025-04-17 09:22:10,810 - INFO - P2P Server đang lắng nghe trên cổng 20000
+2025-04-17 09:22:10,810 - INFO - PeerClient started successfully.
+2025-04-17 09:22:10,810 - INFO - Lấy danh sách peer thành công.
+2025-04-17 09:22:12,232 - INFO - Lấy danh sách peer thành công.
+2025-04-17 09:43:56,121 - ERROR - Lỗi lấy danh sách peer: [WinError 10054] An existing connection was forcibly closed by the remote host
+2025-04-17 09:43:58,085 - ERROR - Lỗi lấy danh sách peer: [WinError 10054] An existing connection was forcibly closed by the remote host
+2025-04-17 09:44:00,036 - ERROR - Lỗi tham gia kênh: [WinError 10054] An existing connection was forcibly closed by the remote host
+2025-04-17 09:44:00,036 - ERROR - Không thể tham gia kênh 'a'
+2025-04-17 09:44:03,412 - INFO - PeerClient stopped.

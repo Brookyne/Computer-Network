@@ -326,3 +326,148 @@
 2025-04-16 22:43:04,126 - INFO - Kết nối từ ('10.0.138.67', 53218)
 2025-04-16 22:43:04,126 - INFO - Nhận từ ('10.0.138.67', 53218): LOGIN alice password1 10.0.138.67 20001
 2025-04-16 22:43:04,135 - INFO - Nhận từ ('10.0.138.67', 53218): GETPEERS
+2025-04-16 23:23:40,349 - ERROR - Exception từ ('10.0.138.67', 53218): [WinError 10054] An existing connection was forcibly closed by the remote host
+2025-04-16 23:23:40,349 - INFO - Đóng kết nối từ ('10.0.138.67', 53218)
+2025-04-16 23:23:40,355 - ERROR - Exception từ ('10.0.138.67', 53169): [WinError 10054] An existing connection was forcibly closed by the remote host
+2025-04-16 23:23:40,361 - INFO - Đóng kết nối từ ('10.0.138.67', 53169)
+2025-04-17 09:21:22,443 - INFO - [Tracker] Tracker Server lắng nghe trên 127.0.0.1:22110
+2025-04-17 09:21:57,120 - INFO - [Tracker] Tracker Server lắng nghe trên 127.0.0.1:22110
+2025-04-17 09:22:10,794 - INFO - Kết nối từ ('127.0.0.1', 61276)
+2025-04-17 09:22:10,794 - INFO - Nhận từ ('127.0.0.1', 61276): GUEST nguyen 10.0.131.183 20000
+2025-04-17 09:22:10,810 - INFO - Nhận từ ('127.0.0.1', 61276): GETPEERS
+2025-04-17 09:22:12,232 - INFO - Nhận từ ('127.0.0.1', 61276): GETPEERS
+2025-04-17 10:42:03,446 - INFO - Tracker Server khởi động
+2025-04-17 10:42:03,446 - INFO - [Tracker] Tracker Server lắng nghe trên 127.0.0.1:22110
+2025-04-17 10:44:51,154 - INFO - Tracker Server khởi động
+2025-04-17 10:44:51,154 - INFO - [Tracker] Tracker Server lắng nghe trên 10.0.131.183:22110
+2025-04-17 14:09:57,778 - INFO - Tracker Server khởi động
+2025-04-17 14:09:57,780 - INFO - [Tracker] Tracker Server lắng nghe trên 10.0.131.183:22110
+2025-04-17 14:10:34,203 - INFO - Kết nối từ ('10.0.131.183', 52578)
+2025-04-17 14:10:34,203 - INFO - Nhận từ ('10.0.131.183', 52578): GUEST a 10.0.131.183 20000
+2025-04-17 14:10:34,207 - INFO - Nhận từ ('10.0.131.183', 52578): GETPEERS
+2025-04-17 14:24:22,210 - INFO - Đóng kết nối từ ('10.0.131.183', 52578)
+2025-04-17 14:24:27,481 - INFO - Tracker Server khởi động
+2025-04-17 14:24:27,481 - INFO - [Tracker] Tracker Server lắng nghe trên 10.0.131.183:22110
+2025-04-17 14:25:02,144 - INFO - Kết nối từ ('10.0.131.183', 52736)
+2025-04-17 14:25:02,144 - INFO - Nhận từ ('10.0.131.183', 52736): LOGIN alice password1 10.0.131.183 20000
+2025-04-17 14:25:02,152 - INFO - Nhận từ ('10.0.131.183', 52736): GETPEERS
+2025-04-17 14:25:41,824 - INFO - Kết nối từ ('10.0.131.183', 52739)
+2025-04-17 14:25:41,824 - INFO - Nhận từ ('10.0.131.183', 52739): LOGIN bob password2 10.0.131.183 20001
+2025-04-17 14:25:41,835 - INFO - Nhận từ ('10.0.131.183', 52739): GETPEERS
+2025-04-17 14:25:44,902 - INFO - Nhận từ ('10.0.131.183', 52739): JOIN a
+2025-04-17 14:25:48,139 - INFO - Nhận từ ('10.0.131.183', 52739): JOIN b
+2025-04-17 14:25:51,184 - INFO - Nhận từ ('10.0.131.183', 52736): GETPEERS
+2025-04-17 14:25:52,175 - INFO - Nhận từ ('10.0.131.183', 52736): GETPEERS
+2025-04-17 14:26:06,040 - INFO - Nhận từ ('10.0.131.183', 52736): JOIN a
+2025-04-17 14:26:09,349 - INFO - Nhận từ ('10.0.131.183', 52736): JOIN b
+2025-04-17 14:26:14,154 - INFO - Nhận từ ('10.0.131.183', 52739): GETPEERS
+2025-04-17 14:26:19,813 - INFO - Nhận từ ('10.0.131.183', 52739): GETPEERS
+2025-04-17 14:29:59,006 - INFO - Nhận từ ('10.0.131.183', 52739): GETPEERS
+2025-04-17 14:30:03,767 - INFO - Nhận từ ('10.0.131.183', 52736): JOIN c
+2025-04-17 14:30:06,175 - INFO - Nhận từ ('10.0.131.183', 52739): JOIN c
+2025-04-17 14:30:14,598 - INFO - Nhận từ ('10.0.131.183', 52736): GETPEERS
+2025-04-17 14:30:32,082 - INFO - Đóng kết nối từ ('10.0.131.183', 52736)
+2025-04-17 14:30:33,698 - INFO - Đóng kết nối từ ('10.0.131.183', 52739)
+2025-04-17 14:36:41,140 - INFO - Tracker Server khởi động
+2025-04-17 14:36:41,140 - INFO - [Tracker] Tracker Server lắng nghe trên 10.0.131.183:22110
+2025-04-17 14:37:03,478 - INFO - Kết nối từ ('10.0.131.183', 52968)
+2025-04-17 14:37:03,478 - INFO - Nhận từ ('10.0.131.183', 52968): LOGIN alice password1 10.0.131.183 20000
+2025-04-17 14:37:03,494 - INFO - Nhận từ ('10.0.131.183', 52968): GETPEERS
+2025-04-17 14:37:18,230 - INFO - Kết nối từ ('10.0.131.183', 52969)
+2025-04-17 14:37:18,230 - INFO - Nhận từ ('10.0.131.183', 52969): LOGIN bob password2 10.0.131.183 20001
+2025-04-17 14:37:18,230 - INFO - Nhận từ ('10.0.131.183', 52969): GETPEERS
+2025-04-17 14:37:23,155 - INFO - Nhận từ ('10.0.131.183', 52969): JOIN a
+2025-04-17 14:37:26,183 - INFO - Nhận từ ('10.0.131.183', 52969): JOIN b
+2025-04-17 14:37:28,621 - INFO - Đóng kết nối từ ('10.0.131.183', 52969)
+2025-04-17 14:37:40,125 - INFO - Kết nối từ ('10.0.131.183', 52973)
+2025-04-17 14:37:40,125 - INFO - Nhận từ ('10.0.131.183', 52973): LOGIN bob password2 10.0.131.183 20001
+2025-04-17 14:37:40,125 - INFO - Nhận từ ('10.0.131.183', 52973): GETPEERS
+2025-04-17 14:37:41,023 - INFO - Nhận từ ('10.0.131.183', 52973): GETPEERS
+2025-04-17 14:37:42,632 - INFO - Nhận từ ('10.0.131.183', 52973): GETPEERS
+2025-04-17 14:37:42,782 - INFO - Nhận từ ('10.0.131.183', 52973): GETPEERS
+2025-04-17 14:37:44,999 - INFO - Nhận từ ('10.0.131.183', 52973): JOIN a
+2025-04-17 14:37:47,442 - INFO - Nhận từ ('10.0.131.183', 52973): JOIN b
+2025-04-17 14:37:51,500 - INFO - Nhận từ ('10.0.131.183', 52968): GETPEERS
+2025-04-17 14:37:56,408 - INFO - Nhận từ ('10.0.131.183', 52968): JOIN a
+2025-04-17 14:37:59,733 - INFO - Nhận từ ('10.0.131.183', 52968): GETPEERS
+2025-04-17 14:40:05,951 - INFO - Nhận từ ('10.0.131.183', 52973): GETPEERS
+2025-04-17 14:40:18,426 - INFO - Nhận từ ('10.0.131.183', 52973): GETPEERS
+2025-04-17 14:40:22,807 - INFO - Nhận từ ('10.0.131.183', 52973): GETPEERS
+2025-04-17 16:45:06,299 - INFO - Nhận từ ('10.0.131.183', 52973): GETPEERS
+2025-04-17 16:46:37,833 - INFO - Kết nối từ ('10.0.131.183', 57786)
+2025-04-17 16:46:37,833 - INFO - Kết nối từ ('10.0.131.183', 57787)
+2025-04-17 16:46:37,834 - INFO - Nhận từ ('10.0.131.183', 57786): GET / HTTP/1.1
+Host: 10.0.131.183:22110
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Accept-Encoding: gzip, deflate
+Accept-Language: vi,vi-VN;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5
+2025-04-17 16:46:37,835 - ERROR - Exception từ ('10.0.131.183', 57786): [WinError 10054] An existing connection was forcibly closed by the remote host
+2025-04-17 16:46:37,835 - INFO - Đóng kết nối từ ('10.0.131.183', 57786)
+2025-04-17 16:46:38,885 - INFO - Kết nối từ ('10.0.131.183', 57788)
+2025-04-17 16:46:38,885 - INFO - Nhận từ ('10.0.131.183', 57787): GET / HTTP/1.1
+Host: 10.0.131.183:22110
+Connection: keep-alive
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Accept-Encoding: gzip, deflate
+Accept-Language: vi,vi-VN;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5
+2025-04-17 16:46:38,885 - ERROR - Exception từ ('10.0.131.183', 57787): [WinError 10054] An existing connection was forcibly closed by the remote host
+2025-04-17 16:46:38,885 - INFO - Đóng kết nối từ ('10.0.131.183', 57787)
+2025-04-17 16:46:38,886 - INFO - Nhận từ ('10.0.131.183', 57788): GET / HTTP/1.1
+Host: 10.0.131.183:22110
+Connection: keep-alive
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Accept-Encoding: gzip, deflate
+Accept-Language: vi,vi-VN;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5
+2025-04-17 16:46:38,886 - ERROR - Exception từ ('10.0.131.183', 57788): [WinError 10054] An existing connection was forcibly closed by the remote host
+2025-04-17 16:46:38,886 - INFO - Đóng kết nối từ ('10.0.131.183', 57788)
+2025-04-17 16:46:38,887 - INFO - Kết nối từ ('10.0.131.183', 57789)
+2025-04-17 16:46:38,887 - INFO - Nhận từ ('10.0.131.183', 57789): GET / HTTP/1.1
+Host: 10.0.131.183:22110
+Connection: keep-alive
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Accept-Encoding: gzip, deflate
+Accept-Language: vi,vi-VN;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5
+2025-04-17 16:46:38,887 - ERROR - Exception từ ('10.0.131.183', 57789): [WinError 10054] An existing connection was forcibly closed by the remote host
+2025-04-17 16:46:38,888 - INFO - Đóng kết nối từ ('10.0.131.183', 57789)
+2025-04-17 16:50:59,839 - INFO - Kết nối từ ('10.0.131.183', 57897)
+2025-04-17 16:50:59,840 - INFO - Nhận từ ('10.0.131.183', 57897): GUEST a 10.0.131.183 4000
+2025-04-17 16:50:59,841 - INFO - Nhận từ ('10.0.131.183', 57897): GETPEERS
+2025-04-17 17:02:17,504 - INFO - Đóng kết nối từ ('10.0.131.183', 52968)
+2025-04-17 17:02:20,474 - INFO - Đóng kết nối từ ('10.0.131.183', 52973)
+2025-04-17 17:02:22,637 - INFO - Đóng kết nối từ ('10.0.131.183', 57897)
+2025-04-17 17:05:08,211 - INFO - Tracker Server khởi động
+2025-04-17 17:05:08,211 - INFO - [Tracker] Tracker Server lắng nghe trên :22110
+2025-04-17 17:13:56,334 - INFO - Tracker Server khởi động
+2025-04-17 17:13:56,334 - INFO - [Tracker] Tracker Server lắng nghe trên :22110
+2025-04-17 17:14:34,251 - INFO - Kết nối từ ('10.0.131.183', 59694)
+2025-04-17 17:14:34,251 - INFO - Nhận từ ('10.0.131.183', 59694): GUEST a 10.0.131.183 20000
+2025-04-17 17:14:34,255 - INFO - Nhận từ ('10.0.131.183', 59694): GETPEERS
+2025-04-17 17:15:49,450 - INFO - Kết nối từ ('10.0.131.183', 59757)
+2025-04-17 17:15:49,451 - INFO - Nhận từ ('10.0.131.183', 59757): GUEST b 10.0.131.183 20000
+2025-04-17 17:15:49,456 - INFO - Nhận từ ('10.0.131.183', 59757): GETPEERS
+2025-04-17 17:15:53,654 - INFO - Nhận từ ('10.0.131.183', 59694): GETPEERS
+2025-04-17 17:20:31,742 - ERROR - Exception từ ('10.0.131.183', 59694): [WinError 10054] An existing connection was forcibly closed by the remote host
+2025-04-17 17:20:31,742 - INFO - Đóng kết nối từ ('10.0.131.183', 59694)
+2025-04-17 17:21:53,850 - INFO - Tracker Server khởi động
+2025-04-17 17:22:11,561 - INFO - Tracker Server khởi động
+2025-04-17 17:22:20,028 - INFO - Tracker Server khởi động
+2025-04-17 17:22:26,048 - INFO - Tracker Server khởi động
+2025-04-17 17:22:26,054 - INFO - [Tracker] Tracker Server lắng nghe trên :22110
+2025-04-17 17:22:42,906 - INFO - Tracker Server khởi động
+2025-04-17 17:22:56,736 - INFO - Tracker Server khởi động
+2025-04-17 17:24:51,488 - INFO - Tracker Server khởi động
+2025-04-17 17:24:59,938 - INFO - Tracker Server khởi động
+2025-04-17 17:25:14,478 - INFO - Tracker Server khởi động
+2025-04-17 17:25:14,478 - INFO - [Tracker] Tracker Server lắng nghe trên 10.0.131.183:22110

@@ -5,7 +5,7 @@ import logging
 
 class TrackerServer:
     def __init__(self, host='', port=22110):
-        self.host = self._get_local_ip() if host == '' else host
+        self.host = "10.0.131.183"
         self.port = port
         # Danh sách lưu thông tin các peer: (username, ip, port, session_id, is_guest, channels)
         self.peers = []
@@ -24,10 +24,11 @@ class TrackerServer:
         fh = logging.FileHandler("tracker.log", encoding="utf-8")
         fh.setFormatter(formatter)
         self.logger.addHandler(fh)
+        self.logger.info("Tracker Server khởi động")
     def _get_local_ip(self):
         """Lấy địa chỉ IP local của máy"""
         try:
-            with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+            with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as s:
                 s.connect(("8.8.8.8", 80))
                 return s.getsockname()[0]
         except:
@@ -144,11 +145,13 @@ class ClientHandler(threading.Thread):
                         if len(tokens) < 5:
                             self.conn.sendall(b"ERROR Invalid LOGIN format\n")
                             continue
-                        username = tokens[1]
+                        
+                        username = tokens[1] 
                         password = tokens[2]
                         peer_ip = tokens[3]
                         peer_port = tokens[4]
                         if username in self.tracker.users and self.tracker.users[username] == password:
+                            #Nội dung response: LOGIN_SUCCESS <session_id> hoặc LOGIN_FAIL với mục part bên class TrackerConnection
                             self.username = username
                             self.session_id = self.tracker.register_peer(username, peer_ip, peer_port, is_guest=False)
                             self.logged_in = True
@@ -190,7 +193,7 @@ class ClientHandler(threading.Thread):
                     elif command == "LISTCHANNELS":
                         channels = self.tracker.list_channels()
                         if channels:
-                            response = "Channels:\n" + "\n".join(channels)
+                            response = "Channels:" + "\n".join(channels)
                         else:
                             response = "No channels available."
                         self.conn.sendall(response.encode())
