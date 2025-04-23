@@ -1,0 +1,9 @@
+2025-04-23 14:11:24,623 - INFO - PeerClient started.
+2025-04-23 14:11:26,860 - ERROR - Lỗi kết nối tới tracker: [WinError 10061] No connection could be made because the target machine actively refused it
+2025-04-23 14:11:26,860 - ERROR - Failed to start PeerClient.
+2025-04-23 14:11:36,295 - INFO - PeerClient started.
+2025-04-23 14:11:36,295 - INFO - PeerClient started.
+2025-04-23 14:11:38,564 - ERROR - Lỗi kết nối tới tracker: [WinError 10061] No connection could be made because the target machine actively refused it
+2025-04-23 14:11:38,564 - ERROR - Lỗi kết nối tới tracker: [WinError 10061] No connection could be made because the target machine actively refused it
+2025-04-23 14:11:38,580 - ERROR - Failed to start PeerClient.
+2025-04-23 14:11:38,580 - ERROR - Failed to start PeerClient.

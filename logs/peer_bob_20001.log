@@ -1,0 +1,56 @@
+2025-04-19 16:45:09,915 - INFO - PeerClient started.
+2025-04-19 16:45:09,925 - INFO - Kết nối tới tracker 127.0.0.1:12345 thành công.
+2025-04-19 16:45:09,925 - INFO - Nhận từ tracker: LOGIN_SUCCESS 3fba5a79-e358-4ab2-90f9-f2c8bb081a38
+2025-04-19 16:45:09,925 - INFO - Đăng nhập thành công với session_id: 3fba5a79-e358-4ab2-90f9-f2c8bb081a38
+2025-04-19 16:45:09,925 - INFO - PeerClient started successfully.
+2025-04-19 16:45:09,925 - INFO - P2P Server đang lắng nghe trên cổng 20001
+2025-04-19 16:45:09,925 - INFO - Lấy danh sách peer thành công.
+2025-04-19 16:45:34,226 - INFO - Nhận từ tracker: JOINED a
+2025-04-19 16:45:34,235 - INFO - Đã chuyển sang kênh 'a'
+2025-04-19 16:45:34,235 - INFO - Đã tham gia kênh 'a'
+2025-04-19 16:45:41,445 - INFO - Nhận dữ liệu thô từ ('172.17.91.26', 53269): CHANNEL:a TIMESTAMP:1745055941.4452658 SENDER_IP:172.17.91.26 SENDER_PORT:20000 SENDER_USERNAME:alice MESSAGE_ID:0dd7d04e-e736-4f4e-9688-17d88e5015cd MESSAGE:hello
+2025-04-19 16:45:41,445 - INFO - Đã phân tích tin nhắn: kênh=a, timestamp=1745055941.4452658, sender=172.17.91.26:20000, username=alice, id=0dd7d04e-e736-4f4e-9688-17d88e5015cd, message=hello
+2025-04-19 16:45:41,453 - INFO - Nhận tin nhắn từ 172.17.91.26:20000 trên kênh 'a': hello
+2025-04-19 16:45:46,425 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: hi
+2025-04-19 16:45:46,425 - INFO - Lấy danh sách peer thành công.
+2025-04-19 16:45:46,425 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-19 16:45:46,425 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745055946.4250104 SENDER_IP:172.17.91.26 SENDER_PORT:20001 SENDER_USERNAME:bob MESSAGE_ID:60f0d3ba-e543-4efd-8459-103ed059226f MESSAGE:hi
+2025-04-19 16:45:46,425 - INFO - Đã gửi tin nhắn đến alice (172.17.91.26:20000)
+2025-04-19 16:45:46,425 - INFO - Bỏ qua gửi cho chính mình bob (172.17.91.26:20001)
+2025-04-19 16:45:46,425 - INFO - Đã gửi tin nhắn đến 1 peer: hi
+2025-04-19 16:45:56,605 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: ditme
+2025-04-19 16:45:56,615 - INFO - Lấy danh sách peer thành công.
+2025-04-19 16:45:56,615 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-19 16:45:56,615 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745055956.6154437 SENDER_IP:172.17.91.26 SENDER_PORT:20001 SENDER_USERNAME:bob MESSAGE_ID:58996ef2-2210-4576-a87f-a878d7efc1f9 MESSAGE:ditme
+2025-04-19 16:45:56,634 - INFO - Đã gửi tin nhắn đến alice (172.17.91.26:20000)
+2025-04-19 16:45:56,634 - INFO - Bỏ qua gửi cho chính mình bob (172.17.91.26:20001)
+2025-04-19 16:45:56,634 - INFO - Đã gửi tin nhắn đến 1 peer: ditme
+2025-04-19 16:46:01,975 - INFO - PeerClient stopped.
+2025-04-23 14:07:33,417 - INFO - PeerClient started.
+2025-04-23 14:07:33,418 - INFO - Kết nối tới tracker 127.0.0.1:12345 thành công.
+2025-04-23 14:07:33,420 - INFO - Nhận từ tracker: LOGIN_FAIL
+2025-04-23 14:07:33,420 - ERROR - Failed to start PeerClient.
+2025-04-23 14:07:42,972 - INFO - PeerClient started.
+2025-04-23 14:07:42,972 - INFO - PeerClient started.
+2025-04-23 14:07:42,975 - INFO - Kết nối tới tracker 127.0.0.1:12345 thành công.
+2025-04-23 14:07:42,975 - INFO - Kết nối tới tracker 127.0.0.1:12345 thành công.
+2025-04-23 14:07:42,977 - INFO - Nhận từ tracker: LOGIN_SUCCESS 4cef6772-9136-48fc-a4c8-cd3d82d26506
+2025-04-23 14:07:42,977 - INFO - Nhận từ tracker: LOGIN_SUCCESS 4cef6772-9136-48fc-a4c8-cd3d82d26506
+2025-04-23 14:07:42,977 - INFO - Đăng nhập thành công với session_id: 4cef6772-9136-48fc-a4c8-cd3d82d26506
+2025-04-23 14:07:42,977 - INFO - Đăng nhập thành công với session_id: 4cef6772-9136-48fc-a4c8-cd3d82d26506
+2025-04-23 14:07:42,978 - INFO - PeerClient started successfully.
+2025-04-23 14:07:42,978 - INFO - PeerClient started successfully.
+2025-04-23 14:07:42,978 - INFO - P2P Server đang lắng nghe trên cổng 20001
+2025-04-23 14:07:42,978 - INFO - P2P Server đang lắng nghe trên cổng 20001
+2025-04-23 14:07:42,980 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:07:42,980 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:09:26,939 - INFO - Nhận dữ liệu thô từ ('192.168.244.86', 56937): CHANNEL:a TIMESTAMP:1745392166.9155312 SENDER_IP:192.168.244.86 SENDER_PORT:20000 SENDER_USERNAME:alice MESSAGE_ID:b0913773-8a4d-44a5-ab66-e8275c70061e MESSAGE:hello
+2025-04-23 14:09:26,939 - INFO - Nhận dữ liệu thô từ ('192.168.244.86', 56937): CHANNEL:a TIMESTAMP:1745392166.9155312 SENDER_IP:192.168.244.86 SENDER_PORT:20000 SENDER_USERNAME:alice MESSAGE_ID:b0913773-8a4d-44a5-ab66-e8275c70061e MESSAGE:hello
+2025-04-23 14:09:26,939 - INFO - Đã phân tích tin nhắn: kênh=a, timestamp=1745392166.9155312, sender=192.168.244.86:20000, username=alice, id=b0913773-8a4d-44a5-ab66-e8275c70061e, message=hello
+2025-04-23 14:09:26,939 - INFO - Đã phân tích tin nhắn: kênh=a, timestamp=1745392166.9155312, sender=192.168.244.86:20000, username=alice, id=b0913773-8a4d-44a5-ab66-e8275c70061e, message=hello
+2025-04-23 14:09:26,939 - INFO - Nhận tin nhắn từ 192.168.244.86:20000 trên kênh 'a': hello
+2025-04-23 14:09:26,939 - INFO - Nhận tin nhắn từ 192.168.244.86:20000 trên kênh 'a': hello
+2025-04-23 14:09:26,939 - INFO - Bỏ qua tin nhắn từ kênh 'a' chưa tham gia
+2025-04-23 14:09:26,939 - INFO - Bỏ qua tin nhắn từ kênh 'a' chưa tham gia
+2025-04-23 14:10:10,870 - INFO - PeerClient stopped.
+2025-04-23 14:10:10,870 - INFO - PeerClient stopped.
