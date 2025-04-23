@@ -398,6 +398,12 @@ class PeerClient:
             
     def stop(self):
         """Dừng client"""
+        if self.tracker_conn and self.session_id:
+            try:
+                self.tracker_conn.tracker_conn.sendall(f"DEREGISTER {self.session_id}\n".encode())
+            except:
+                pass
+        
         if self.peer_server:
             self.peer_server.stop()
         self.logger.info("PeerClient stopped.")
@@ -430,11 +436,18 @@ class PeerClient:
         sender = f"{sender_ip}:{sender_port}"
         message = Message(channel, sender, message_text, timestamp, message_id, sender_username)
         
-        # Thêm vào kênh, chỉ thêm nếu tin nhắn chưa tồn tại (dựa vào message_id)
-        if self.channels[channel].add_message(message):
-            # Thông báo cho GUI nếu có message handler và đang ở kênh này
-            if self.message_handler and self.current_channel == channel:
-                self.message_handler(message)
+        if self.channels.get(channel): # Kiểm tra kênh tồn tại trước khi thêm
+            if self.channels[channel].add_message(message):
+                if self.message_handler and self.current_channel == channel:
+                    self.message_handler(message)
+                self.save_offline_messages() # Lưu tin nhắn sau khi nhận
+
+
+        # # Thêm vào kênh, chỉ thêm nếu tin nhắn chưa tồn tại (dựa vào message_id)
+        # if self.channels[channel].add_message(message):
+        #     # Thông báo cho GUI nếu có message handler và đang ở kênh này
+        #     if self.message_handler and self.current_channel == channel:
+        #         self.message_handler(message)
                 
     def join_channel(self, channel_name):
         """Tham gia kênh chat"""
@@ -501,8 +514,12 @@ class PeerClient:
             channel=self.current_channel,
             sender=f"{self.local_ip}:{self.local_port}",
             content=message_text,
-            sender_username=self.username
+            sender_username=self.username   
         )
+
+        if self.channels.get(self.current_channel): # Kiểm tra kênh tồn tại trước khi thêm
+            self.channels[self.current_channel].add_message(message)
+            self.save_offline_messages()
         
         # Thêm tin nhắn của mình vào kênh hiện tại
         self.channels[self.current_channel].add_message(message)
@@ -538,6 +555,8 @@ class PeerClient:
         self.logger.info(f"Đã gửi tin nhắn đến {sent_count} peer: {message_text}")
         return True
     
+
+    
     def save_offline_messages(self):
         cache_dir = f"cache/{self.username}"
         if not os.path.exists(cache_dir):
@@ -556,10 +575,14 @@ class PeerClient:
             })
             
         # Save to file
-        with open(f"{cache_dir}/{channel_name}.json", "w") as f:
-            json.dump(messages_data, f)
-            
-        self.logger.info("Saved offline messages to cache")
+            try:
+                with open(f"{cache_dir}/{channel_name}.json", "w", encoding="utf-8") as f:
+                    json.dump(messages_data, f)
+            except Exception as e:
+                self.logger.error(f"Lỗi khi lưu tin nhắn vào cache cho kênh '{channel_name}': {e}")
+
+        self.logger.info("Đã lưu tin nhắn offline vào cache")
+
 
     def load_offline_messages(self):
         """Load cached messages when coming back online"""

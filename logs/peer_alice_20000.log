@@ -182,3 +182,91 @@
 2025-04-23 14:09:26,939 - INFO - Đã gửi tin nhắn đến bob (192.168.244.86:20001)
 2025-04-23 14:09:26,939 - INFO - Đã gửi tin nhắn đến 1 peer: hello
 2025-04-23 14:10:07,616 - INFO - PeerClient stopped.
+2025-04-23 14:54:51,295 - INFO - PeerClient started.
+2025-04-23 14:54:51,295 - INFO - Kết nối tới tracker 127.0.0.1:12345 thành công.
+2025-04-23 14:54:51,295 - INFO - Nhận từ tracker: LOGIN_SUCCESS c6b6c5a8-55d1-444c-be48-782f31122ca4
+2025-04-23 14:54:51,295 - INFO - Đăng nhập thành công với session_id: c6b6c5a8-55d1-444c-be48-782f31122ca4
+2025-04-23 14:54:51,295 - INFO - PeerClient started successfully.
+2025-04-23 14:54:51,311 - INFO - P2P Server đang lắng nghe trên cổng 20000
+2025-04-23 14:54:51,311 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:54:53,615 - INFO - Nhận từ tracker: JOINED a
+2025-04-23 14:54:53,615 - INFO - Đã chuyển sang kênh 'a'
+2025-04-23 14:54:53,615 - INFO - Đã tham gia kênh 'a'
+2025-04-23 14:54:53,615 - INFO - Đã chuyển sang kênh 'a'
+2025-04-23 14:54:59,011 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: zvsfs
+2025-04-23 14:54:59,011 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:54:59,011 - INFO - Tìm thấy 1 peers để gửi tin nhắn
+2025-04-23 14:54:59,020 - ERROR - Lỗi khi lưu tin nhắn vào cache cho kênh 'a': name 'json' is not defined
+2025-04-23 14:54:59,020 - INFO - Đã lưu tin nhắn offline vào cache
+2025-04-23 14:54:59,033 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745394899.0112672 SENDER_IP:10.28.129.197 SENDER_PORT:20000 SENDER_USERNAME:alice MESSAGE_ID:124dd43e-5ae8-4253-a313-04df62f00ced MESSAGE:zvsfs
+2025-04-23 14:54:59,033 - INFO - Bỏ qua gửi cho chính mình alice (10.28.129.197:20000)
+2025-04-23 14:54:59,033 - INFO - Đã gửi tin nhắn đến 0 peer: zvsfs
+2025-04-23 14:55:01,621 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: fsfsfs
+2025-04-23 14:55:01,621 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:55:01,621 - INFO - Tìm thấy 1 peers để gửi tin nhắn
+2025-04-23 14:55:01,621 - ERROR - Lỗi khi lưu tin nhắn vào cache cho kênh 'a': name 'json' is not defined
+2025-04-23 14:55:01,621 - ERROR - Lỗi khi lưu tin nhắn vào cache cho kênh 'a': name 'json' is not defined
+2025-04-23 14:55:01,621 - INFO - Đã lưu tin nhắn offline vào cache
+2025-04-23 14:55:01,621 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745394901.6217904 SENDER_IP:10.28.129.197 SENDER_PORT:20000 SENDER_USERNAME:alice MESSAGE_ID:daa6eaef-b652-4984-8809-e28790be1845 MESSAGE:fsfsfs
+2025-04-23 14:55:01,621 - INFO - Bỏ qua gửi cho chính mình alice (10.28.129.197:20000)
+2025-04-23 14:55:01,621 - INFO - Đã gửi tin nhắn đến 0 peer: fsfsfs
+2025-04-23 14:55:04,128 - INFO - PeerClient stopped.
+2025-04-23 14:55:14,147 - INFO - PeerClient started.
+2025-04-23 14:55:14,147 - INFO - Kết nối tới tracker 127.0.0.1:12345 thành công.
+2025-04-23 14:55:14,147 - INFO - Nhận từ tracker: LOGIN_SUCCESS 5bf9fc23-0591-4132-9833-41ccb799ae01
+2025-04-23 14:55:14,147 - INFO - Đăng nhập thành công với session_id: 5bf9fc23-0591-4132-9833-41ccb799ae01
+2025-04-23 14:55:14,147 - INFO - PeerClient started successfully.
+2025-04-23 14:55:14,147 - INFO - P2P Server đang lắng nghe trên cổng 20000
+2025-04-23 14:55:14,147 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:55:16,808 - INFO - Nhận từ tracker: JOINED a
+2025-04-23 14:55:16,808 - INFO - Đã chuyển sang kênh 'a'
+2025-04-23 14:55:16,808 - INFO - Đã tham gia kênh 'a'
+2025-04-23 14:55:16,813 - INFO - Đã chuyển sang kênh 'a'
+2025-04-23 14:55:23,121 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: fajlkfj
+2025-04-23 14:55:23,121 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:55:23,121 - INFO - Tìm thấy 1 peers để gửi tin nhắn
+2025-04-23 14:55:23,121 - ERROR - Lỗi khi lưu tin nhắn vào cache cho kênh 'a': name 'json' is not defined
+2025-04-23 14:55:23,121 - INFO - Đã lưu tin nhắn offline vào cache
+2025-04-23 14:55:23,121 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745394923.1218503 SENDER_IP:10.28.129.197 SENDER_PORT:20000 SENDER_USERNAME:alice MESSAGE_ID:faf58e40-5835-46d3-a5b3-bbe3e1997ca1 MESSAGE:fajlkfj
+2025-04-23 14:55:23,121 - INFO - Bỏ qua gửi cho chính mình alice (10.28.129.197:20000)
+2025-04-23 14:55:23,121 - INFO - Đã gửi tin nhắn đến 0 peer: fajlkfj
+2025-04-23 14:55:23,999 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: klfjsaf
+2025-04-23 14:55:23,999 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:55:23,999 - INFO - Tìm thấy 1 peers để gửi tin nhắn
+2025-04-23 14:55:24,014 - ERROR - Lỗi khi lưu tin nhắn vào cache cho kênh 'a': name 'json' is not defined
+2025-04-23 14:55:24,014 - ERROR - Lỗi khi lưu tin nhắn vào cache cho kênh 'a': name 'json' is not defined
+2025-04-23 14:55:24,014 - INFO - Đã lưu tin nhắn offline vào cache
+2025-04-23 14:55:24,014 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745394923.9990454 SENDER_IP:10.28.129.197 SENDER_PORT:20000 SENDER_USERNAME:alice MESSAGE_ID:5314e48a-e261-48b2-92aa-ec40c37c04b0 MESSAGE:klfjsaf
+2025-04-23 14:55:24,014 - INFO - Bỏ qua gửi cho chính mình alice (10.28.129.197:20000)
+2025-04-23 14:55:24,014 - INFO - Đã gửi tin nhắn đến 0 peer: klfjsaf
+2025-04-23 14:55:25,296 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: cvxnlsf
+2025-04-23 14:55:25,296 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:55:25,296 - INFO - Tìm thấy 1 peers để gửi tin nhắn
+2025-04-23 14:55:25,296 - ERROR - Lỗi khi lưu tin nhắn vào cache cho kênh 'a': name 'json' is not defined
+2025-04-23 14:55:25,296 - ERROR - Lỗi khi lưu tin nhắn vào cache cho kênh 'a': name 'json' is not defined
+2025-04-23 14:55:25,296 - ERROR - Lỗi khi lưu tin nhắn vào cache cho kênh 'a': name 'json' is not defined
+2025-04-23 14:55:25,296 - INFO - Đã lưu tin nhắn offline vào cache
+2025-04-23 14:55:25,296 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745394925.2961636 SENDER_IP:10.28.129.197 SENDER_PORT:20000 SENDER_USERNAME:alice MESSAGE_ID:c1557467-0782-4b87-8cfa-06cd504d418d MESSAGE:cvxnlsf
+2025-04-23 14:55:25,296 - INFO - Bỏ qua gửi cho chính mình alice (10.28.129.197:20000)
+2025-04-23 14:55:25,296 - INFO - Đã gửi tin nhắn đến 0 peer: cvxnlsf
+2025-04-23 14:55:26,105 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: lfksjf
+2025-04-23 14:55:26,105 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:55:26,105 - INFO - Tìm thấy 1 peers để gửi tin nhắn
+2025-04-23 14:55:26,105 - ERROR - Lỗi khi lưu tin nhắn vào cache cho kênh 'a': name 'json' is not defined
+2025-04-23 14:55:26,105 - ERROR - Lỗi khi lưu tin nhắn vào cache cho kênh 'a': name 'json' is not defined
+2025-04-23 14:55:26,105 - ERROR - Lỗi khi lưu tin nhắn vào cache cho kênh 'a': name 'json' is not defined
+2025-04-23 14:55:26,105 - ERROR - Lỗi khi lưu tin nhắn vào cache cho kênh 'a': name 'json' is not defined
+2025-04-23 14:55:26,105 - INFO - Đã lưu tin nhắn offline vào cache
+2025-04-23 14:55:26,105 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745394926.105412 SENDER_IP:10.28.129.197 SENDER_PORT:20000 SENDER_USERNAME:alice MESSAGE_ID:7a80be85-ce49-42a9-acb8-33b2b465eec9 MESSAGE:lfksjf
+2025-04-23 14:55:26,105 - INFO - Bỏ qua gửi cho chính mình alice (10.28.129.197:20000)
+2025-04-23 14:55:26,105 - INFO - Đã gửi tin nhắn đến 0 peer: lfksjf
+2025-04-23 14:56:17,191 - INFO - Nhận dữ liệu thô từ ('10.28.129.197', 51380): CHANNEL:a TIMESTAMP:1745394977.191253 SENDER_IP:10.28.129.197 SENDER_PORT:200 SENDER_USERNAME:bob MESSAGE_ID:23560eb9-d3d0-4536-a5c8-0838d17c5f23 MESSAGE:hello
+2025-04-23 14:56:17,204 - INFO - Đã phân tích tin nhắn: kênh=a, timestamp=1745394977.191253, sender=10.28.129.197:200, username=bob, id=23560eb9-d3d0-4536-a5c8-0838d17c5f23, message=hello
+2025-04-23 14:56:17,204 - INFO - Nhận tin nhắn từ 10.28.129.197:200 trên kênh 'a': hello
+2025-04-23 14:56:17,207 - ERROR - Lỗi khi lưu tin nhắn vào cache cho kênh 'a': name 'json' is not defined
+2025-04-23 14:56:17,207 - ERROR - Lỗi khi lưu tin nhắn vào cache cho kênh 'a': name 'json' is not defined
+2025-04-23 14:56:17,207 - ERROR - Lỗi khi lưu tin nhắn vào cache cho kênh 'a': name 'json' is not defined
+2025-04-23 14:56:17,207 - ERROR - Lỗi khi lưu tin nhắn vào cache cho kênh 'a': name 'json' is not defined
+2025-04-23 14:56:17,207 - ERROR - Lỗi khi lưu tin nhắn vào cache cho kênh 'a': name 'json' is not defined
+2025-04-23 14:56:17,207 - INFO - Đã lưu tin nhắn offline vào cache
+2025-04-23 14:56:29,133 - INFO - PeerClient stopped.

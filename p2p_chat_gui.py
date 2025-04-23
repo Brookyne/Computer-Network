@@ -246,6 +246,18 @@ class P2PChatGUI:
         mode = "Khách" if self.peer_client.is_guest else "Người dùng"
         self.username_label.config(text=f"Tên: {self.peer_client.username} ({mode})")
         self.status_label.config(text=f"Trạng thái: Online | IP: {self.peer_client.local_ip}:{self.peer_client.local_port}")
+
+
+        if self.peer_client and self.peer_client.current_channel:
+            self.current_channel_label.config(text=f"Kênh: {self.peer_client.current_channel}")
+            self.update_messages_display()
+        elif self.peer_client and self.peer_client.channels:
+            # Nếu không có kênh hiện tại được lưu, chọn kênh đầu tiên và hiển thị
+            first_channel_name = next(iter(self.peer_client.channels))
+            self.peer_client.switch_channel(first_channel_name)
+            self.current_channel_label.config(text=f"Kênh: {first_channel_name}")
+            self.update_messages_display()
+
         
     def refresh_peers(self):
         """Cập nhật danh sách peer và kênh"""
@@ -284,6 +296,7 @@ class P2PChatGUI:
             # Cập nhật hiển thị
             self.current_channel_label.config(text=f"Kênh: {channel_name}")
             # Hiển thị tin nhắn của kênh
+            self.peer_client.switch_channel(channel_name)
             self.update_messages_display()
             messagebox.showinfo("Thành công", f"Đã tham gia kênh '{channel_name}'")
         else:

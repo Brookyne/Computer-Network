@@ -1,0 +1,64 @@
+2025-04-23 14:55:51,094 - INFO - PeerClient started.
+2025-04-23 14:55:51,094 - INFO - Kết nối tới tracker 127.0.0.1:12345 thành công.
+2025-04-23 14:55:51,094 - INFO - Nhận từ tracker: LOGIN_FAIL
+2025-04-23 14:55:51,094 - ERROR - Failed to start PeerClient.
+2025-04-23 14:56:00,579 - INFO - PeerClient started.
+2025-04-23 14:56:00,579 - INFO - PeerClient started.
+2025-04-23 14:56:00,579 - INFO - Kết nối tới tracker 127.0.0.1:12345 thành công.
+2025-04-23 14:56:00,579 - INFO - Kết nối tới tracker 127.0.0.1:12345 thành công.
+2025-04-23 14:56:00,579 - INFO - Nhận từ tracker: LOGIN_SUCCESS 1b555265-fae6-4ef7-9d25-d598d17316ff
+2025-04-23 14:56:00,579 - INFO - Nhận từ tracker: LOGIN_SUCCESS 1b555265-fae6-4ef7-9d25-d598d17316ff
+2025-04-23 14:56:00,595 - INFO - Đăng nhập thành công với session_id: 1b555265-fae6-4ef7-9d25-d598d17316ff
+2025-04-23 14:56:00,595 - INFO - Đăng nhập thành công với session_id: 1b555265-fae6-4ef7-9d25-d598d17316ff
+2025-04-23 14:56:00,597 - INFO - PeerClient started successfully.
+2025-04-23 14:56:00,597 - INFO - PeerClient started successfully.
+2025-04-23 14:56:00,597 - INFO - P2P Server đang lắng nghe trên cổng 200
+2025-04-23 14:56:00,597 - INFO - P2P Server đang lắng nghe trên cổng 200
+2025-04-23 14:56:00,599 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:56:00,599 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:56:03,989 - INFO - Nhận từ tracker: JOINED a.
+2025-04-23 14:56:03,989 - INFO - Nhận từ tracker: JOINED a.
+2025-04-23 14:56:03,989 - INFO - Đã chuyển sang kênh 'a.'
+2025-04-23 14:56:03,989 - INFO - Đã chuyển sang kênh 'a.'
+2025-04-23 14:56:03,989 - INFO - Đã tham gia kênh 'a.'
+2025-04-23 14:56:03,989 - INFO - Đã tham gia kênh 'a.'
+2025-04-23 14:56:03,989 - INFO - Đã chuyển sang kênh 'a.'
+2025-04-23 14:56:03,989 - INFO - Đã chuyển sang kênh 'a.'
+2025-04-23 14:56:07,230 - INFO - Nhận từ tracker: JOINED a
+2025-04-23 14:56:07,230 - INFO - Nhận từ tracker: JOINED a
+2025-04-23 14:56:07,230 - INFO - Đã chuyển sang kênh 'a'
+2025-04-23 14:56:07,230 - INFO - Đã chuyển sang kênh 'a'
+2025-04-23 14:56:07,230 - INFO - Đã tham gia kênh 'a'
+2025-04-23 14:56:07,230 - INFO - Đã tham gia kênh 'a'
+2025-04-23 14:56:07,230 - INFO - Đã chuyển sang kênh 'a'
+2025-04-23 14:56:07,230 - INFO - Đã chuyển sang kênh 'a'
+2025-04-23 14:56:10,164 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:56:10,164 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:56:17,191 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: hello
+2025-04-23 14:56:17,191 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: hello
+2025-04-23 14:56:17,191 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:56:17,191 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:56:17,191 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-23 14:56:17,191 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-23 14:56:17,191 - ERROR - Lỗi khi lưu tin nhắn vào cache cho kênh 'a': name 'json' is not defined
+2025-04-23 14:56:17,191 - ERROR - Lỗi khi lưu tin nhắn vào cache cho kênh 'a': name 'json' is not defined
+2025-04-23 14:56:17,191 - INFO - Đã lưu tin nhắn offline vào cache
+2025-04-23 14:56:17,191 - INFO - Đã lưu tin nhắn offline vào cache
+2025-04-23 14:56:17,191 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745394977.191253 SENDER_IP:10.28.129.197 SENDER_PORT:200 SENDER_USERNAME:bob MESSAGE_ID:23560eb9-d3d0-4536-a5c8-0838d17c5f23 MESSAGE:hello
+2025-04-23 14:56:17,191 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745394977.191253 SENDER_IP:10.28.129.197 SENDER_PORT:200 SENDER_USERNAME:bob MESSAGE_ID:23560eb9-d3d0-4536-a5c8-0838d17c5f23 MESSAGE:hello
+2025-04-23 14:56:17,191 - INFO - Đã gửi tin nhắn đến alice (10.28.129.197:20000)
+2025-04-23 14:56:17,191 - INFO - Đã gửi tin nhắn đến alice (10.28.129.197:20000)
+2025-04-23 14:56:17,191 - INFO - Bỏ qua gửi cho chính mình bob (10.28.129.197:200)
+2025-04-23 14:56:17,191 - INFO - Bỏ qua gửi cho chính mình bob (10.28.129.197:200)
+2025-04-23 14:56:17,191 - INFO - Đã gửi tin nhắn đến 1 peer: hello
+2025-04-23 14:56:17,191 - INFO - Đã gửi tin nhắn đến 1 peer: hello
+2025-04-23 14:56:22,489 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:56:22,489 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:56:23,103 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:56:23,103 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:56:23,274 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:56:23,274 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:56:23,426 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:56:23,426 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:56:25,515 - INFO - PeerClient stopped.
+2025-04-23 14:56:25,515 - INFO - PeerClient stopped.
