@@ -1,0 +1,129 @@
+2025-04-08 13:46:01,353 - INFO - PeerClient started.
+2025-04-08 13:46:01,353 - INFO - Kết nối tới tracker 127.0.0.1:12345 thành công.
+2025-04-08 13:46:01,368 - INFO - Nhận từ tracker: GUEST_LOGIN_SUCCESS 20f9942d-beb9-4972-803c-1ed13485d700
+2025-04-08 13:46:01,368 - INFO - Đăng nhập thành công với session_id: 20f9942d-beb9-4972-803c-1ed13485d700
+2025-04-08 13:46:01,368 - INFO - P2P Server đang lắng nghe trên cổng 20000
+2025-04-08 13:46:01,368 - INFO - PeerClient started successfully.
+2025-04-08 13:46:01,368 - INFO - Lấy danh sách peer thành công.
+2025-04-08 13:46:03,709 - INFO - Lấy danh sách peer thành công.
+2025-04-08 13:46:07,066 - INFO - PeerClient stopped.
+2025-04-08 13:46:20,705 - INFO - PeerClient started.
+2025-04-08 13:46:20,705 - INFO - Kết nối tới tracker 127.0.0.1:12345 thành công.
+2025-04-08 13:46:20,705 - INFO - Nhận từ tracker: GUEST_LOGIN_SUCCESS 0d752dbc-b0fc-4909-a6b8-8a4bd2a47243
+2025-04-08 13:46:20,705 - INFO - Đăng nhập thành công với session_id: 0d752dbc-b0fc-4909-a6b8-8a4bd2a47243
+2025-04-08 13:46:20,705 - INFO - PeerClient started successfully.
+2025-04-08 13:46:20,705 - INFO - P2P Server đang lắng nghe trên cổng 20000
+2025-04-08 13:46:20,705 - INFO - Lấy danh sách peer thành công.
+2025-04-08 13:46:23,073 - INFO - Lấy danh sách peer thành công.
+2025-04-08 13:46:49,955 - INFO - Nhận từ tracker: JOINED a
+2025-04-08 13:46:49,955 - INFO - Đã chuyển sang kênh 'a'
+2025-04-08 13:46:49,955 - INFO - Đã tham gia kênh 'a'
+2025-04-08 13:46:52,226 - INFO - Đã chuyển sang kênh 'a'
+2025-04-08 13:46:58,931 - INFO - Nhận tin nhắn từ 10.0.138.11:5000 trên kênh 'a': hi
+2025-04-08 13:47:08,227 - INFO - Lấy danh sách peer thành công.
+2025-04-08 13:47:16,344 - INFO - Nhận tin nhắn từ 10.0.138.11:5000 trên kênh 'a': chào cậu
+2025-04-08 13:47:25,314 - INFO - Nhận tin nhắn từ 10.0.138.11:5000 trên kênh 'a': tờ đứng đây từ chiều
+2025-04-08 13:49:05,815 - INFO - Nhận tin nhắn từ 10.0.138.11:5001 trên kênh 'a': hello
+2025-04-08 13:54:05,980 - INFO - Lấy danh sách peer thành công.
+2025-04-08 13:54:06,550 - INFO - Lấy danh sách peer thành công.
+2025-04-08 13:54:13,149 - INFO - PeerClient stopped.
+2025-04-08 14:36:41,629 - INFO - PeerClient started.
+2025-04-08 14:36:41,629 - INFO - Kết nối tới tracker 127.0.0.1:12345 thành công.
+2025-04-08 14:36:41,636 - INFO - Nhận từ tracker: GUEST_LOGIN_SUCCESS 67d17d1e-5ed3-4957-94cf-9ae36a12e64f
+2025-04-08 14:36:41,636 - INFO - Đăng nhập thành công với session_id: 67d17d1e-5ed3-4957-94cf-9ae36a12e64f
+2025-04-08 14:36:41,636 - INFO - PeerClient started successfully.
+2025-04-08 14:36:41,636 - INFO - P2P Server đang lắng nghe trên cổng 20000
+2025-04-08 14:36:41,636 - INFO - Lấy danh sách peer thành công.
+2025-04-08 14:37:08,209 - INFO - Lấy danh sách peer thành công.
+2025-04-08 14:37:11,007 - INFO - Nhận từ tracker: JOINED a
+2025-04-08 14:37:11,007 - INFO - Đã chuyển sang kênh 'a'
+2025-04-08 14:37:11,007 - INFO - Đã tham gia kênh 'a'
+2025-04-08 14:37:12,923 - INFO - Đã chuyển sang kênh 'a'
+2025-04-08 14:37:17,853 - INFO - Nhận tin nhắn từ 10.0.138.11:5000 trên kênh 'a': hii
+2025-04-08 15:47:17,259 - INFO - PeerClient started.
+2025-04-08 15:47:17,260 - INFO - Kết nối tới tracker 127.0.0.1:12345 thành công.
+2025-04-08 15:47:17,265 - INFO - Nhận từ tracker: GUEST_LOGIN_SUCCESS 863396d1-856f-4400-a2ba-a632d4debaea
+2025-04-08 15:47:17,265 - INFO - Đăng nhập thành công với session_id: 863396d1-856f-4400-a2ba-a632d4debaea
+2025-04-08 15:47:17,266 - INFO - PeerClient started successfully.
+2025-04-08 15:47:17,266 - ERROR - Lỗi khởi động P2P server: [WinError 10048] Only one usage of each socket address (protocol/network address/port) is normally permitted
+2025-04-08 15:47:17,268 - INFO - Lấy danh sách peer thành công.
+2025-04-08 15:47:20,316 - INFO - Lấy danh sách peer thành công.
+2025-04-08 15:47:22,407 - INFO - Nhận từ tracker: JOINED a
+2025-04-08 15:47:22,407 - INFO - Đã chuyển sang kênh 'a'
+2025-04-08 15:47:22,407 - INFO - Đã tham gia kênh 'a'
+2025-04-08 15:47:36,032 - INFO - Đã chuyển sang kênh 'a'
+2025-04-08 15:47:36,522 - INFO - Đã chuyển sang kênh 'a'
+2025-04-08 15:47:40,805 - INFO - Đã chuyển sang kênh 'a'
+2025-04-08 15:47:41,375 - INFO - Đã chuyển sang kênh 'a'
+2025-04-08 15:47:43,224 - INFO - Lấy danh sách peer thành công.
+2025-04-08 15:47:44,107 - INFO - Đã chuyển sang kênh 'a'
+2025-04-08 15:47:44,517 - INFO - Đã chuyển sang kênh 'a'
+2025-04-08 15:47:55,202 - INFO - Đã chuyển sang kênh 'a'
+2025-04-08 15:47:57,159 - INFO - Đã chuyển sang kênh 'a'
+2025-04-08 15:48:47,035 - INFO - PeerClient stopped.
+2025-04-08 15:50:26,478 - INFO - PeerClient started.
+2025-04-08 15:50:26,479 - INFO - Kết nối tới tracker 127.0.0.1:12345 thành công.
+2025-04-08 15:50:26,481 - INFO - Nhận từ tracker: GUEST_LOGIN_SUCCESS 5d68e10b-a423-431a-8741-f70cd87fe3b0
+2025-04-08 15:50:26,481 - INFO - Đăng nhập thành công với session_id: 5d68e10b-a423-431a-8741-f70cd87fe3b0
+2025-04-08 15:50:26,481 - INFO - PeerClient started successfully.
+2025-04-08 15:50:26,481 - ERROR - Lỗi khởi động P2P server: [WinError 10048] Only one usage of each socket address (protocol/network address/port) is normally permitted
+2025-04-08 15:50:26,481 - INFO - Lấy danh sách peer thành công.
+2025-04-08 15:50:36,519 - INFO - Nhận từ tracker: JOINED a
+2025-04-08 15:50:36,520 - INFO - Đã chuyển sang kênh 'a'
+2025-04-08 15:50:36,520 - INFO - Đã tham gia kênh 'a'
+2025-04-08 15:50:38,466 - INFO - Lấy danh sách peer thành công.
+2025-04-08 15:51:40,740 - INFO - Đã chuyển sang kênh 'a'
+2025-04-08 15:56:19,831 - INFO - PeerClient started.
+2025-04-08 15:56:19,831 - INFO - Kết nối tới tracker 127.0.0.1:12345 thành công.
+2025-04-08 15:56:19,833 - INFO - Nhận từ tracker: GUEST_LOGIN_SUCCESS 09fc09cb-619b-4056-b2ba-4fb6c975a9b0
+2025-04-08 15:56:19,833 - INFO - Đăng nhập thành công với session_id: 09fc09cb-619b-4056-b2ba-4fb6c975a9b0
+2025-04-08 15:56:19,833 - INFO - PeerClient started successfully.
+2025-04-08 15:56:19,833 - ERROR - Lỗi khởi động P2P server: [WinError 10048] Only one usage of each socket address (protocol/network address/port) is normally permitted
+2025-04-08 15:56:19,834 - INFO - Lấy danh sách peer thành công.
+2025-04-08 15:56:31,730 - INFO - Nhận từ tracker: JOINED a
+2025-04-08 15:56:31,730 - INFO - Đã chuyển sang kênh 'a'
+2025-04-08 15:56:31,730 - INFO - Đã tham gia kênh 'a'
+2025-04-08 15:56:33,409 - INFO - Đã chuyển sang kênh 'a'
+2025-04-08 15:57:14,889 - INFO - PeerClient stopped.
+2025-04-08 15:57:40,763 - INFO - PeerClient started.
+2025-04-08 15:57:40,764 - INFO - Kết nối tới tracker 127.0.0.1:12345 thành công.
+2025-04-08 15:57:40,768 - INFO - Nhận từ tracker: GUEST_LOGIN_SUCCESS ceb31e35-d013-4273-b8b3-d2434ef76d5d
+2025-04-08 15:57:40,768 - INFO - Đăng nhập thành công với session_id: ceb31e35-d013-4273-b8b3-d2434ef76d5d
+2025-04-08 15:57:40,768 - INFO - PeerClient started successfully.
+2025-04-08 15:57:40,768 - INFO - P2P Server đang lắng nghe trên cổng 20000
+2025-04-08 15:57:40,770 - INFO - Lấy danh sách peer thành công.
+2025-04-08 15:58:30,813 - INFO - Nhận từ tracker: JOINED a
+2025-04-08 15:58:30,813 - INFO - Đã chuyển sang kênh 'a'
+2025-04-08 15:58:30,813 - INFO - Đã tham gia kênh 'a'
+2025-04-08 15:58:32,875 - INFO - Đã chuyển sang kênh 'a'
+2025-04-08 15:58:37,136 - INFO - Nhận dữ liệu thô từ ('10.0.138.11', 53810): CHANNEL:a TIMESTAMP:1744102717.1366522 SENDER_IP:10.0.138.11 SENDER_PORT:5000 SENDER_USERNAME:alice MESSAGE_ID:5e936d30-3b62-41c4-85b5-db1293d0584f MESSAGE:hi
+2025-04-08 15:58:37,143 - INFO - Đã phân tích tin nhắn: kênh=a, timestamp=1744102717.1366522, sender=10.0.138.11:5000, username=alice, id=5e936d30-3b62-41c4-85b5-db1293d0584f, message=hi
+2025-04-08 15:58:37,143 - INFO - Nhận tin nhắn từ 10.0.138.11:5000 trên kênh 'a': hi
+2025-04-13 23:04:27,076 - INFO - PeerClient started.
+2025-04-13 23:04:27,078 - INFO - Kết nối tới tracker 127.0.0.1:12345 thành công.
+2025-04-13 23:04:27,079 - INFO - Nhận từ tracker: GUEST_LOGIN_SUCCESS 1a7526fd-d783-4969-8381-7b2078ee0e03
+2025-04-13 23:04:27,079 - INFO - Đăng nhập thành công với session_id: 1a7526fd-d783-4969-8381-7b2078ee0e03
+2025-04-13 23:04:27,080 - INFO - PeerClient started successfully.
+2025-04-13 23:04:27,082 - INFO - P2P Server đang lắng nghe trên cổng 20000
+2025-04-13 23:04:27,083 - INFO - Lấy danh sách peer thành công.
+2025-04-13 23:04:28,450 - INFO - Lấy danh sách peer thành công.
+2025-04-13 23:04:28,984 - INFO - Lấy danh sách peer thành công.
+2025-04-13 23:04:54,668 - INFO - Nhận từ tracker: JOINED a
+2025-04-13 23:04:54,668 - INFO - Đã chuyển sang kênh 'a'
+2025-04-13 23:04:54,668 - INFO - Đã tham gia kênh 'a'
+2025-04-13 23:04:56,821 - INFO - Lấy danh sách peer thành công.
+2025-04-13 23:05:01,946 - INFO - Lấy danh sách peer thành công.
+2025-04-13 23:05:03,197 - INFO - Lấy danh sách peer thành công.
+2025-04-17 09:22:10,794 - INFO - PeerClient started.
+2025-04-17 09:22:10,794 - INFO - [Tracker] Kết nối tới tracker 127.0.0.1:22110 thành công.
+2025-04-17 09:22:10,794 - INFO - Nhận từ tracker: GUEST_LOGIN_SUCCESS c2cba3d2-1044-477f-8faa-feaecc4de35a
+2025-04-17 09:22:10,794 - INFO - Đăng nhập thành công với session_id: c2cba3d2-1044-477f-8faa-feaecc4de35a
+2025-04-17 09:22:10,810 - INFO - P2P Server đang lắng nghe trên cổng 20000
+2025-04-17 09:22:10,810 - INFO - PeerClient started successfully.
+2025-04-17 09:22:10,810 - INFO - Lấy danh sách peer thành công.
+2025-04-17 09:22:12,232 - INFO - Lấy danh sách peer thành công.
+2025-04-17 09:43:56,121 - ERROR - Lỗi lấy danh sách peer: [WinError 10054] An existing connection was forcibly closed by the remote host
+2025-04-17 09:43:58,085 - ERROR - Lỗi lấy danh sách peer: [WinError 10054] An existing connection was forcibly closed by the remote host
+2025-04-17 09:44:00,036 - ERROR - Lỗi tham gia kênh: [WinError 10054] An existing connection was forcibly closed by the remote host
+2025-04-17 09:44:00,036 - ERROR - Không thể tham gia kênh 'a'
+2025-04-17 09:44:03,412 - INFO - PeerClient stopped.

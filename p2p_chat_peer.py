@@ -255,8 +255,7 @@ class PeerServer:
                             if self.message_callback:
                                 self.message_callback(channel, sender_ip, sender_port, msg_timestamp, message_text, message_id, sender_username)
                         except Exception as ex:
-                            self.logger.error(f"Lỗi phân tích tin nhắn từ {addr}: {ex}")
-                            
+                            self.logger.error(f"Lỗi phân tích tin nhắn từ {addr}: {ex}")    
                             self.logger.error(traceback.format_exc())
                     else:
                         self.logger.info(f"Tin nhắn không đúng định dạng từ {addr}: {data}")

@@ -5,7 +5,7 @@ import logging
 
 class TrackerServer:
     def __init__(self, host='', port=22110):
-        self.host = self._get_local_ip() if host == '' else host
+        self.host = "10.0.131.183"
         self.port = port
         # Danh sách lưu thông tin các peer: (username, ip, port, session_id, is_guest, channels)
         self.peers = []

@@ -1,0 +1,102 @@
+2025-04-15 22:48:52,941 - INFO - PeerClient started.
+2025-04-15 22:48:52,941 - INFO - [Tracker] Kết nối tới tracker 127.0.0.1:12345 thành công.
+2025-04-15 22:48:52,947 - INFO - Nhận từ tracker: GUEST_LOGIN_SUCCESS 7f79d34d-45db-4e9f-8b0e-a0a82009d021
+2025-04-15 22:48:52,947 - INFO - Đăng nhập thành công với session_id: 7f79d34d-45db-4e9f-8b0e-a0a82009d021
+2025-04-15 22:48:52,949 - INFO - PeerClient started successfully.
+2025-04-15 22:48:52,949 - INFO - P2P Server đang lắng nghe trên cổng 20000
+2025-04-15 22:48:52,951 - INFO - Lấy danh sách peer thành công.
+2025-04-15 22:51:17,668 - INFO - PeerClient stopped.
+2025-04-16 14:13:43,317 - INFO - PeerClient started.
+2025-04-16 14:13:43,317 - INFO - [Tracker] Kết nối tới tracker 127.0.0.1:22110 thành công.
+2025-04-16 14:13:43,317 - INFO - Nhận từ tracker: GUEST_LOGIN_SUCCESS 2c02a2fc-c35b-4778-ad2a-91f913441e79
+2025-04-16 14:13:43,317 - INFO - Đăng nhập thành công với session_id: 2c02a2fc-c35b-4778-ad2a-91f913441e79
+2025-04-16 14:13:43,317 - INFO - PeerClient started successfully.
+2025-04-16 14:13:43,317 - INFO - P2P Server đang lắng nghe trên cổng 20000
+2025-04-16 14:13:43,317 - INFO - Lấy danh sách peer thành công.
+2025-04-16 14:24:52,706 - INFO - PeerClient started.
+2025-04-16 14:25:21,133 - INFO - PeerClient started.
+2025-04-16 14:25:21,133 - INFO - PeerClient started.
+2025-04-16 14:25:21,133 - INFO - [Tracker] Kết nối tới tracker 10.0.138.67:22110 thành công.
+2025-04-16 14:25:21,133 - INFO - [Tracker] Kết nối tới tracker 10.0.138.67:22110 thành công.
+2025-04-16 14:25:21,133 - INFO - Nhận từ tracker: GUEST_LOGIN_SUCCESS e719ebaa-1db8-4674-a33f-202586c6e890
+2025-04-16 14:25:21,133 - INFO - Nhận từ tracker: GUEST_LOGIN_SUCCESS e719ebaa-1db8-4674-a33f-202586c6e890
+2025-04-16 14:25:21,133 - INFO - Đăng nhập thành công với session_id: e719ebaa-1db8-4674-a33f-202586c6e890
+2025-04-16 14:25:21,133 - INFO - Đăng nhập thành công với session_id: e719ebaa-1db8-4674-a33f-202586c6e890
+2025-04-16 14:25:21,133 - INFO - PeerClient started successfully.
+2025-04-16 14:25:21,133 - INFO - PeerClient started successfully.
+2025-04-16 14:25:21,133 - INFO - P2P Server đang lắng nghe trên cổng 20000
+2025-04-16 14:25:21,133 - INFO - P2P Server đang lắng nghe trên cổng 20000
+2025-04-16 14:25:21,133 - INFO - Lấy danh sách peer thành công.
+2025-04-16 14:25:21,133 - INFO - Lấy danh sách peer thành công.
+2025-04-16 16:22:17,366 - INFO - PeerClient stopped.
+2025-04-16 16:22:17,366 - INFO - PeerClient stopped.
+2025-04-16 20:37:41,516 - INFO - PeerClient started.
+2025-04-16 20:37:41,524 - INFO - [Tracker] Kết nối tới tracker 10.0.138.67:22110 thành công.
+2025-04-16 20:37:41,528 - INFO - Nhận từ tracker: GUEST_LOGIN_SUCCESS 356dd45c-6fc7-4056-914d-ecb65863f851
+2025-04-16 20:37:41,528 - INFO - Đăng nhập thành công với session_id: 356dd45c-6fc7-4056-914d-ecb65863f851
+2025-04-16 20:37:41,528 - INFO - PeerClient started successfully.
+2025-04-16 20:37:41,528 - INFO - P2P Server đang lắng nghe trên cổng 20000
+2025-04-16 20:37:41,535 - INFO - Lấy danh sách peer thành công.
+2025-04-16 20:37:50,410 - INFO - Lấy danh sách peer thành công.
+2025-04-16 20:37:50,556 - INFO - Lấy danh sách peer thành công.
+2025-04-16 21:16:04,597 - INFO - Lấy danh sách peer thành công.
+2025-04-16 21:16:11,996 - INFO - PeerClient stopped.
+2025-04-16 22:42:30,077 - INFO - PeerClient started.
+2025-04-16 22:42:30,077 - INFO - [Tracker] Kết nối tới tracker 10.0.138.67:22110 thành công.
+2025-04-16 22:42:30,085 - INFO - Nhận từ tracker: GUEST_LOGIN_SUCCESS 122a3eb9-4b39-434b-aafa-d0575fabe256
+2025-04-16 22:42:30,085 - INFO - Đăng nhập thành công với session_id: 122a3eb9-4b39-434b-aafa-d0575fabe256
+2025-04-16 22:42:30,085 - INFO - PeerClient started successfully.
+2025-04-16 22:42:30,085 - INFO - P2P Server đang lắng nghe trên cổng 20000
+2025-04-16 22:42:30,085 - INFO - Lấy danh sách peer thành công.
+2025-04-17 14:10:03,332 - INFO - PeerClient started.
+2025-04-17 14:10:24,348 - ERROR - Lỗi kết nối tới tracker 10.0.138.67:22110: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2025-04-17 14:10:24,348 - ERROR - Failed to start PeerClient.
+2025-04-17 14:10:34,202 - INFO - PeerClient started.
+2025-04-17 14:10:34,202 - INFO - PeerClient started.
+2025-04-17 14:10:34,202 - INFO - [Tracker] Kết nối tới tracker 10.0.131.183:22110 thành công.
+2025-04-17 14:10:34,202 - INFO - [Tracker] Kết nối tới tracker 10.0.131.183:22110 thành công.
+2025-04-17 14:10:34,203 - INFO - Nhận từ tracker: GUEST_LOGIN_SUCCESS c5d3893b-632f-473f-89cf-acd5a5e5f93b
+2025-04-17 14:10:34,203 - INFO - Nhận từ tracker: GUEST_LOGIN_SUCCESS c5d3893b-632f-473f-89cf-acd5a5e5f93b
+2025-04-17 14:10:34,203 - INFO - Login with session_id: c5d3893b-632f-473f-89cf-acd5a5e5f93b
+2025-04-17 14:10:34,203 - INFO - Login with session_id: c5d3893b-632f-473f-89cf-acd5a5e5f93b
+2025-04-17 14:10:34,205 - INFO - PeerClient started successfully.
+2025-04-17 14:10:34,205 - INFO - PeerClient started successfully.
+2025-04-17 14:10:34,205 - INFO - P2P Server đang lắng nghe trên cổng 20000
+2025-04-17 14:10:34,205 - INFO - P2P Server đang lắng nghe trên cổng 20000
+2025-04-17 14:10:34,207 - INFO - Lấy danh sách peer thành công.
+2025-04-17 14:10:34,207 - INFO - Lấy danh sách peer thành công.
+2025-04-17 14:24:22,190 - INFO - PeerClient stopped.
+2025-04-17 14:24:22,190 - INFO - PeerClient stopped.
+2025-04-17 17:13:37,641 - INFO - PeerClient started.
+2025-04-17 17:13:58,690 - ERROR - Lỗi kết nối tới tracker 10.0.138.67:22110: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2025-04-17 17:13:58,690 - ERROR - Failed to start PeerClient.
+2025-04-17 17:14:02,610 - INFO - PeerClient started.
+2025-04-17 17:14:02,610 - INFO - PeerClient started.
+2025-04-17 17:14:23,655 - ERROR - Lỗi kết nối tới tracker 10.0.138.67:22110: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2025-04-17 17:14:23,655 - ERROR - Lỗi kết nối tới tracker 10.0.138.67:22110: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2025-04-17 17:14:23,655 - ERROR - Failed to start PeerClient.
+2025-04-17 17:14:23,655 - ERROR - Failed to start PeerClient.
+2025-04-17 17:14:34,249 - INFO - PeerClient started.
+2025-04-17 17:14:34,249 - INFO - PeerClient started.
+2025-04-17 17:14:34,249 - INFO - PeerClient started.
+2025-04-17 17:14:34,249 - INFO - [Tracker] Kết nối tới tracker 10.0.131.183:22110 thành công.
+2025-04-17 17:14:34,249 - INFO - [Tracker] Kết nối tới tracker 10.0.131.183:22110 thành công.
+2025-04-17 17:14:34,249 - INFO - [Tracker] Kết nối tới tracker 10.0.131.183:22110 thành công.
+2025-04-17 17:14:34,251 - INFO - Nhận từ tracker: GUEST_LOGIN_SUCCESS 2d71bf79-9586-4358-a53b-ff2ab73c68cd
+2025-04-17 17:14:34,251 - INFO - Nhận từ tracker: GUEST_LOGIN_SUCCESS 2d71bf79-9586-4358-a53b-ff2ab73c68cd
+2025-04-17 17:14:34,251 - INFO - Nhận từ tracker: GUEST_LOGIN_SUCCESS 2d71bf79-9586-4358-a53b-ff2ab73c68cd
+2025-04-17 17:14:34,251 - INFO - Login with session_id: 2d71bf79-9586-4358-a53b-ff2ab73c68cd
+2025-04-17 17:14:34,251 - INFO - Login with session_id: 2d71bf79-9586-4358-a53b-ff2ab73c68cd
+2025-04-17 17:14:34,251 - INFO - Login with session_id: 2d71bf79-9586-4358-a53b-ff2ab73c68cd
+2025-04-17 17:14:34,252 - INFO - PeerClient started successfully.
+2025-04-17 17:14:34,252 - INFO - PeerClient started successfully.
+2025-04-17 17:14:34,252 - INFO - PeerClient started successfully.
+2025-04-17 17:14:34,252 - INFO - P2P Server đang lắng nghe trên cổng 20000
+2025-04-17 17:14:34,252 - INFO - P2P Server đang lắng nghe trên cổng 20000
+2025-04-17 17:14:34,252 - INFO - P2P Server đang lắng nghe trên cổng 20000
+2025-04-17 17:14:34,255 - INFO - Lấy danh sách peer thành công.
+2025-04-17 17:14:34,255 - INFO - Lấy danh sách peer thành công.
+2025-04-17 17:14:34,255 - INFO - Lấy danh sách peer thành công.
+2025-04-17 17:15:53,654 - INFO - Lấy danh sách peer thành công.
+2025-04-17 17:15:53,654 - INFO - Lấy danh sách peer thành công.
+2025-04-17 17:15:53,654 - INFO - Lấy danh sách peer thành công.
