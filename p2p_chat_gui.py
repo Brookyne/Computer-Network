@@ -5,14 +5,19 @@ import argparse
 import logging
 import time
 import os
+import uuid
+import socket
+import webbrowser
+import subprocess
+import sys
 from datetime import datetime
 from p2p_chat_peer import PeerClient, Message
 
-class P2PChatGUI:
-    """Ứng dụng chat P2P với giao diện đồ họa"""
+class P2PChatWithLivestream:
+    """Ứng dụng chat P2P với tính năng Livestream"""
     def __init__(self, root):
         self.root = root
-        self.root.title("P2P Chat Application")
+        self.root.title("P2P Chat và Livestream")
         self.root.geometry("1000x700")
         self.root.minsize(800, 600)
         
@@ -21,6 +26,8 @@ class P2PChatGUI:
         
         # Thiết lập các biến trạng thái
         self.peer_client = None
+        self.livestream_process = None
+        self.livestream_url = None
         
         # Thiết lập UI
         self.setup_ui()
@@ -30,21 +37,21 @@ class P2PChatGUI:
         
     def set_logger(self):
         """Cài đặt logger cho ứng dụng"""
-        self.logger = logging.getLogger("P2PChatGUI")
+        self.logger = logging.getLogger("P2PChatWithLivestream")
         self.logger.setLevel(logging.INFO)
         
         # Tạo thư mục logs nếu chưa tồn tại
         if not os.path.exists("logs"):
             os.makedirs("logs")
             
-        log_filename = f"logs/p2p_chat_gui_{int(time.time())}.log"
+        log_filename = f"logs/p2p_chat_livestream_{int(time.time())}.log"
         formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
         
         fh = logging.FileHandler(log_filename, encoding="utf-8")
         fh.setFormatter(formatter)
         self.logger.addHandler(fh)
         
-        self.logger.info("P2P Chat GUI started.")
+        self.logger.info("P2P Chat với Livestream khởi động.")
             
     def setup_ui(self):
         """Thiết lập giao diện người dùng"""
@@ -100,6 +107,16 @@ class P2PChatGUI:
         self.peers_listbox = tk.Listbox(self.peers_frame, selectmode=tk.SINGLE)
         self.peers_listbox.pack(fill=tk.BOTH, expand=True, padx=5, pady=5)
         
+        # Frame chứa nút livestream
+        self.livestream_frame = ttk.LabelFrame(self.sidebar_frame, text="Tính năng Livestream")
+        self.livestream_frame.pack(fill=tk.X, padx=5, pady=5)
+        
+        self.livestream_button = ttk.Button(self.livestream_frame, text="Bắt đầu Livestream", command=self.toggle_livestream)
+        self.livestream_button.pack(padx=5, pady=5, fill=tk.X)
+        
+        self.livestream_status = ttk.Label(self.livestream_frame, text="Trạng thái: Không hoạt động")
+        self.livestream_status.pack(padx=5, pady=5)
+        
         # Frame chính bên phải
         self.content_frame = ttk.Frame(self.main_frame)
         self.content_frame.pack(side=tk.RIGHT, fill=tk.BOTH, expand=True, padx=5, pady=5)
@@ -144,7 +161,7 @@ class P2PChatGUI:
             widget.destroy()
             
         # Tạo các widget đăng nhập
-        ttk.Label(self.login_frame, text="P2P Chat Login", font=("TkDefaultFont", 16, "bold")).pack(pady=20)
+        ttk.Label(self.login_frame, text="P2P Chat và Livestream Login", font=("TkDefaultFont", 16, "bold")).pack(pady=20)
         
         login_inner_frame = ttk.Frame(self.login_frame)
         login_inner_frame.pack(padx=50, pady=20)
@@ -179,7 +196,7 @@ class P2PChatGUI:
         ttk.Button(buttons_frame, text="Đăng nhập với chế độ khách", command=self.login_as_guest).pack(side=tk.LEFT, padx=10)
         
         # Thông tin demo
-        ttk.Label(self.login_frame, text="Các tài khoản mẫu: alice/password1, bob/password2, charlie/password3").pack(pady=10)
+        ttk.Label(self.login_frame, text="Các tài khoản mẫu: alice/password1, bob/password2, PhuongNguyen/2212311, HaiNguyen/123456").pack(pady=10)
         
     def login(self):
         """Xử lý đăng nhập thông thường"""
@@ -195,8 +212,12 @@ class P2PChatGUI:
         password = self.password_entry.get().strip() if not is_guest else ""
         tracker_ip = self.tracker_ip_entry.get().strip()
         
-        tracker_port = int(self.tracker_port_entry.get().strip())
-        local_port = int(self.local_port_entry.get().strip())
+        try:
+            tracker_port = int(self.tracker_port_entry.get().strip())
+            local_port = int(self.local_port_entry.get().strip())
+        except ValueError:
+            messagebox.showerror("Lỗi", "Port phải là số nguyên")
+            return
             
         if not username:
             messagebox.showerror("Lỗi", "Username không được trống")
@@ -346,8 +367,6 @@ class P2PChatGUI:
         self.messages_text.config(state=tk.NORMAL)
         self.messages_text.delete(1.0, tk.END)
         
-        self.logger.info(f"Hiển thị {len(messages)} tin nhắn cho kênh {self.peer_client.current_channel}")
-        
         for message in messages:
             formatted_msg = message.format() + "\n"
             self.messages_text.insert(tk.END, formatted_msg)
@@ -380,10 +399,152 @@ class P2PChatGUI:
             self.message_entry.delete(0, tk.END)
         else:
             messagebox.showerror("Lỗi", "Không thể gửi tin nhắn")
+    
+    def toggle_livestream(self):
+        """Bắt đầu hoặc dừng livestream"""
+        if not self.peer_client:
+            messagebox.showinfo("Thông báo", "Vui lòng đăng nhập trước khi sử dụng tính năng livestream")
+            return
+            
+        if self.livestream_process is None:
+            # Bắt đầu livestream
+            self.start_livestream()
+        else:
+            # Dừng livestream
+            self.stop_livestream()
+
+    def start_livestream(self):
+        """Bắt đầu server livestream và mở trình duyệt"""
+        try:
+            # Tạo file livestream_config.py để lưu thông tin người dùng
+            with open('livestream_config.py', 'w', encoding='utf-8') as f:
+                f.write(f"""
+# Cấu hình tạm thời cho livestream
+USERNAME = "{self.peer_client.username}"
+USER_IP = "{self.peer_client.local_ip}"
+USER_PORT = {self.peer_client.local_port}
+ROOM_ID = "room_{uuid.uuid4().hex[:8]}"  # Tạo ID phòng ngẫu nhiên
+""")
+            
+            # Tạo một bản sao tạm thời của app.py với mã khởi động mới
+            self.prepare_livestream_app()
+            
+            # Khởi động tiến trình livestream
+            self.logger.info("Khởi động tiến trình livestream...")
+            
+            # Sử dụng python executable từ sys.executable để đảm bảo dùng đúng môi trường Python
+            self.livestream_process = subprocess.Popen(
+                [sys.executable, 'livestream_app.py'],
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                text=True
+            )
+            
+            # Đợi server khởi động
+            time.sleep(2)
+            
+            # Tạo URL livestream
+            self.livestream_url = f"http://localhost:5000/chat/{self.get_room_id()}?username={self.peer_client.username}"
+            
+            # Mở trình duyệt
+            webbrowser.open(self.livestream_url)
+            
+            # Cập nhật UI
+            self.livestream_button.config(text="Dừng Livestream")
+            self.livestream_status.config(text=f"Trạng thái: Đang phát - Phòng {self.get_room_id()}")
+            
+            # Thông báo cho kênh hiện tại về livestream
+            if self.peer_client.current_channel:
+                livestream_notification = f"[LIVESTREAM] Tôi đã bắt đầu livestream tại: {self.livestream_url}"
+                self.peer_client.send_message(livestream_notification)
+            
+            self.logger.info(f"Đã bắt đầu livestream tại: {self.livestream_url}")
+            
+        except Exception as e:
+            self.logger.error(f"Lỗi khởi động livestream: {str(e)}")
+            messagebox.showerror("Lỗi", f"Không thể khởi động livestream: {str(e)}")
+
+    def prepare_livestream_app(self):
+        """Chuẩn bị file app.py sửa đổi để tự động sử dụng thông tin người dùng hiện tại"""
+        try:
+            # Đọc file app.py ban đầu
+            with open('app.py', 'r', encoding='utf-8') as f:
+                app_content = f.read()
+            
+            # Thêm mã import config vào đầu file
+            modified_content = (
+                "import livestream_config\n" + 
+                app_content
+            )
+            
+            # Thay đổi phần cuối của file để tự động điền thông tin người dùng
+            modified_content = modified_content.replace(
+                "socketio.run(app, debug=True, host='0.0.0.0', port=5000)",
+                """# Thông báo khởi động với thông tin từ config
+print(f"Đã tạo ứng dụng chat với tính năng livestream!")
+print(f"Server đang chạy tại: http://localhost:5000")
+print(f"URL phòng livestream: http://localhost:5000/chat/{livestream_config.ROOM_ID}?username={livestream_config.USERNAME}")
+socketio.run(app, debug=False, host='0.0.0.0', port=5000)"""
+            )
+            
+            # Lưu file mới
+            with open('livestream_app.py', 'w', encoding='utf-8') as f:
+                f.write(modified_content)
+                
+            self.logger.info("Đã tạo file livestream_app.py")
+            
+        except Exception as e:
+            self.logger.error(f"Lỗi chuẩn bị file livestream: {str(e)}")
+            raise
+
+    def stop_livestream(self):
+        """Dừng server livestream"""
+        if self.livestream_process:
+            try:
+                # Kết thúc tiến trình
+                self.livestream_process.terminate()
+                self.livestream_process.wait(timeout=5)
+                self.livestream_process = None
+                self.livestream_url = None
+                
+                # Cập nhật UI
+                self.livestream_button.config(text="Bắt đầu Livestream")
+                self.livestream_status.config(text="Trạng thái: Không hoạt động")
+                
+                # Thông báo cho kênh hiện tại
+                if self.peer_client and self.peer_client.current_channel:
+                    self.peer_client.send_message("[LIVESTREAM] Tôi đã kết thúc phiên livestream.")
+                
+                self.logger.info("Đã dừng livestream")
+                
+                # Xóa file tạm
+                if os.path.exists('livestream_app.py'):
+                    os.remove('livestream_app.py')
+                if os.path.exists('livestream_config.py'):
+                    os.remove('livestream_config.py')
+                    
+            except Exception as e:
+                self.logger.error(f"Lỗi khi dừng livestream: {str(e)}")
+                messagebox.showerror("Lỗi", f"Không thể dừng livestream: {str(e)}")
+
+    def get_room_id(self):
+        """Lấy ID phòng livestream hiện tại từ file config"""
+        try:
+            try:
+                import livestream_config
+            except ModuleNotFoundError:
+                return "unknown_room"
+            return livestream_config.ROOM_ID
+        except:
+            return "unknown_room"
         
     def on_closing(self):
         """Xử lý khi đóng ứng dụng"""
         if messagebox.askokcancel("Thoát", "Bạn có muốn thoát ứng dụng?"):
+            # Dừng livestream nếu đang chạy
+            if self.livestream_process:
+                self.stop_livestream()
+                
             # Dừng PeerClient
             if self.peer_client:
                 self.peer_client.stop()
@@ -392,16 +553,15 @@ class P2PChatGUI:
             self.root.destroy()
 
 
-
 def main():
     """Hàm chính khởi động ứng dụng"""
-    parser = argparse.ArgumentParser(description="P2P Chat Application with GUI")
+    parser = argparse.ArgumentParser(description="P2P Chat Application with Livestream")
     
     args = parser.parse_args()
         
     # Khởi động ứng dụng GUI
     root = tk.Tk()
-    app = P2PChatGUI(root)
+    app = P2PChatWithLivestream(root)
     
     # Thiết lập sự kiện đóng cửa sổ
     root.protocol("WM_DELETE_WINDOW", app.on_closing)

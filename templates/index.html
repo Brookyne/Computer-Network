@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat App với Livestream</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+        .login-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+        }
+        .stream-video {
+            max-width: 100%;
+            max-height: 480px;
+            display: block;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .error {
+            color: red;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .create-room {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .server-info {
+            background-color: #f1f1f1;
+            padding: 10px;
+            border-radius: 3px;
+            margin-top: 15px;
+            font-size: 0.9em;
+        }
+        .server-info code {
+            background: #e0e0e0;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Chat App với Livestream</h1>
+        {% if error %}
+        <div class="error">{{ error }}</div>
+        {% endif %}
+        <form id="join-form">
+            <input type="text" id="username" placeholder="Tên của bạn" required>
+            <input type="text" id="room-id" placeholder="ID Phòng chat" required>
+            <button type="submit">Tham gia</button>
+        </form>
+        <div class="create-room">
+            <p>Hoặc tạo phòng mới</p>
+            <button id="create-room-btn">Tạo phòng mới</button>
+        </div>
+        
+        <div class="server-info">
+            <p>Server đang chạy tại địa chỉ IP: <code>{{ server_ip }}</code></p>
+            <p>Máy khác trong mạng của bạn có thể truy cập qua: <code>http://{{ server_ip }}:5000</code></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('join-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const roomId = document.getElementById('room-id').value;
+            
+            if (username && roomId) {
+                window.location.href = `/chat/${roomId}?username=${encodeURIComponent(username)}`;
+            }
+        });
+
+        document.getElementById('create-room-btn').addEventListener('click', function() {
+            const username = document.getElementById('username').value;
+            
+            if (!username) {
+                alert('Vui lòng nhập tên của bạn trước');
+                return;
+            }
+            
+            // Tạo room ID ngẫu nhiên
+            const roomId = 'room_' + Math.random().toString(36).substr(2, 9);
+            window.location.href = `/chat/${roomId}?username=${encodeURIComponent(username)}`;
+        });
+    </script>
+</body>
+</html>

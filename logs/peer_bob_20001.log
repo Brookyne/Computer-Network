@@ -1,32 +1,430 @@
-2025-04-14 22:23:07,567 - INFO - PeerClient started.
-2025-04-14 22:23:07,567 - INFO - Kết nối tới tracker 127.0.0.1:12345 thành công.
-2025-04-14 22:23:07,567 - INFO - Nhận từ tracker: LOGIN_SUCCESS 49194fc7-c5f8-455b-904c-822ab2f7dc58
-2025-04-14 22:23:07,567 - INFO - Đăng nhập thành công với session_id: 49194fc7-c5f8-455b-904c-822ab2f7dc58
-2025-04-14 22:23:07,567 - INFO - PeerClient started successfully.
-2025-04-14 22:23:07,567 - INFO - P2P Server đang lắng nghe trên cổng 20001
-2025-04-14 22:23:07,567 - INFO - Lấy danh sách peer thành công.
-2025-04-14 22:23:08,876 - INFO - Lấy danh sách peer thành công.
-2025-04-14 22:23:10,993 - INFO - Nhận từ tracker: JOINED a
-2025-04-14 22:23:10,993 - INFO - Đã chuyển sang kênh 'a'
-2025-04-14 22:23:10,993 - INFO - Đã tham gia kênh 'a'
-2025-04-14 22:23:14,953 - INFO - Nhận từ tracker: JOINED b
-2025-04-14 22:23:14,953 - INFO - Đã chuyển sang kênh 'b'
-2025-04-14 22:23:14,953 - INFO - Đã tham gia kênh 'b'
-2025-04-14 22:23:19,010 - INFO - Chuẩn bị gửi tin nhắn trong kênh b: ha
-2025-04-14 22:23:19,010 - INFO - Lấy danh sách peer thành công.
-2025-04-14 22:23:19,010 - INFO - Tìm thấy 2 peers để gửi tin nhắn
-2025-04-14 22:23:19,010 - INFO - Tin nhắn định dạng mạng: CHANNEL:b TIMESTAMP:1744644199.0109065 SENDER_IP:10.0.133.34 SENDER_PORT:20001 SENDER_USERNAME:bob MESSAGE_ID:6e5a59e4-dd5a-465b-907c-323a8a2f6563 MESSAGE:ha
-2025-04-14 22:23:19,026 - INFO - Đã gửi tin nhắn đến alice (10.0.133.34:20000)
-2025-04-14 22:23:19,026 - INFO - Bỏ qua gửi cho chính mình bob (10.0.133.34:20001)
-2025-04-14 22:23:19,026 - INFO - Đã gửi tin nhắn đến 1 peer: ha
-2025-04-14 22:23:36,108 - INFO - Nhận dữ liệu thô từ ('10.0.133.34', 64027): CHANNEL:b TIMESTAMP:1744644216.0967343 SENDER_IP:10.0.133.34 SENDER_PORT:20000 SENDER_USERNAME:alice MESSAGE_ID:cf9dd6a6-962f-4229-bb88-29768d047fe2 MESSAGE:he
-2025-04-14 22:23:36,108 - INFO - Đã phân tích tin nhắn: kênh=b, timestamp=1744644216.0967343, sender=10.0.133.34:20000, username=alice, id=cf9dd6a6-962f-4229-bb88-29768d047fe2, message=he
-2025-04-14 22:23:36,108 - INFO - Nhận tin nhắn từ 10.0.133.34:20000 trên kênh 'b': he
-2025-04-14 22:23:40,438 - INFO - Chuẩn bị gửi tin nhắn trong kênh b: bybye
-2025-04-14 22:23:40,438 - INFO - Lấy danh sách peer thành công.
-2025-04-14 22:23:40,438 - INFO - Tìm thấy 2 peers để gửi tin nhắn
-2025-04-14 22:23:40,438 - INFO - Tin nhắn định dạng mạng: CHANNEL:b TIMESTAMP:1744644220.4382448 SENDER_IP:10.0.133.34 SENDER_PORT:20001 SENDER_USERNAME:bob MESSAGE_ID:0e992216-403f-45b0-9577-4d8567b0de2c MESSAGE:bybye
-2025-04-14 22:23:40,449 - INFO - Đã gửi tin nhắn đến alice (10.0.133.34:20000)
-2025-04-14 22:23:40,449 - INFO - Bỏ qua gửi cho chính mình bob (10.0.133.34:20001)
-2025-04-14 22:23:40,450 - INFO - Đã gửi tin nhắn đến 1 peer: bybye
-2025-04-14 22:23:56,844 - INFO - PeerClient stopped.
+2025-04-22 15:15:18,010 - INFO - PeerClient started.
+2025-04-22 15:15:18,011 - INFO - [Tracker] Kết nối tới tracker 10.0.114.48:22110 thành công.
+2025-04-22 15:15:18,014 - INFO - Nhận từ tracker: LOGIN_SUCCESS 94666ff3-1631-4bd3-a93f-60f701bf7b16
+2025-04-22 15:15:18,014 - INFO - Login with session_id: 94666ff3-1631-4bd3-a93f-60f701bf7b16
+2025-04-22 15:15:18,014 - INFO - PeerClient started successfully.
+2025-04-22 15:15:18,015 - INFO - P2P Server đang lắng nghe trên cổng 20001
+2025-04-22 15:15:18,015 - INFO - Lấy danh sách peer thành công.
+2025-04-22 15:15:47,456 - INFO - Nhận từ tracker: JOINED a
+2025-04-22 15:15:47,457 - INFO - Đã chuyển sang kênh 'a'
+2025-04-22 15:15:47,457 - INFO - Đã tham gia kênh 'a'
+2025-04-22 15:16:17,115 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: hi
+2025-04-22 15:16:17,117 - INFO - Lấy danh sách peer thành công.
+2025-04-22 15:16:17,117 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-22 15:16:17,118 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745309777.1177075 SENDER_IP:10.0.114.48 SENDER_PORT:20001 SENDER_USERNAME:bob MESSAGE_ID:49c885af-ab4e-439a-ad11-ab37b0065e8b MESSAGE:hi
+2025-04-22 15:16:17,119 - INFO - Đã gửi tin nhắn đến alice (10.0.114.48:20000)
+2025-04-22 15:16:17,119 - INFO - Bỏ qua gửi cho chính mình bob (10.0.114.48:20001)
+2025-04-22 15:16:17,119 - INFO - Đã gửi tin nhắn đến 1 peer: hi
+2025-04-22 15:17:44,652 - INFO - Nhận dữ liệu thô từ ('10.0.114.48', 50850): CHANNEL:a TIMESTAMP:1745309864.6488123 SENDER_IP:10.0.114.48 SENDER_PORT:20000 SENDER_USERNAME:alice MESSAGE_ID:63b8c6c3-114c-4808-811c-3c39cd8d4a6b MESSAGE:chào
+2025-04-22 15:17:44,652 - INFO - Đã phân tích tin nhắn: kênh=a, timestamp=1745309864.6488123, sender=10.0.114.48:20000, username=alice, id=63b8c6c3-114c-4808-811c-3c39cd8d4a6b, message=chào
+2025-04-22 15:17:44,652 - INFO - Nhận tin nhắn từ 10.0.114.48:20000 trên kênh 'a': chào
+2025-04-22 15:20:29,256 - INFO - Nhận dữ liệu thô từ ('10.0.114.48', 50902): CHANNEL:a TIMESTAMP:1745310029.2452826 SENDER_IP:10.0.114.48 SENDER_PORT:20000 SENDER_USERNAME:alice MESSAGE_ID:7f490d0d-b571-46af-9c85-f4ad9fbd362a MESSAGE:hi
+2025-04-22 15:20:29,256 - INFO - Đã phân tích tin nhắn: kênh=a, timestamp=1745310029.2452826, sender=10.0.114.48:20000, username=alice, id=7f490d0d-b571-46af-9c85-f4ad9fbd362a, message=hi
+2025-04-22 15:20:29,256 - INFO - Nhận tin nhắn từ 10.0.114.48:20000 trên kênh 'a': hi
+2025-04-22 17:33:51,069 - INFO - PeerClient stopped.
+2025-04-23 10:18:34,432 - INFO - PeerClient started.
+2025-04-23 10:18:34,433 - INFO - [Tracker] Kết nối tới tracker 10.0.145.239:22110 thành công.
+2025-04-23 10:18:34,435 - INFO - Nhận từ tracker: LOGIN_SUCCESS b498515c-a094-4c02-9b4d-be16731557e5
+2025-04-23 10:18:34,435 - INFO - Login with session_id: b498515c-a094-4c02-9b4d-be16731557e5
+2025-04-23 10:18:34,436 - INFO - PeerClient started successfully.
+2025-04-23 10:18:34,436 - INFO - P2P Server đang lắng nghe trên cổng 20001
+2025-04-23 10:18:34,437 - INFO - Lấy danh sách peer thành công.
+2025-04-23 10:18:38,992 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:07:31,200 - INFO - PeerClient started.
+2025-04-23 14:07:31,201 - INFO - [Tracker] Kết nối tới tracker 192.168.244.10:22110 thành công.
+2025-04-23 14:07:31,204 - INFO - Nhận từ tracker: LOGIN_SUCCESS 85bb55d2-4cb7-42c7-863e-3924f54bb628
+2025-04-23 14:07:31,204 - INFO - Login with session_id: 85bb55d2-4cb7-42c7-863e-3924f54bb628
+2025-04-23 14:07:31,204 - INFO - PeerClient started successfully.
+2025-04-23 14:07:31,204 - INFO - P2P Server đang lắng nghe trên cổng 20001
+2025-04-23 14:07:31,204 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:07:32,596 - INFO - Nhận từ tracker: JOINED a
+2025-04-23 14:07:32,596 - INFO - Đã chuyển sang kênh 'a'
+2025-04-23 14:07:32,596 - INFO - Đã tham gia kênh 'a'
+2025-04-23 14:07:47,418 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: hihe
+2025-04-23 14:07:47,418 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:07:47,418 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-23 14:07:47,418 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745392067.4181929 SENDER_IP:192.168.244.10 SENDER_PORT:20001 SENDER_USERNAME:bob MESSAGE_ID:7f93e654-c475-4542-a224-b97db34dfa2d MESSAGE:hihe
+2025-04-23 14:07:47,418 - INFO - Đã gửi tin nhắn đến alice (192.168.244.10:20000)
+2025-04-23 14:07:47,418 - INFO - Bỏ qua gửi cho chính mình bob (192.168.244.10:20001)
+2025-04-23 14:07:47,418 - INFO - Đã gửi tin nhắn đến 1 peer: hihe
+2025-04-23 14:07:53,792 - INFO - Nhận dữ liệu thô từ ('192.168.244.10', 64521): CHANNEL:a TIMESTAMP:1745392073.7920806 SENDER_IP:192.168.244.10 SENDER_PORT:20000 SENDER_USERNAME:alice MESSAGE_ID:e27bc4ec-2971-45ab-a025-d29024e496be MESSAGE:hehe
+2025-04-23 14:07:53,792 - INFO - Đã phân tích tin nhắn: kênh=a, timestamp=1745392073.7920806, sender=192.168.244.10:20000, username=alice, id=e27bc4ec-2971-45ab-a025-d29024e496be, message=hehe
+2025-04-23 14:07:53,792 - INFO - Nhận tin nhắn từ 192.168.244.10:20000 trên kênh 'a': hehe
+2025-04-23 14:08:36,131 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: a
+2025-04-23 14:08:36,131 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:08:36,131 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-23 14:08:36,131 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745392116.1312623 SENDER_IP:192.168.244.10 SENDER_PORT:20001 SENDER_USERNAME:bob MESSAGE_ID:8de276e2-b79b-4cc5-8cb2-c35230e95bb6 MESSAGE:a
+2025-04-23 14:08:36,156 - INFO - Đã gửi tin nhắn đến alice (192.168.244.10:20000)
+2025-04-23 14:08:36,156 - INFO - Bỏ qua gửi cho chính mình bob (192.168.244.10:20001)
+2025-04-23 14:08:36,160 - INFO - Đã gửi tin nhắn đến 1 peer: a
+2025-04-23 14:08:36,538 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: a
+2025-04-23 14:08:36,538 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:08:36,538 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-23 14:08:36,538 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745392116.5383089 SENDER_IP:192.168.244.10 SENDER_PORT:20001 SENDER_USERNAME:bob MESSAGE_ID:82d3d5c7-0b34-4f60-aa8d-968070ce0fcd MESSAGE:a
+2025-04-23 14:08:36,554 - INFO - Đã gửi tin nhắn đến alice (192.168.244.10:20000)
+2025-04-23 14:08:36,554 - INFO - Bỏ qua gửi cho chính mình bob (192.168.244.10:20001)
+2025-04-23 14:08:36,554 - INFO - Đã gửi tin nhắn đến 1 peer: a
+2025-04-23 14:08:36,776 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: a
+2025-04-23 14:08:36,776 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:08:36,776 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-23 14:08:36,776 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745392116.7769964 SENDER_IP:192.168.244.10 SENDER_PORT:20001 SENDER_USERNAME:bob MESSAGE_ID:bf812eae-9e48-404e-ad6d-5a3225dbbe3c MESSAGE:a
+2025-04-23 14:08:36,789 - INFO - Đã gửi tin nhắn đến alice (192.168.244.10:20000)
+2025-04-23 14:08:36,789 - INFO - Bỏ qua gửi cho chính mình bob (192.168.244.10:20001)
+2025-04-23 14:08:36,793 - INFO - Đã gửi tin nhắn đến 1 peer: a
+2025-04-23 14:08:36,947 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: a
+2025-04-23 14:08:36,963 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:08:36,963 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-23 14:08:36,963 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745392116.9636705 SENDER_IP:192.168.244.10 SENDER_PORT:20001 SENDER_USERNAME:bob MESSAGE_ID:47cdc1d1-e176-4181-aa27-dfc65d58278a MESSAGE:a
+2025-04-23 14:08:36,979 - INFO - Đã gửi tin nhắn đến alice (192.168.244.10:20000)
+2025-04-23 14:08:36,979 - INFO - Bỏ qua gửi cho chính mình bob (192.168.244.10:20001)
+2025-04-23 14:08:36,983 - INFO - Đã gửi tin nhắn đến 1 peer: a
+2025-04-23 14:08:37,118 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: a
+2025-04-23 14:08:37,118 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:08:37,118 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-23 14:08:37,118 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745392117.118777 SENDER_IP:192.168.244.10 SENDER_PORT:20001 SENDER_USERNAME:bob MESSAGE_ID:4be00159-3e53-45d3-8c75-a015d98bf8af MESSAGE:a
+2025-04-23 14:08:37,134 - INFO - Đã gửi tin nhắn đến alice (192.168.244.10:20000)
+2025-04-23 14:08:37,134 - INFO - Bỏ qua gửi cho chính mình bob (192.168.244.10:20001)
+2025-04-23 14:08:37,139 - INFO - Đã gửi tin nhắn đến 1 peer: a
+2025-04-23 14:08:37,257 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: a
+2025-04-23 14:08:37,257 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:08:37,257 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-23 14:08:37,257 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745392117.2576423 SENDER_IP:192.168.244.10 SENDER_PORT:20001 SENDER_USERNAME:bob MESSAGE_ID:f906f50a-65f2-4dc6-bedd-8dc54cd565ca MESSAGE:a
+2025-04-23 14:08:37,273 - INFO - Đã gửi tin nhắn đến alice (192.168.244.10:20000)
+2025-04-23 14:08:37,273 - INFO - Bỏ qua gửi cho chính mình bob (192.168.244.10:20001)
+2025-04-23 14:08:37,277 - INFO - Đã gửi tin nhắn đến 1 peer: a
+2025-04-23 14:08:37,421 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: a
+2025-04-23 14:08:37,421 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:08:37,421 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-23 14:08:37,421 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745392117.4216511 SENDER_IP:192.168.244.10 SENDER_PORT:20001 SENDER_USERNAME:bob MESSAGE_ID:d3106a67-7902-4198-9143-bb2b61b4e300 MESSAGE:a
+2025-04-23 14:08:37,444 - INFO - Đã gửi tin nhắn đến alice (192.168.244.10:20000)
+2025-04-23 14:08:37,444 - INFO - Bỏ qua gửi cho chính mình bob (192.168.244.10:20001)
+2025-04-23 14:08:37,448 - INFO - Đã gửi tin nhắn đến 1 peer: a
+2025-04-23 14:08:37,588 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: a
+2025-04-23 14:08:37,588 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:08:37,588 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-23 14:08:37,588 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745392117.5881555 SENDER_IP:192.168.244.10 SENDER_PORT:20001 SENDER_USERNAME:bob MESSAGE_ID:8f2b3871-9f33-42fb-9042-b113e2a58622 MESSAGE:a
+2025-04-23 14:08:37,601 - INFO - Đã gửi tin nhắn đến alice (192.168.244.10:20000)
+2025-04-23 14:08:37,601 - INFO - Bỏ qua gửi cho chính mình bob (192.168.244.10:20001)
+2025-04-23 14:08:37,602 - INFO - Đã gửi tin nhắn đến 1 peer: a
+2025-04-23 14:08:37,730 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: a
+2025-04-23 14:08:37,730 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:08:37,730 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-23 14:08:37,730 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745392117.7305906 SENDER_IP:192.168.244.10 SENDER_PORT:20001 SENDER_USERNAME:bob MESSAGE_ID:b9ba7f84-83b2-4f0a-bdc1-07a851d93ef5 MESSAGE:a
+2025-04-23 14:08:37,746 - INFO - Đã gửi tin nhắn đến alice (192.168.244.10:20000)
+2025-04-23 14:08:37,746 - INFO - Bỏ qua gửi cho chính mình bob (192.168.244.10:20001)
+2025-04-23 14:08:37,746 - INFO - Đã gửi tin nhắn đến 1 peer: a
+2025-04-23 14:08:37,910 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: a
+2025-04-23 14:08:37,910 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:08:37,910 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-23 14:08:37,910 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745392117.9104064 SENDER_IP:192.168.244.10 SENDER_PORT:20001 SENDER_USERNAME:bob MESSAGE_ID:bdc15d36-ed2f-4a9f-a09b-ac617078705e MESSAGE:a
+2025-04-23 14:08:37,926 - INFO - Đã gửi tin nhắn đến alice (192.168.244.10:20000)
+2025-04-23 14:08:37,926 - INFO - Bỏ qua gửi cho chính mình bob (192.168.244.10:20001)
+2025-04-23 14:08:37,928 - INFO - Đã gửi tin nhắn đến 1 peer: a
+2025-04-23 14:08:38,064 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: a
+2025-04-23 14:08:38,064 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:08:38,064 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-23 14:08:38,064 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745392118.0644197 SENDER_IP:192.168.244.10 SENDER_PORT:20001 SENDER_USERNAME:bob MESSAGE_ID:6d4da162-13d6-4a2f-91a8-f87f428ce2b2 MESSAGE:a
+2025-04-23 14:08:38,080 - INFO - Đã gửi tin nhắn đến alice (192.168.244.10:20000)
+2025-04-23 14:08:38,080 - INFO - Bỏ qua gửi cho chính mình bob (192.168.244.10:20001)
+2025-04-23 14:08:38,080 - INFO - Đã gửi tin nhắn đến 1 peer: a
+2025-04-23 14:08:38,236 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: a
+2025-04-23 14:08:38,236 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:08:38,236 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-23 14:08:38,236 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745392118.2369902 SENDER_IP:192.168.244.10 SENDER_PORT:20001 SENDER_USERNAME:bob MESSAGE_ID:a2300c20-fb92-4503-8a1a-507ca2700412 MESSAGE:a
+2025-04-23 14:08:38,252 - INFO - Đã gửi tin nhắn đến alice (192.168.244.10:20000)
+2025-04-23 14:08:38,252 - INFO - Bỏ qua gửi cho chính mình bob (192.168.244.10:20001)
+2025-04-23 14:08:38,257 - INFO - Đã gửi tin nhắn đến 1 peer: a
+2025-04-23 14:08:38,389 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: a
+2025-04-23 14:08:38,405 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:08:38,405 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-23 14:08:38,405 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745392118.4056475 SENDER_IP:192.168.244.10 SENDER_PORT:20001 SENDER_USERNAME:bob MESSAGE_ID:1465c502-9be1-4a2f-89d8-d9a1fcc77f44 MESSAGE:a
+2025-04-23 14:08:38,421 - INFO - Đã gửi tin nhắn đến alice (192.168.244.10:20000)
+2025-04-23 14:08:38,421 - INFO - Bỏ qua gửi cho chính mình bob (192.168.244.10:20001)
+2025-04-23 14:08:38,425 - INFO - Đã gửi tin nhắn đến 1 peer: a
+2025-04-23 14:08:38,590 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: a
+2025-04-23 14:08:38,590 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:08:38,590 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-23 14:08:38,590 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745392118.5902112 SENDER_IP:192.168.244.10 SENDER_PORT:20001 SENDER_USERNAME:bob MESSAGE_ID:73a16593-6ee3-48a3-aad2-00ed99bd3b4a MESSAGE:a
+2025-04-23 14:08:38,612 - INFO - Đã gửi tin nhắn đến alice (192.168.244.10:20000)
+2025-04-23 14:08:38,612 - INFO - Bỏ qua gửi cho chính mình bob (192.168.244.10:20001)
+2025-04-23 14:08:38,613 - INFO - Đã gửi tin nhắn đến 1 peer: a
+2025-04-23 14:08:38,751 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: a
+2025-04-23 14:08:38,766 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:08:38,766 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-23 14:08:38,766 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745392118.7668133 SENDER_IP:192.168.244.10 SENDER_PORT:20001 SENDER_USERNAME:bob MESSAGE_ID:ae7c743b-31e0-4188-b59b-0d4d6ab1417d MESSAGE:a
+2025-04-23 14:08:38,782 - INFO - Đã gửi tin nhắn đến alice (192.168.244.10:20000)
+2025-04-23 14:08:38,782 - INFO - Bỏ qua gửi cho chính mình bob (192.168.244.10:20001)
+2025-04-23 14:08:38,785 - INFO - Đã gửi tin nhắn đến 1 peer: a
+2025-04-23 14:08:38,946 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: a
+2025-04-23 14:08:38,946 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:08:38,946 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-23 14:08:38,946 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745392118.946078 SENDER_IP:192.168.244.10 SENDER_PORT:20001 SENDER_USERNAME:bob MESSAGE_ID:72bd18c5-b197-4223-9503-692a97f443a4 MESSAGE:a
+2025-04-23 14:08:38,964 - INFO - Đã gửi tin nhắn đến alice (192.168.244.10:20000)
+2025-04-23 14:08:38,964 - INFO - Bỏ qua gửi cho chính mình bob (192.168.244.10:20001)
+2025-04-23 14:08:38,966 - INFO - Đã gửi tin nhắn đến 1 peer: a
+2025-04-23 14:08:39,113 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: a
+2025-04-23 14:08:39,113 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:08:39,113 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-23 14:08:39,113 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745392119.1134095 SENDER_IP:192.168.244.10 SENDER_PORT:20001 SENDER_USERNAME:bob MESSAGE_ID:74b3530c-0e3c-40d6-8a1c-039a5a331417 MESSAGE:a
+2025-04-23 14:08:39,129 - INFO - Đã gửi tin nhắn đến alice (192.168.244.10:20000)
+2025-04-23 14:08:39,129 - INFO - Bỏ qua gửi cho chính mình bob (192.168.244.10:20001)
+2025-04-23 14:08:39,129 - INFO - Đã gửi tin nhắn đến 1 peer: a
+2025-04-23 14:08:39,305 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: a
+2025-04-23 14:08:39,305 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:08:39,305 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-23 14:08:39,305 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745392119.3056393 SENDER_IP:192.168.244.10 SENDER_PORT:20001 SENDER_USERNAME:bob MESSAGE_ID:02f1863d-80c2-4873-a91d-ec9504b70bf7 MESSAGE:a
+2025-04-23 14:08:39,317 - INFO - Đã gửi tin nhắn đến alice (192.168.244.10:20000)
+2025-04-23 14:08:39,317 - INFO - Bỏ qua gửi cho chính mình bob (192.168.244.10:20001)
+2025-04-23 14:08:39,320 - INFO - Đã gửi tin nhắn đến 1 peer: a
+2025-04-23 14:08:39,474 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: a
+2025-04-23 14:08:39,474 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:08:39,474 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-23 14:08:39,474 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745392119.4749339 SENDER_IP:192.168.244.10 SENDER_PORT:20001 SENDER_USERNAME:bob MESSAGE_ID:11bf7620-4d96-4773-a6c1-9fa81b84c352 MESSAGE:a
+2025-04-23 14:08:39,490 - INFO - Đã gửi tin nhắn đến alice (192.168.244.10:20000)
+2025-04-23 14:08:39,490 - INFO - Bỏ qua gửi cho chính mình bob (192.168.244.10:20001)
+2025-04-23 14:08:39,492 - INFO - Đã gửi tin nhắn đến 1 peer: a
+2025-04-23 14:08:39,648 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: a
+2025-04-23 14:08:39,649 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:08:39,649 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-23 14:08:39,649 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745392119.6491923 SENDER_IP:192.168.244.10 SENDER_PORT:20001 SENDER_USERNAME:bob MESSAGE_ID:d249194b-07cd-4d54-8f35-7ec05ce4c40d MESSAGE:a
+2025-04-23 14:08:39,664 - INFO - Đã gửi tin nhắn đến alice (192.168.244.10:20000)
+2025-04-23 14:08:39,664 - INFO - Bỏ qua gửi cho chính mình bob (192.168.244.10:20001)
+2025-04-23 14:08:39,668 - INFO - Đã gửi tin nhắn đến 1 peer: a
+2025-04-23 14:08:39,810 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: a
+2025-04-23 14:08:39,810 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:08:39,810 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-23 14:08:39,810 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745392119.8106742 SENDER_IP:192.168.244.10 SENDER_PORT:20001 SENDER_USERNAME:bob MESSAGE_ID:99e6307d-872a-46af-af24-10f2b483c3be MESSAGE:a
+2025-04-23 14:08:39,823 - INFO - Đã gửi tin nhắn đến alice (192.168.244.10:20000)
+2025-04-23 14:08:39,823 - INFO - Bỏ qua gửi cho chính mình bob (192.168.244.10:20001)
+2025-04-23 14:08:39,826 - INFO - Đã gửi tin nhắn đến 1 peer: a
+2025-04-23 14:08:39,999 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: a
+2025-04-23 14:08:39,999 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:08:39,999 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-23 14:08:39,999 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745392119.9990747 SENDER_IP:192.168.244.10 SENDER_PORT:20001 SENDER_USERNAME:bob MESSAGE_ID:5061e252-17d9-4d55-844d-a6e710b77270 MESSAGE:a
+2025-04-23 14:08:40,014 - INFO - Đã gửi tin nhắn đến alice (192.168.244.10:20000)
+2025-04-23 14:08:40,014 - INFO - Bỏ qua gửi cho chính mình bob (192.168.244.10:20001)
+2025-04-23 14:08:40,018 - INFO - Đã gửi tin nhắn đến 1 peer: a
+2025-04-23 14:08:40,169 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: a
+2025-04-23 14:08:40,169 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:08:40,169 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-23 14:08:40,169 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745392120.1696658 SENDER_IP:192.168.244.10 SENDER_PORT:20001 SENDER_USERNAME:bob MESSAGE_ID:c46af5d6-ded9-4672-af7e-e29d48b4fefc MESSAGE:a
+2025-04-23 14:08:40,185 - INFO - Đã gửi tin nhắn đến alice (192.168.244.10:20000)
+2025-04-23 14:08:40,185 - INFO - Bỏ qua gửi cho chính mình bob (192.168.244.10:20001)
+2025-04-23 14:08:40,187 - INFO - Đã gửi tin nhắn đến 1 peer: a
+2025-04-23 14:08:40,342 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: a
+2025-04-23 14:08:40,342 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:08:40,342 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-23 14:08:40,342 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745392120.3424058 SENDER_IP:192.168.244.10 SENDER_PORT:20001 SENDER_USERNAME:bob MESSAGE_ID:9f4e2614-27b6-416a-81d4-ea97fc02934f MESSAGE:a
+2025-04-23 14:08:40,358 - INFO - Đã gửi tin nhắn đến alice (192.168.244.10:20000)
+2025-04-23 14:08:40,358 - INFO - Bỏ qua gửi cho chính mình bob (192.168.244.10:20001)
+2025-04-23 14:08:40,361 - INFO - Đã gửi tin nhắn đến 1 peer: a
+2025-04-23 14:08:40,533 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: a
+2025-04-23 14:08:40,533 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:08:40,533 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-23 14:08:40,533 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745392120.5332153 SENDER_IP:192.168.244.10 SENDER_PORT:20001 SENDER_USERNAME:bob MESSAGE_ID:8ecbdf8d-3989-4712-81b0-aebc9e307b26 MESSAGE:a
+2025-04-23 14:08:40,548 - INFO - Đã gửi tin nhắn đến alice (192.168.244.10:20000)
+2025-04-23 14:08:40,548 - INFO - Bỏ qua gửi cho chính mình bob (192.168.244.10:20001)
+2025-04-23 14:08:40,550 - INFO - Đã gửi tin nhắn đến 1 peer: a
+2025-04-23 14:08:40,710 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: a
+2025-04-23 14:08:40,710 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:08:40,710 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-23 14:08:40,710 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745392120.7109087 SENDER_IP:192.168.244.10 SENDER_PORT:20001 SENDER_USERNAME:bob MESSAGE_ID:9c8fd778-6264-4694-8abf-dd1e0b565af9 MESSAGE:a
+2025-04-23 14:08:40,721 - INFO - Đã gửi tin nhắn đến alice (192.168.244.10:20000)
+2025-04-23 14:08:40,721 - INFO - Bỏ qua gửi cho chính mình bob (192.168.244.10:20001)
+2025-04-23 14:08:40,726 - INFO - Đã gửi tin nhắn đến 1 peer: a
+2025-04-23 14:08:40,908 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: a
+2025-04-23 14:08:40,908 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:08:40,908 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-23 14:08:40,908 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745392120.9087927 SENDER_IP:192.168.244.10 SENDER_PORT:20001 SENDER_USERNAME:bob MESSAGE_ID:4bb3277f-7fd6-4360-b50d-29f055f64351 MESSAGE:a
+2025-04-23 14:08:40,924 - INFO - Đã gửi tin nhắn đến alice (192.168.244.10:20000)
+2025-04-23 14:08:40,924 - INFO - Bỏ qua gửi cho chính mình bob (192.168.244.10:20001)
+2025-04-23 14:08:40,926 - INFO - Đã gửi tin nhắn đến 1 peer: a
+2025-04-23 14:08:41,098 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: a
+2025-04-23 14:08:41,098 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:08:41,098 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-23 14:08:41,098 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745392121.0980453 SENDER_IP:192.168.244.10 SENDER_PORT:20001 SENDER_USERNAME:bob MESSAGE_ID:21dcf633-aadd-45a2-b5bd-7a7444fdc9e6 MESSAGE:a
+2025-04-23 14:08:41,110 - INFO - Đã gửi tin nhắn đến alice (192.168.244.10:20000)
+2025-04-23 14:08:41,110 - INFO - Bỏ qua gửi cho chính mình bob (192.168.244.10:20001)
+2025-04-23 14:08:41,114 - INFO - Đã gửi tin nhắn đến 1 peer: a
+2025-04-23 14:08:41,298 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: a
+2025-04-23 14:08:41,299 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:08:41,299 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-23 14:08:41,299 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745392121.2992342 SENDER_IP:192.168.244.10 SENDER_PORT:20001 SENDER_USERNAME:bob MESSAGE_ID:2bc6264c-8e5a-43f1-86af-f2d711e21571 MESSAGE:a
+2025-04-23 14:08:41,313 - INFO - Đã gửi tin nhắn đến alice (192.168.244.10:20000)
+2025-04-23 14:08:41,313 - INFO - Bỏ qua gửi cho chính mình bob (192.168.244.10:20001)
+2025-04-23 14:08:41,318 - INFO - Đã gửi tin nhắn đến 1 peer: a
+2025-04-23 14:08:41,495 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: a
+2025-04-23 14:08:41,495 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:08:41,495 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-23 14:08:41,495 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745392121.4950128 SENDER_IP:192.168.244.10 SENDER_PORT:20001 SENDER_USERNAME:bob MESSAGE_ID:495e75e8-529f-4327-bfdb-1e2d3d12290d MESSAGE:a
+2025-04-23 14:08:41,516 - INFO - Đã gửi tin nhắn đến alice (192.168.244.10:20000)
+2025-04-23 14:08:41,516 - INFO - Bỏ qua gửi cho chính mình bob (192.168.244.10:20001)
+2025-04-23 14:08:41,521 - INFO - Đã gửi tin nhắn đến 1 peer: a
+2025-04-23 14:08:41,700 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: a
+2025-04-23 14:08:41,710 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:08:41,710 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-23 14:08:41,710 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745392121.7101684 SENDER_IP:192.168.244.10 SENDER_PORT:20001 SENDER_USERNAME:bob MESSAGE_ID:75358884-ddd7-48a5-b610-6fc5d3e27726 MESSAGE:a
+2025-04-23 14:08:41,726 - INFO - Đã gửi tin nhắn đến alice (192.168.244.10:20000)
+2025-04-23 14:08:41,726 - INFO - Bỏ qua gửi cho chính mình bob (192.168.244.10:20001)
+2025-04-23 14:08:41,729 - INFO - Đã gửi tin nhắn đến 1 peer: a
+2025-04-23 14:08:41,884 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: a
+2025-04-23 14:08:41,885 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:08:41,885 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-23 14:08:41,885 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745392121.885802 SENDER_IP:192.168.244.10 SENDER_PORT:20001 SENDER_USERNAME:bob MESSAGE_ID:4f02e432-0257-4171-9c3a-ae8f83ce200b MESSAGE:a
+2025-04-23 14:08:41,899 - INFO - Đã gửi tin nhắn đến alice (192.168.244.10:20000)
+2025-04-23 14:08:41,899 - INFO - Bỏ qua gửi cho chính mình bob (192.168.244.10:20001)
+2025-04-23 14:08:41,902 - INFO - Đã gửi tin nhắn đến 1 peer: a
+2025-04-23 14:08:42,059 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: a
+2025-04-23 14:08:42,059 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:08:42,059 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-23 14:08:42,059 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745392122.0594952 SENDER_IP:192.168.244.10 SENDER_PORT:20001 SENDER_USERNAME:bob MESSAGE_ID:c8111ce0-795e-4015-bc75-9a0aad11f7ae MESSAGE:a
+2025-04-23 14:08:42,075 - INFO - Đã gửi tin nhắn đến alice (192.168.244.10:20000)
+2025-04-23 14:08:42,075 - INFO - Bỏ qua gửi cho chính mình bob (192.168.244.10:20001)
+2025-04-23 14:08:42,078 - INFO - Đã gửi tin nhắn đến 1 peer: a
+2025-04-23 14:08:42,248 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: a
+2025-04-23 14:08:42,248 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:08:42,248 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-23 14:08:42,248 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745392122.2484431 SENDER_IP:192.168.244.10 SENDER_PORT:20001 SENDER_USERNAME:bob MESSAGE_ID:1c9fbacb-505d-4859-81c6-0979b2bf5375 MESSAGE:a
+2025-04-23 14:08:42,264 - INFO - Đã gửi tin nhắn đến alice (192.168.244.10:20000)
+2025-04-23 14:08:42,264 - INFO - Bỏ qua gửi cho chính mình bob (192.168.244.10:20001)
+2025-04-23 14:08:42,264 - INFO - Đã gửi tin nhắn đến 1 peer: a
+2025-04-23 14:08:42,436 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: a
+2025-04-23 14:08:42,436 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:08:42,436 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-23 14:08:42,436 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745392122.4360085 SENDER_IP:192.168.244.10 SENDER_PORT:20001 SENDER_USERNAME:bob MESSAGE_ID:514ae95a-7b79-4c1c-8a48-2323952befb6 MESSAGE:a
+2025-04-23 14:08:42,449 - INFO - Đã gửi tin nhắn đến alice (192.168.244.10:20000)
+2025-04-23 14:08:42,449 - INFO - Bỏ qua gửi cho chính mình bob (192.168.244.10:20001)
+2025-04-23 14:08:42,449 - INFO - Đã gửi tin nhắn đến 1 peer: a
+2025-04-23 14:08:42,638 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: a
+2025-04-23 14:08:42,638 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:08:42,638 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-23 14:08:42,638 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745392122.6381328 SENDER_IP:192.168.244.10 SENDER_PORT:20001 SENDER_USERNAME:bob MESSAGE_ID:1ffff697-ba7a-4a3c-a982-0a48077a9420 MESSAGE:a
+2025-04-23 14:08:42,652 - INFO - Đã gửi tin nhắn đến alice (192.168.244.10:20000)
+2025-04-23 14:08:42,652 - INFO - Bỏ qua gửi cho chính mình bob (192.168.244.10:20001)
+2025-04-23 14:08:42,655 - INFO - Đã gửi tin nhắn đến 1 peer: a
+2025-04-23 14:08:47,197 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: a
+2025-04-23 14:08:47,197 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:08:47,197 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-23 14:08:47,197 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745392127.1971054 SENDER_IP:192.168.244.10 SENDER_PORT:20001 SENDER_USERNAME:bob MESSAGE_ID:f9429cca-1945-4851-ac35-36619ab905bd MESSAGE:a
+2025-04-23 14:08:47,212 - INFO - Đã gửi tin nhắn đến alice (192.168.244.10:20000)
+2025-04-23 14:08:47,212 - INFO - Bỏ qua gửi cho chính mình bob (192.168.244.10:20001)
+2025-04-23 14:08:47,212 - INFO - Đã gửi tin nhắn đến 1 peer: a
+2025-04-23 14:08:47,415 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: a
+2025-04-23 14:08:47,415 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:08:47,415 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-23 14:08:47,415 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745392127.4159422 SENDER_IP:192.168.244.10 SENDER_PORT:20001 SENDER_USERNAME:bob MESSAGE_ID:82fcc536-e494-4eeb-92bd-de61bf00a582 MESSAGE:a
+2025-04-23 14:08:47,431 - INFO - Đã gửi tin nhắn đến alice (192.168.244.10:20000)
+2025-04-23 14:08:47,431 - INFO - Bỏ qua gửi cho chính mình bob (192.168.244.10:20001)
+2025-04-23 14:08:47,435 - INFO - Đã gửi tin nhắn đến 1 peer: a
+2025-04-23 14:08:47,602 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: a
+2025-04-23 14:08:47,602 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:08:47,602 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-23 14:08:47,602 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745392127.6021376 SENDER_IP:192.168.244.10 SENDER_PORT:20001 SENDER_USERNAME:bob MESSAGE_ID:96bf03a3-7d7c-4570-bfae-30d729c37fd3 MESSAGE:a
+2025-04-23 14:08:47,617 - INFO - Đã gửi tin nhắn đến alice (192.168.244.10:20000)
+2025-04-23 14:08:47,617 - INFO - Bỏ qua gửi cho chính mình bob (192.168.244.10:20001)
+2025-04-23 14:08:47,624 - INFO - Đã gửi tin nhắn đến 1 peer: a
+2025-04-23 14:08:47,782 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: a
+2025-04-23 14:08:47,782 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:08:47,782 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-23 14:08:47,782 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745392127.782042 SENDER_IP:192.168.244.10 SENDER_PORT:20001 SENDER_USERNAME:bob MESSAGE_ID:be7799b0-6f31-4ec3-a013-fbfc8367c595 MESSAGE:a
+2025-04-23 14:08:47,803 - INFO - Đã gửi tin nhắn đến alice (192.168.244.10:20000)
+2025-04-23 14:08:47,803 - INFO - Bỏ qua gửi cho chính mình bob (192.168.244.10:20001)
+2025-04-23 14:08:47,809 - INFO - Đã gửi tin nhắn đến 1 peer: a
+2025-04-23 14:08:59,062 - INFO - PeerClient stopped.
+2025-04-23 14:26:43,885 - INFO - PeerClient started.
+2025-04-23 14:26:43,885 - INFO - [Tracker] Kết nối tới tracker 192.168.244.10:22110 thành công.
+2025-04-23 14:26:43,889 - INFO - Nhận từ tracker: LOGIN_SUCCESS 6e2667f0-da23-4cd1-99f0-9ccacf493415
+2025-04-23 14:26:43,889 - INFO - Login with session_id: 6e2667f0-da23-4cd1-99f0-9ccacf493415
+2025-04-23 14:26:43,889 - INFO - PeerClient started successfully.
+2025-04-23 14:26:43,889 - INFO - P2P Server đang lắng nghe trên cổng 20001
+2025-04-23 14:26:43,889 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:26:46,019 - INFO - Nhận từ tracker: JOINED a
+2025-04-23 14:26:46,019 - INFO - Đã chuyển sang kênh 'a'
+2025-04-23 14:26:46,019 - INFO - Đã tham gia kênh 'a'
+2025-04-23 14:26:48,203 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: a
+2025-04-23 14:26:48,203 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:26:48,203 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-23 14:26:48,203 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745393208.2031088 SENDER_IP:192.168.244.10 SENDER_PORT:20001 SENDER_USERNAME:bob MESSAGE_ID:f02f4510-2c75-4277-a2ec-52c028faf30c MESSAGE:a
+2025-04-23 14:26:48,216 - INFO - Đã gửi tin nhắn đến alice (192.168.244.10:20000)
+2025-04-23 14:26:48,216 - INFO - Bỏ qua gửi cho chính mình bob (192.168.244.10:20001)
+2025-04-23 14:26:48,218 - INFO - Đã gửi tin nhắn đến 1 peer: a
+2025-04-23 14:26:59,740 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: a
+2025-04-23 14:26:59,740 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:26:59,740 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-23 14:26:59,740 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745393219.7405555 SENDER_IP:192.168.244.10 SENDER_PORT:20001 SENDER_USERNAME:bob MESSAGE_ID:1f9319f2-eee7-41e1-896d-16fd88f49474 MESSAGE:a
+2025-04-23 14:27:01,791 - ERROR - Lỗi gửi tin nhắn đến alice (192.168.244.10:20000): [WinError 10061] No connection could be made because the target machine actively refused it
+2025-04-23 14:27:01,791 - INFO - Bỏ qua gửi cho chính mình bob (192.168.244.10:20001)
+2025-04-23 14:27:01,791 - INFO - Đã gửi tin nhắn đến 0 peer: a
+2025-04-23 14:27:30,838 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: a
+2025-04-23 14:27:30,838 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:27:30,838 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-23 14:27:30,838 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745393250.8384292 SENDER_IP:192.168.244.10 SENDER_PORT:20001 SENDER_USERNAME:bob MESSAGE_ID:db3049a8-ee81-4ea7-b073-67faadb6bab5 MESSAGE:a
+2025-04-23 14:27:30,854 - INFO - Đã gửi tin nhắn đến alice (192.168.244.10:20000)
+2025-04-23 14:27:30,854 - INFO - Bỏ qua gửi cho chính mình bob (192.168.244.10:20001)
+2025-04-23 14:27:30,854 - INFO - Đã gửi tin nhắn đến 1 peer: a
+2025-04-23 14:32:20,439 - INFO - PeerClient started.
+2025-04-23 14:32:20,439 - INFO - [Tracker] Kết nối tới tracker 192.168.244.10:22110 thành công.
+2025-04-23 14:32:20,439 - INFO - Nhận từ tracker: LOGIN_SUCCESS 5e20a39b-4d48-4424-a68e-3ed5e654784b
+2025-04-23 14:32:20,439 - INFO - Login with session_id: 5e20a39b-4d48-4424-a68e-3ed5e654784b
+2025-04-23 14:32:20,439 - INFO - PeerClient started successfully.
+2025-04-23 14:32:20,455 - INFO - P2P Server đang lắng nghe trên cổng 20001
+2025-04-23 14:32:20,455 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:32:22,563 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:32:29,029 - INFO - PeerClient stopped.
+2025-04-23 14:34:07,705 - INFO - PeerClient started.
+2025-04-23 14:34:07,705 - INFO - [Tracker] Kết nối tới tracker 192.168.244.10:22110 thành công.
+2025-04-23 14:34:07,709 - INFO - Nhận từ tracker: LOGIN_SUCCESS 32928b77-b970-48ae-9550-839649c17b48
+2025-04-23 14:34:07,709 - INFO - Login with session_id: 32928b77-b970-48ae-9550-839649c17b48
+2025-04-23 14:34:07,711 - INFO - PeerClient started successfully.
+2025-04-23 14:34:07,712 - INFO - P2P Server đang lắng nghe trên cổng 20001
+2025-04-23 14:34:07,714 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:34:16,555 - INFO - Nhận từ tracker: JOINED a
+2025-04-23 14:34:16,555 - INFO - Đã chuyển sang kênh 'a'
+2025-04-23 14:34:16,555 - INFO - Đã tham gia kênh 'a'
+2025-04-23 14:34:19,007 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: hi
+2025-04-23 14:34:19,007 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:34:19,007 - INFO - Tìm thấy 2 peers để gửi tin nhắn
+2025-04-23 14:34:19,007 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745393659.007625 SENDER_IP:192.168.244.10 SENDER_PORT:20001 SENDER_USERNAME:bob MESSAGE_ID:93897adf-99b1-4137-a35e-86f2733659d4 MESSAGE:hi
+2025-04-23 14:34:19,007 - INFO - Đã gửi tin nhắn đến alice (192.168.244.10:20000)
+2025-04-23 14:34:19,007 - INFO - Bỏ qua gửi cho chính mình bob (192.168.244.10:20001)
+2025-04-23 14:34:19,007 - INFO - Đã gửi tin nhắn đến 1 peer: hi
+2025-04-23 14:35:22,546 - INFO - PeerClient stopped.
+2025-04-23 14:35:34,998 - INFO - PeerClient started.
+2025-04-23 14:35:35,014 - INFO - [Tracker] Kết nối tới tracker 192.168.244.10:22110 thành công.
+2025-04-23 14:35:35,019 - INFO - Nhận từ tracker: LOGIN_SUCCESS 03c24f74-298b-46c7-ba2f-d120e187b922
+2025-04-23 14:35:35,019 - INFO - Login with session_id: 03c24f74-298b-46c7-ba2f-d120e187b922
+2025-04-23 14:35:35,019 - INFO - PeerClient started successfully.
+2025-04-23 14:35:35,019 - INFO - P2P Server đang lắng nghe trên cổng 20001
+2025-04-23 14:35:35,019 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:35:36,396 - INFO - Lấy danh sách peer thành công.
+2025-04-23 14:35:38,559 - INFO - Nhận từ tracker: JOINED a
+2025-04-23 14:35:38,559 - INFO - Đã chuyển sang kênh 'a'
+2025-04-23 14:35:38,559 - INFO - Đã tham gia kênh 'a'
+2025-04-23 14:47:06,859 - ERROR - Error get list: [WinError 10054] An existing connection was forcibly closed by the remote host
+2025-04-23 14:47:17,963 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: hallo
+2025-04-23 14:47:17,963 - ERROR - Error get list: [WinError 10054] An existing connection was forcibly closed by the remote host
+2025-04-23 14:47:17,963 - INFO - Tìm thấy 0 peers để gửi tin nhắn
+2025-04-23 14:47:17,963 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745394437.9634001 SENDER_IP:192.168.244.10 SENDER_PORT:20001 SENDER_USERNAME:bob MESSAGE_ID:d5083853-88c1-40a4-8220-feaf053767be MESSAGE:hallo
+2025-04-23 14:47:17,963 - INFO - Đã gửi tin nhắn đến 0 peer: hallo
+2025-04-23 14:47:38,233 - ERROR - Error get list: [WinError 10054] An existing connection was forcibly closed by the remote host
+2025-04-23 14:47:51,710 - ERROR - Error get list: [WinError 10054] An existing connection was forcibly closed by the remote host
+2025-04-23 14:47:51,870 - ERROR - Error get list: [WinError 10054] An existing connection was forcibly closed by the remote host
+2025-04-23 14:47:53,927 - ERROR - Lỗi tham gia kênh: [WinError 10054] An existing connection was forcibly closed by the remote host
+2025-04-23 14:47:53,927 - ERROR - Không thể tham gia kênh 'ab'
+2025-04-23 14:47:55,212 - ERROR - Error get list: [WinError 10054] An existing connection was forcibly closed by the remote host
+2025-04-23 14:47:56,457 - ERROR - Error get list: [WinError 10054] An existing connection was forcibly closed by the remote host
+2025-04-23 14:47:56,610 - ERROR - Error get list: [WinError 10054] An existing connection was forcibly closed by the remote host
+2025-04-23 14:47:59,337 - INFO - PeerClient stopped.
+2025-04-24 14:37:25,153 - INFO - PeerClient started.
+2025-04-24 14:37:25,153 - INFO - [Tracker] Kết nối tới tracker 10.0.144.159:22110 thành công.
+2025-04-24 14:37:25,153 - INFO - Nhận từ tracker: LOGIN_SUCCESS 25e944b0-7237-4d41-9077-a91437ea7f56
+2025-04-24 14:37:25,153 - INFO - Login with session_id: 25e944b0-7237-4d41-9077-a91437ea7f56
+2025-04-24 14:37:25,162 - INFO - PeerClient started successfully.
+2025-04-24 14:37:25,162 - INFO - P2P Server đang lắng nghe trên cổng 20001
+2025-04-24 14:37:25,162 - INFO - Lấy danh sách peer thành công.
+2025-04-24 14:37:26,656 - INFO - Nhận từ tracker: JOINED a
+2025-04-24 14:37:26,656 - INFO - Đã chuyển sang kênh 'a'
+2025-04-24 14:37:26,656 - INFO - Đã tham gia kênh 'a'
+2025-04-24 14:37:35,869 - INFO - Nhận dữ liệu thô từ ('10.0.144.159', 58553): CHANNEL:a TIMESTAMP:1745480255.8697038 SENDER_IP:10.0.144.159 SENDER_PORT:20000 SENDER_USERNAME:alice MESSAGE_ID:9bcf6979-eb3c-4459-ae0b-2f216cadc251 MESSAGE:[LIVESTREAM] Tôi đã bắt đầu livestream tại: http://localhost:5000/chat/room_5eaf5a73?username=alice
+2025-04-24 14:37:35,869 - INFO - Đã phân tích tin nhắn: kênh=a, timestamp=1745480255.8697038, sender=10.0.144.159:20000, username=alice, id=9bcf6979-eb3c-4459-ae0b-2f216cadc251, message=[LIVESTREAM] Tôi đã bắt đầu livestream tại: http://localhost:5000/chat/room_5eaf5a73?username=alice
+2025-04-24 14:37:35,869 - INFO - Nhận tin nhắn từ 10.0.144.159:20000 trên kênh 'a': [LIVESTREAM] Tôi đã bắt đầu livestream tại: http://localhost:5000/chat/room_5eaf5a73?username=alice
