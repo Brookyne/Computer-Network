@@ -270,3 +270,20 @@
 2025-04-23 14:56:17,207 - ERROR - Lỗi khi lưu tin nhắn vào cache cho kênh 'a': name 'json' is not defined
 2025-04-23 14:56:17,207 - INFO - Đã lưu tin nhắn offline vào cache
 2025-04-23 14:56:29,133 - INFO - PeerClient stopped.
+2025-04-25 07:20:32,411 - INFO - PeerClient started.
+2025-04-25 07:20:32,414 - INFO - [Tracker] Kết nối tới tracker 127.0.0.1:22110 thành công.
+2025-04-25 07:20:32,416 - INFO - Nhận từ tracker: LOGIN_SUCCESS 1ac13b3a-cec8-4222-90af-471342cbcd25
+2025-04-25 07:20:32,416 - INFO - Login with session_id: 1ac13b3a-cec8-4222-90af-471342cbcd25
+2025-04-25 07:20:32,417 - INFO - PeerClient started successfully.
+2025-04-25 07:20:32,417 - INFO - P2P Server đang lắng nghe trên cổng 20000
+2025-04-25 07:20:32,419 - INFO - Lấy danh sách peer thành công.
+2025-04-25 07:20:35,923 - INFO - Status changed to invisible
+2025-04-25 07:20:43,895 - INFO - Nhận từ tracker: JOINED a
+2025-04-25 07:20:43,895 - INFO - Đã chuyển sang kênh 'a'
+2025-04-25 07:20:43,895 - INFO - Đã tham gia kênh 'a'
+2025-04-25 07:20:47,060 - INFO - Chuẩn bị gửi tin nhắn trong kênh a: hi
+2025-04-25 07:20:47,060 - INFO - Tìm thấy 0 peers để gửi tin nhắn
+2025-04-25 07:20:47,060 - INFO - Tin nhắn định dạng mạng: CHANNEL:a TIMESTAMP:1745540447.060193 SENDER_IP:172.17.40.126 SENDER_PORT:20000 SENDER_USERNAME:alice MESSAGE_ID:4f48aff8-1670-4b39-b925-700397edeb7a MESSAGE:hi
+2025-04-25 07:20:47,060 - INFO - Đã gửi tin nhắn đến 0 peer: hi
+2025-04-25 07:21:06,100 - INFO - Status changed to online
+2025-04-25 07:21:13,348 - INFO - PeerClient stopped.

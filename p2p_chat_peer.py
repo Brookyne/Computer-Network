@@ -5,6 +5,7 @@ import time
 import uuid
 from datetime import datetime
 import os
+import traceback
 
 class Message:
     """Đại diện cho một tin nhắn"""
@@ -18,9 +19,11 @@ class Message:
         
     def format(self):
         """Định dạng tin nhắn để hiển thị"""
-        time_str = datetime.fromtimestamp(self.timestamp).strftime("%H:%M:%S") if isinstance(self.timestamp, (int, float)) else self.timestamp.strftime("%H:%M:%S")
-        # Ưu tiên hiển thị username nếu có
-        display_sender = self.sender_username if self.sender_username else self.sender
+        time_str = datetime.fromtimestamp(self.timestamp).strftime("%H:%M:%S") \
+                   if isinstance(self.timestamp, (int, float)) \
+                   else self.timestamp.strftime("%H:%M:%S")
+        # Ưu tiên hiển thị username 
+        display_sender = self.sender_username
         return f"[{time_str}] {display_sender}: {self.content}"
     
     def to_network_format(self, sender_ip, sender_port, sender_username):
@@ -29,9 +32,8 @@ class Message:
 
 class Channel:
     """Đại diện cho một kênh chat"""
-    def __init__(self, name, is_host=False):
+    def __init__(self, name):
         self.name = name
-        self.is_host = is_host
         self.messages = []
         self.message_ids = set()  # Dùng để lưu ID các tin nhắn đã nhận, tránh trùng lặp
         self.switch_time = time.time()  # Thời điểm tham gia/chuyển đến kênh
@@ -70,41 +72,39 @@ class TrackerConnection:
         """Thiết lập kết nối đến tracker server"""
         try:
             self.tracker_conn = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            self.tracker_conn.connect((self.tracker_ip, self.tracker_port))
-            self.logger.info(f"Kết nối tới tracker {self.tracker_ip}:{self.tracker_port} thành công.")
-            return True
+            self.tracker_conn.connect((self.tracker_ip, self.tracker_port)) # Kết nối đến tracker
+            self.logger.info(f"[Tracker] Kết nối tới tracker {self.tracker_ip}:{self.tracker_port} thành công.")
         except Exception as e:
-            self.logger.error(f"Lỗi kết nối tới tracker: {e}")
-            self.tracker_conn = None
+            self.logger.error(f"Lỗi kết nối tới tracker {self.tracker_ip}:{self.tracker_port}: {e}")
             return False
+        return True
+        
             
-    def login(self):
+    def login(self, user_status):
         """Đăng nhập vào tracker server"""
         if self.tracker_conn is None:
             if not self.connect():
                 return False
+
+        if self.is_guest:
+            cmd = f"GUEST {self.username} {self.local_ip} {self.local_port} {user_status}\n"
+        else:
+            cmd = f"LOGIN {self.username} {self.password} {self.local_ip} {self.local_port} {user_status}\n"
                 
-        try:
-            if self.is_guest:
-                cmd = f"GUEST {self.username} {self.local_ip} {self.local_port}\n"
-            else:
-                cmd = f"LOGIN {self.username} {self.password} {self.local_ip} {self.local_port}\n"
-                
-            self.tracker_conn.sendall(cmd.encode())
-            response = self.tracker_conn.recv(1024).decode().strip()
-            self.logger.info(f"Nhận từ tracker: {response}")
+        self.tracker_conn.sendall(cmd.encode())
+        response = self.tracker_conn.recv(1024).decode().strip()
+        self.logger.info(f"Nhận từ tracker: {response}")
             
-            if (self.is_guest and response.startswith("GUEST_LOGIN_SUCCESS")) or \
-               (not self.is_guest and response.startswith("LOGIN_SUCCESS")):
-                parts = response.split()
-                if len(parts) >= 2:
-                    self.session_id = parts[1]
-                    self.logger.info(f"Đăng nhập thành công với session_id: {self.session_id}")
-                    return True
-            return False
-        except Exception as e:
-            self.logger.error(f"Lỗi đăng nhập: {e}")
-            return False
+        if (self.is_guest and response.startswith("GUEST_LOGIN_SUCCESS")) or \
+            (not self.is_guest and response.startswith("LOGIN_SUCCESS")):
+            parts = response.split()    
+            if len(parts) >= 2:
+                self.session_id = parts[1]
+                self.logger.info(f"Login with session_id: {self.session_id}")
+                return True
+        return False
+
+
             
     def get_peers(self):
         """Lấy danh sách các peer đang online"""
@@ -123,14 +123,14 @@ class TrackerConnection:
             lines = data.strip().split("\n")
             for line in lines:
                 parts = line.split()
-                if len(parts) >= 5:
-                    username, ip, port, session_id, mode = parts[0], parts[1], int(parts[2]), parts[3], parts[4]
-                    peers.append((username, ip, port, session_id, mode))
+                if len(parts) >= 6:
+                    username, ip, port, session_id, mode, status = parts[0], parts[1], int(parts[2]), parts[3], parts[4], parts[5]
+                    peers.append((username, ip, port, session_id, mode, status))
                     
             self.logger.info("Lấy danh sách peer thành công.")
             return peers
         except Exception as e:
-            self.logger.error(f"Lỗi lấy danh sách peer: {e}")
+            self.logger.error(f"Error get list: {e}")
             return []
             
     def join_channel(self, channel):
@@ -189,23 +189,24 @@ class PeerServer:
     def _run_server(self):
         """Chạy server"""
         self.server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        try:
-            self.server_socket.bind(('', self.local_port))
-            self.server_socket.listen(5)
-            self.logger.info(f"P2P Server đang lắng nghe trên cổng {self.local_port}")
+        
+        self.server_socket.bind(('', self.local_port))
+        self.server_socket.listen(5)
+        self.logger.info(f"P2P Server đang lắng nghe trên cổng {self.local_port}")
             
-            while self.running:
-                try:
-                    conn, addr = self.server_socket.accept()
-                    threading.Thread(target=self._handle_connection, args=(conn, addr), daemon=True).start()
-                except Exception as e:
-                    if self.running:  # Chỉ log nếu vẫn đang chạy
-                        self.logger.error(f"Lỗi chấp nhận kết nối: {e}")
-        except Exception as e:
-            self.logger.error(f"Lỗi khởi động P2P server: {e}")
-        finally:
-            if self.server_socket:
-                self.server_socket.close()
+        while self.running:
+            try:
+                conn, addr = self.server_socket.accept()
+                threading.Thread(target=self._handle_connection, args=(conn, addr), daemon=True).start()
+            except Exception as e:
+                if self.running:  # Chỉ log nếu vẫn đang chạy
+                    self.logger.error(f"Lỗi chấp nhận kết nối: {e}")
+                # tắt ở đây này
+
+        if self.server_socket:
+            self.server_socket.close()
+
+        
                 
     def _handle_connection(self, conn, addr):
         """Xử lý kết nối từ peer khác"""
@@ -239,11 +240,10 @@ class PeerServer:
                             
                             # Lấy username người gửi nếu có
                             sender_username = None
-                            try:
-                                sender_username_part = [p for p in header_parts if p.startswith("SENDER_USERNAME:")][0]
-                                sender_username = sender_username_part.split(":", 1)[1].strip()
-                            except:
-                                pass  # Không có username trong tin nhắn
+                            
+                            sender_username_part = [p for p in header_parts if p.startswith("SENDER_USERNAME:")][0]
+                            sender_username = sender_username_part.split(":", 1)[1].strip()
+                            
                             
                             # Lấy Message ID để tránh trùng lặp
                             message_id_part = [p for p in header_parts if p.startswith("MESSAGE_ID:")][0]
@@ -255,18 +255,19 @@ class PeerServer:
                             if self.message_callback:
                                 self.message_callback(channel, sender_ip, sender_port, msg_timestamp, message_text, message_id, sender_username)
                         except Exception as ex:
-                            self.logger.error(f"Lỗi phân tích tin nhắn từ {addr}: {ex}")
-                            import traceback
+                            self.logger.error(f"Lỗi phân tích tin nhắn từ {addr}: {ex}")    
                             self.logger.error(traceback.format_exc())
                     else:
                         self.logger.info(f"Tin nhắn không đúng định dạng từ {addr}: {data}")
             except Exception as e:
                 self.logger.error(f"Lỗi nhận dữ liệu từ {addr}: {e}")
-                import traceback
                 self.logger.error(traceback.format_exc())
                 
     def stop(self):
         """Dừng P2P server"""
+
+        
+
         self.running = False
         # Tạo kết nối đến chính nó để unblock socket.accept()
         try:
@@ -279,7 +280,7 @@ class PeerServer:
 
 class PeerClient:
     """Client P2P để xử lý các tác vụ chat P2P"""
-    def __init__(self, username, password, tracker_ip, tracker_port, local_port, is_guest=False, message_handler=None):
+    def __init__(self, username, password, tracker_ip, tracker_port, local_port, is_guest=False, message_handler=None, user_status="online"):
         # Thông tin cơ bản
         self.username = username
         self.password = password
@@ -316,6 +317,8 @@ class PeerClient:
         
         # Message handler để thông báo cho GUI khi có tin nhắn mới
         self.message_handler = message_handler
+
+        self.user_status = user_status # Initialize user status
         
     def setup_logger(self):
         """Cài đặt logger"""
@@ -334,19 +337,6 @@ class PeerClient:
         self.logger.addHandler(fh)
         
         self.logger.info("PeerClient started.")
-
-    def log_connection(self, target_type, target_id, operation, status):
-    
-        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        log_entry = f"{timestamp} | {target_type} | {target_id} | {operation} | {status}"
-    
-        # Ensure the logs directory exists
-        if not os.path.exists("connection_logs"):
-            os.makedirs("connection_logs")
-        
-        # Write to connection log file
-        with open(f"connection_logs/{self.username}_{self.local_port}_connections.log", "a") as f:
-            f.write(log_entry + "\n")
         
     def _get_local_ip(self):
         """Lấy địa chỉ IP local của máy"""
@@ -356,37 +346,11 @@ class PeerClient:
                 return s.getsockname()[0]
         except:
             return "127.0.0.1"
-        
-    def create_host_channel(self, channel_name):
-        #Tao channel host
-        if channel_name in self.channels:
-            self.logger.error(f"Kênh '{channel_name}' đã tồn tại.")
-            return False
-        
-        # Đánh dấu peer là host
-        channel = Channel(channel_name, is_host=True)
-        self.channels[channel_name] = channel
-
-        ## Đăng ký kênh với tracker
-        if self.tracker_conn.join_channel(channel_name):
-            self.switch_channel(channel_name)
-            self.logger.info(f"Đã tạo kênh '{channel_name}' và tham gia thành công.")
-            return True
-        return False
-    
-    def sync_hosted_channel_with_tracker(self):
-        hosted_channels = [channel for channel in self.channels.values() if channel.is_host]
-        for channel_name in hosted_channels:
-            messages = self.channels[channel_name].messages
-        
-        if self.tracker_conn.backup_channel_messages(channel_name, messages):
-            self.logger.info(f"Synced channel '{channel_name}' with centralized server")
-
             
     def start(self):
         """Khởi động client"""
         # Kết nối đến tracker và đăng nhập
-        if self.tracker_conn.login():
+        if self.tracker_conn.login(self.user_status):
             self.session_id = self.tracker_conn.session_id
             # Khởi động P2P server
             self.peer_server.start()
@@ -403,7 +367,7 @@ class PeerClient:
                 self.tracker_conn.tracker_conn.sendall(f"DEREGISTER {self.session_id}\n".encode())
             except:
                 pass
-        
+
         if self.peer_server:
             self.peer_server.stop()
         self.logger.info("PeerClient stopped.")
@@ -427,7 +391,7 @@ class PeerClient:
         if not sender_username:
             peers = self.tracker_conn.get_peers()
             for peer in peers:
-                username, ip, port, session_id, mode = peer
+                username, ip, port, session_id, mode, status = peer
                 if ip == sender_ip and int(port) == int(sender_port):
                     sender_username = username
                     break
@@ -436,18 +400,11 @@ class PeerClient:
         sender = f"{sender_ip}:{sender_port}"
         message = Message(channel, sender, message_text, timestamp, message_id, sender_username)
         
-        if self.channels.get(channel): # Kiểm tra kênh tồn tại trước khi thêm
-            if self.channels[channel].add_message(message):
-                if self.message_handler and self.current_channel == channel:
-                    self.message_handler(message)
-                self.save_offline_messages() # Lưu tin nhắn sau khi nhận
-
-
-        # # Thêm vào kênh, chỉ thêm nếu tin nhắn chưa tồn tại (dựa vào message_id)
-        # if self.channels[channel].add_message(message):
-        #     # Thông báo cho GUI nếu có message handler và đang ở kênh này
-        #     if self.message_handler and self.current_channel == channel:
-        #         self.message_handler(message)
+        # Thêm vào kênh, chỉ thêm nếu tin nhắn chưa tồn tại (dựa vào message_id)
+        if self.channels[channel].add_message(message):
+            # Thông báo cho GUI nếu có message handler và đang ở kênh này
+            if self.message_handler and self.current_channel == channel:
+                self.message_handler(message)
                 
     def join_channel(self, channel_name):
         """Tham gia kênh chat"""
@@ -514,12 +471,8 @@ class PeerClient:
             channel=self.current_channel,
             sender=f"{self.local_ip}:{self.local_port}",
             content=message_text,
-            sender_username=self.username   
+            sender_username=self.username
         )
-
-        if self.channels.get(self.current_channel): # Kiểm tra kênh tồn tại trước khi thêm
-            self.channels[self.current_channel].add_message(message)
-            self.save_offline_messages()
         
         # Thêm tin nhắn của mình vào kênh hiện tại
         self.channels[self.current_channel].add_message(message)
@@ -531,7 +484,7 @@ class PeerClient:
         # Gửi tin nhắn đến tất cả peer
         sent_count = 0
         for peer in peers:
-            username, ip, port, session_id, mode = peer
+            username, ip, port, session_id, mode, status = peer
             
             # Bỏ qua chính mình
             if session_id == self.session_id:
@@ -554,74 +507,40 @@ class PeerClient:
             
         self.logger.info(f"Đã gửi tin nhắn đến {sent_count} peer: {message_text}")
         return True
-    
-
-    
-    def save_offline_messages(self):
-        cache_dir = f"cache/{self.username}"
-        if not os.path.exists(cache_dir):
-            os.makedirs(cache_dir)
-        
-        for channel_name, channel in self.channels.items():
-            messages_data = []
-        for msg in channel.messages:
-            messages_data.append({
-                'id': msg.id,
-                'channel': msg.channel,
-                'sender': msg.sender,
-                'sender_username': msg.sender_username,
-                'content': msg.content,
-                'timestamp': msg.timestamp
-            })
-            
-        # Save to file
-            try:
-                with open(f"{cache_dir}/{channel_name}.json", "w", encoding="utf-8") as f:
-                    json.dump(messages_data, f)
-            except Exception as e:
-                self.logger.error(f"Lỗi khi lưu tin nhắn vào cache cho kênh '{channel_name}': {e}")
-
-        self.logger.info("Đã lưu tin nhắn offline vào cache")
-
-
-    def load_offline_messages(self):
-        """Load cached messages when coming back online"""
-        cache_dir = f"cache/{self.username}"
-        if not os.path.exists(cache_dir):
-            return
-        
-        for filename in os.listdir(cache_dir):
-            if filename.endswith(".json"):
-                channel_name = filename[:-5]  # Remove .json extension
-            
-                # Create channel if doesn't exist
-                if channel_name not in self.channels:
-                    self.channels[channel_name] = Channel(channel_name)
-                
-                # Load messages
-                with open(f"{cache_dir}/{filename}", "r") as f:
-                    messages_data = json.load(f)
-                
-                for msg_data in messages_data:
-                    message = Message(
-                    channel=msg_data['channel'],
-                    sender=msg_data['sender'],
-                    content=msg_data['content'],
-                    timestamp=msg_data['timestamp'],
-                    message_id=msg_data['id'],
-                    sender_username=msg_data['sender_username']
-                )
-                self.channels[channel_name].add_message(message)
-                
-        self.logger.info("Loaded offline messages from cache")
         
     def get_peers(self):
-        """Lấy danh sách peer từ tracker"""
-        return self.tracker_conn.get_peers()
+        # """Lấy danh sách peer từ tracker"""
+        # return self.tracker_conn.get_peers()
+        peers = self.tracker_conn.get_peers()
+        visible_peers = [peer for peer in peers if peer[5] == "online"] 
+        return visible_peers
         
     def get_channel_messages(self, channel_name=None):
         """Lấy danh sách tin nhắn của kênh hiện tại hoặc kênh được chỉ định"""
         channel = channel_name or self.current_channel
         if not channel or channel not in self.channels:
             return []
-        return self.channels[channel].messages
+        return self.channels[channel].messages  
+    
+    def set_user_status(self, new_status):
+        if new_status not in ("online", "invisible"):
+            self.logger.error(f"Invalid status: {new_status}")
+            return False
+    
+        if self.tracker_conn.tracker_conn:
+            try:
+                self.tracker_conn.tracker_conn.sendall(f"STATUS_CHANGE {self.session_id} {new_status}\n".encode())
+                response = self.tracker_conn.tracker_conn.recv(1024).decode().strip()
+                if response == "STATUS_CHANGED":
+                    self.user_status = new_status
+                    self.logger.info(f"Status changed to {new_status}")
+                    return True
+                else:
+                    self.logger.error(f"Failed to change status: {response}")
+                    return False
+            except Exception as e:
+                self.logger.error(f"Error changing status: {e}")
+                return False
+        else:
+            self.logger.error("Not connected to tracker.")
+            return False

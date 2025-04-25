@@ -17,7 +17,7 @@ class P2PChatGUI:
         self.root.minsize(800, 600)
         
         # Logger
-        self.setup_logger()
+        self.set_logger()
         
         # Thiết lập các biến trạng thái
         self.peer_client = None
@@ -28,7 +28,7 @@ class P2PChatGUI:
         # Hiển thị màn hình đăng nhập
         self.show_login_screen()
         
-    def setup_logger(self):
+    def set_logger(self):
         """Cài đặt logger cho ứng dụng"""
         self.logger = logging.getLogger("P2PChatGUI")
         self.logger.setLevel(logging.INFO)
@@ -71,9 +71,18 @@ class P2PChatGUI:
         self.username_label = ttk.Label(self.user_frame, text="Chưa đăng nhập")
         self.username_label.pack(anchor=tk.W, padx=5, pady=2)
         
-        self.status_label = ttk.Label(self.user_frame, text="Trạng thái: Offline")
-        self.status_label.pack(anchor=tk.W, padx=5, pady=2)
+        # self.status_label = ttk.Label(self.user_frame, text="Trạng thái: Offline")
+        # self.status_label.pack(anchor=tk.W, padx=5, pady=2)
+
+        # Add status display
+        self.current_status_label = ttk.Label(self.user_frame, text="Status: Online")
+        self.current_status_label.pack(anchor=tk.W, padx=5, pady=2)
         
+        # Add change status button
+        self.change_status_button = ttk.Button(self.user_frame, text="Change Status", command=self.change_status)
+        self.change_status_button.pack(side=tk.RIGHT, padx=5)
+
+
         # Phần danh sách kênh
         self.channels_frame = ttk.LabelFrame(self.sidebar_frame, text="Danh sách kênh")
         self.channels_frame.pack(fill=tk.BOTH, expand=True, padx=5, pady=5)
@@ -160,23 +169,29 @@ class P2PChatGUI:
         ttk.Label(login_inner_frame, text="Tracker IP:").grid(row=2, column=0, sticky=tk.W, pady=5)
         self.tracker_ip_entry = ttk.Entry(login_inner_frame, width=30)
         self.tracker_ip_entry.insert(0, "127.0.0.1")
+        
         self.tracker_ip_entry.grid(row=2, column=1, sticky=tk.W, pady=5)
         
         ttk.Label(login_inner_frame, text="Tracker Port:").grid(row=3, column=0, sticky=tk.W, pady=5)
         self.tracker_port_entry = ttk.Entry(login_inner_frame, width=30)
-        self.tracker_port_entry.insert(0, "12345")
+        self.tracker_port_entry.insert(0, "22110")
         self.tracker_port_entry.grid(row=3, column=1, sticky=tk.W, pady=5)
         
         ttk.Label(login_inner_frame, text="Local Port:").grid(row=4, column=0, sticky=tk.W, pady=5)
         self.local_port_entry = ttk.Entry(login_inner_frame, width=30)
         self.local_port_entry.insert(0, "20000")
         self.local_port_entry.grid(row=4, column=1, sticky=tk.W, pady=5)
+
+        ttk.Label(login_inner_frame, text="Status:").grid(row=5, column=0, sticky=tk.W, pady=5)
+        self.status_var = tk.StringVar(value="online")
+        ttk.Radiobutton(login_inner_frame, text="Online", variable=self.status_var, value="online").grid(row=5, column=1, sticky=tk.W)
+
         
         buttons_frame = ttk.Frame(login_inner_frame)
         buttons_frame.grid(row=5, column=0, columnspan=2, pady=20)
         
         ttk.Button(buttons_frame, text="Đăng nhập", command=self.login).pack(side=tk.LEFT, padx=10)
-        ttk.Button(buttons_frame, text="Đăng nhập khách", command=self.login_as_guest).pack(side=tk.LEFT, padx=10)
+        ttk.Button(buttons_frame, text="Đăng nhập với chế độ khách", command=self.login_as_guest).pack(side=tk.LEFT, padx=10)
         
         # Thông tin demo
         ttk.Label(self.login_frame, text="Các tài khoản mẫu: alice/password1, bob/password2, charlie/password3").pack(pady=10)
@@ -195,12 +210,10 @@ class P2PChatGUI:
         password = self.password_entry.get().strip() if not is_guest else ""
         tracker_ip = self.tracker_ip_entry.get().strip()
         
-        try:
-            tracker_port = int(self.tracker_port_entry.get().strip())
-            local_port = int(self.local_port_entry.get().strip())
-        except ValueError:
-            messagebox.showerror("Lỗi", "Port phải là số nguyên")
-            return
+        tracker_port = int(self.tracker_port_entry.get().strip())
+        local_port = int(self.local_port_entry.get().strip())
+
+        user_status = self.status_var.get()
             
         if not username:
             messagebox.showerror("Lỗi", "Username không được trống")
@@ -218,7 +231,8 @@ class P2PChatGUI:
             tracker_port=tracker_port,
             local_port=local_port,
             is_guest=is_guest,
-            message_handler=self.handle_new_message
+            message_handler=self.handle_new_message,
+            user_status=user_status
         )
         
         # Khởi động PeerClient
@@ -245,19 +259,7 @@ class P2PChatGUI:
         # Cập nhật thông tin người dùng
         mode = "Khách" if self.peer_client.is_guest else "Người dùng"
         self.username_label.config(text=f"Tên: {self.peer_client.username} ({mode})")
-        self.status_label.config(text=f"Trạng thái: Online | IP: {self.peer_client.local_ip}:{self.peer_client.local_port}")
-
-
-        if self.peer_client and self.peer_client.current_channel:
-            self.current_channel_label.config(text=f"Kênh: {self.peer_client.current_channel}")
-            self.update_messages_display()
-        elif self.peer_client and self.peer_client.channels:
-            # Nếu không có kênh hiện tại được lưu, chọn kênh đầu tiên và hiển thị
-            first_channel_name = next(iter(self.peer_client.channels))
-            self.peer_client.switch_channel(first_channel_name)
-            self.current_channel_label.config(text=f"Kênh: {first_channel_name}")
-            self.update_messages_display()
-
+        self.current_status_label.config(text=f"Status: {self.peer_client.user_status}")
         
     def refresh_peers(self):
         """Cập nhật danh sách peer và kênh"""
@@ -270,9 +272,9 @@ class P2PChatGUI:
         # Cập nhật danh sách peer
         self.peers_listbox.delete(0, tk.END)
         for peer in peers:
-            username, ip, port, session_id, mode = peer
+            username, ip, port, session_id, mode,status = peer
             # Bỏ qua chính mình
-            if session_id == self.peer_client.session_id:
+            if session_id == self.peer_client.session_id or status == "invisible":
                 continue
             self.peers_listbox.insert(tk.END, f"{username} ({ip}:{port}) - {mode}")
         
@@ -296,7 +298,6 @@ class P2PChatGUI:
             # Cập nhật hiển thị
             self.current_channel_label.config(text=f"Kênh: {channel_name}")
             # Hiển thị tin nhắn của kênh
-            self.peer_client.switch_channel(channel_name)
             self.update_messages_display()
             messagebox.showinfo("Thành công", f"Đã tham gia kênh '{channel_name}'")
         else:
@@ -408,28 +409,26 @@ class P2PChatGUI:
             self.logger.info("Ứng dụng đã đóng")
             self.root.destroy()
 
-def run_tracker():
-    """Khởi động tracker server trong một luồng riêng"""
-    try:
-        from tracker import TrackerServer
-        server = TrackerServer()
-        server.start()
-    except ImportError:
-        print("Không tìm thấy module tracker.py. Chỉ khởi động phần GUI.")
-    except Exception as e:
-        print(f"Lỗi khởi động Tracker Server: {e}")
+    def change_status(self):
+        """Change user status between 'online' and 'invisible'"""
+        if not self.peer_client:
+            return
+            
+        # Toggle status between online and invisible
+        new_status = "invisible" if self.peer_client.user_status == "online" else "online"
+        
+        if self.peer_client.set_user_status(new_status):
+            self.current_status_label.config(text=f"Status: {new_status}")
+            messagebox.showinfo("Status Changed", f"Your status is now: {new_status}")
+        else:
+            messagebox.showerror("Error", "Failed to change status")
 
 def main():
     """Hàm chính khởi động ứng dụng"""
     parser = argparse.ArgumentParser(description="P2P Chat Application with GUI")
-    parser.add_argument("--start-tracker", action="store_true", help="Khởi động cả Tracker Server")
+    
     args = parser.parse_args()
-    
-    # Khởi động Tracker nếu được yêu cầu
-    if args.start_tracker:
-        threading.Thread(target=run_tracker, daemon=True).start()
-        print("Đã khởi động Tracker Server")
-    
+        
     # Khởi động ứng dụng GUI
     root = tk.Tk()
     app = P2PChatGUI(root)

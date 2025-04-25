@@ -249,3 +249,11 @@
 2025-04-23 14:56:29,133 - INFO - Nhận từ ('127.0.0.1', 51370): DEREGISTER 5bf9fc23-0591-4132-9833-41ccb799ae01
 2025-04-23 14:56:29,158 - ERROR - Exception từ ('127.0.0.1', 51370): [WinError 10054] An existing connection was forcibly closed by the remote host
 2025-04-23 14:56:29,158 - INFO - Đóng kết nối từ ('127.0.0.1', 51370)
+2025-04-25 07:20:18,015 - INFO - Tracker Server khởi động
+2025-04-25 07:20:18,015 - INFO - [Tracker] Tracker Server lắng nghe trên 127.0.0.1:22110
+2025-04-25 07:20:32,415 - INFO - Kết nối từ ('127.0.0.1', 57749)
+2025-04-25 07:20:32,415 - INFO - Nhận từ ('127.0.0.1', 57749): LOGIN alice password1 172.17.40.126 20000 online
+2025-04-25 07:20:32,419 - INFO - Nhận từ ('127.0.0.1', 57749): GETPEERS
+2025-04-25 07:20:35,923 - INFO - Nhận từ ('127.0.0.1', 57749): STATUS_CHANGE 1ac13b3a-cec8-4222-90af-471342cbcd25 invisible
+2025-04-25 07:20:43,895 - INFO - Nhận từ ('127.0.0.1', 57749): JOIN a
+2025-04-25 07:20:47,060 - INFO - Nhận từ ('127.0.0.1', 57749): GETPEERS

@@ -1,0 +1,9 @@
+2025-04-25 07:20:59,779 - INFO - PeerClient started.
+2025-04-25 07:20:59,781 - INFO - [Tracker] Kết nối tới tracker 127.0.0.1:22110 thành công.
+2025-04-25 07:20:59,781 - INFO - Nhận từ tracker: GUEST_LOGIN_SUCCESS 38a96729-b649-4f55-b842-8fe8f473c59a
+2025-04-25 07:20:59,781 - INFO - Login with session_id: 38a96729-b649-4f55-b842-8fe8f473c59a
+2025-04-25 07:20:59,783 - INFO - PeerClient started successfully.
+2025-04-25 07:20:59,797 - INFO - Lấy danh sách peer thành công.
+2025-04-25 07:21:01,331 - INFO - Lấy danh sách peer thành công.
+2025-04-25 07:21:08,676 - INFO - Lấy danh sách peer thành công.
+2025-04-25 07:21:10,901 - INFO - PeerClient stopped.
