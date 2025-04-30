@@ -54,3 +54,138 @@
 2025-04-23 14:09:26,939 - INFO - Bỏ qua tin nhắn từ kênh 'a' chưa tham gia
 2025-04-23 14:10:10,870 - INFO - PeerClient stopped.
 2025-04-23 14:10:10,870 - INFO - PeerClient stopped.
+2025-04-30 16:00:26,143 - INFO - PeerClient started.
+2025-04-30 16:00:26,144 - INFO - [Tracker] Kết nối tới tracker 127.0.0.1:22110 thành công.
+2025-04-30 16:00:26,145 - INFO - Nhận từ tracker: LOGIN_SUCCESS f7fdff16-a8a7-4f99-90dd-54ba42413f14
+2025-04-30 16:00:26,145 - INFO - Login with session_id: f7fdff16-a8a7-4f99-90dd-54ba42413f14
+2025-04-30 16:00:26,145 - INFO - PeerClient started successfully.
+2025-04-30 16:00:26,145 - INFO - P2P Server đang lắng nghe trên cổng 20001
+2025-04-30 16:00:26,146 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:31,097 - INFO - Nhận từ tracker: JOINED a
+2025-04-30 16:00:31,097 - INFO - Đã chuyển sang kênh 'a'
+2025-04-30 16:00:31,097 - INFO - Đã tham gia kênh 'a'
+2025-04-30 16:00:31,098 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:31,099 - INFO - Đã chuyển sang kênh 'a'
+2025-04-30 16:00:33,961 - INFO - Đã chuyển sang kênh 'a'
+2025-04-30 16:00:38,698 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:38,708 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:38,807 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:38,916 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:39,019 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:39,120 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:39,228 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:39,338 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:39,437 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:39,537 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:39,639 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:39,737 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:39,847 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:39,958 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:40,069 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:40,175 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:40,286 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:40,394 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:40,501 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:40,610 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:40,717 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:40,827 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:40,944 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:41,052 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:41,146 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:41,255 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:41,359 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:41,474 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:41,568 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:41,675 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:41,785 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:41,894 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:42,001 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:42,110 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:42,216 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:42,325 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:42,433 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:42,532 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:42,647 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:42,759 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:42,866 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:42,972 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:43,082 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:43,190 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:43,298 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:43,409 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:43,500 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:43,607 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:43,717 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:43,823 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:43,934 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:44,026 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:44,134 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:44,241 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:44,342 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:44,446 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:44,554 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:44,663 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:44,758 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:44,869 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:44,979 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:45,073 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:45,182 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:45,292 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:45,388 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:45,497 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:45,510 - INFO - Nhận dữ liệu thô từ ('172.17.104.43', 50904): CONTROL:a:REQUEST_STREAM:alice
+2025-04-30 16:00:45,607 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:45,714 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:45,822 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:45,914 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:46,022 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:46,129 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:46,239 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:46,346 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:46,455 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:46,564 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:46,669 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:46,780 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:46,874 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:46,981 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:47,092 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:47,185 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:47,294 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:47,403 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:47,512 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:47,620 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:47,728 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:47,838 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:47,946 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:48,041 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:48,151 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:48,260 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:48,368 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:48,479 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:48,585 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:48,680 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:48,785 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:48,895 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:49,003 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:49,112 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:49,221 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:49,331 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:49,439 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:49,549 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:49,658 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:49,752 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:49,859 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:49,969 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:50,063 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:50,170 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:50,279 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:50,390 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:50,495 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:50,605 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:50,713 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:50,822 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:50,917 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:51,027 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:51,135 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:51,244 - INFO - Lấy danh sách peer thành công.
+2025-04-30 16:00:51,313 - INFO - PeerClient stopped.

@@ -7,6 +7,8 @@ import time
 import os
 from datetime import datetime
 from p2p_chat_peer import PeerClient, Message
+from PIL import Image, ImageTk
+from live_stream import VideoStream
 
 class P2PChatGUI:
     """Ứng dụng chat P2P với giao diện đồ họa"""
@@ -16,6 +18,12 @@ class P2PChatGUI:
         self.root.geometry("1000x700")
         self.root.minsize(800, 600)
         
+        self.video_stream = None
+        self.current_stream_username = None
+        self.stream_active = False
+
+        self.host_channels = set()
+
         # Logger
         self.set_logger()
         
@@ -27,6 +35,8 @@ class P2PChatGUI:
         
         # Hiển thị màn hình đăng nhập
         self.show_login_screen()
+
+
         
     def set_logger(self):
         """Cài đặt logger cho ứng dụng"""
@@ -95,6 +105,9 @@ class P2PChatGUI:
         # Frame chứa các nút cho kênh
         self.channel_buttons_frame = ttk.Frame(self.channels_frame)
         self.channel_buttons_frame.pack(fill=tk.X, padx=5, pady=5)
+
+        self.create_button = ttk.Button(self.channel_buttons_frame, text="Tạo kênh", command=self.create_channel_dialog)
+        self.create_button.pack(side=tk.LEFT, padx=2)
         
         self.join_button = ttk.Button(self.channel_buttons_frame, text="Tham gia kênh", command=self.join_channel_dialog)
         self.join_button.pack(side=tk.LEFT, padx=2)
@@ -136,7 +149,27 @@ class P2PChatGUI:
         
         self.send_button = ttk.Button(self.input_frame, text="Gửi", command=self.send_message)
         self.send_button.pack(side=tk.RIGHT, padx=5)
-        
+
+        #Frame cho live stream
+        self.video_frame = ttk.LabelFrame(self.content_frame, text="Live Stream")
+        self.video_frame.pack(fill=tk.BOTH, expand=True, padx=5, pady=5)
+
+        self.video_label = ttk.Label(self.video_frame)
+        self.video_label.pack(fill=tk.BOTH, expand=True, padx=5, pady=5)
+
+        self.stream_controls_frame = ttk.Frame(self.video_frame)
+        self.stream_controls_frame.pack(fill=tk.X, padx=5, pady=5)
+
+        self.start_stream_button = ttk.Button(self.stream_controls_frame, text="Start Live Stream", command=self.start_streaming)
+        self.start_stream_button.pack(side=tk.LEFT, padx=5)
+
+        self.stop_stream_button = ttk.Button(self.stream_controls_frame, text="Stop Streaming", command=self.stop_streaming)
+        self.stop_stream_button.pack(side=tk.LEFT, padx=5)
+        self.stop_stream_button.config(state=tk.DISABLED)
+
+        self.stream_info_label = ttk.Label(self.stream_controls_frame, text="No active stream")
+        self.stream_info_label.pack(side=tk.RIGHT, padx=5)
+
         # Bind phím Enter để gửi tin nhắn
         self.message_entry.bind("<Return>", lambda event: self.send_message())
         
@@ -241,6 +274,9 @@ class P2PChatGUI:
             self.refresh_peers()
         else:
             messagebox.showerror("Lỗi", "Đăng nhập thất bại. Vui lòng kiểm tra thông tin đăng nhập.")
+
+        if self.peer_client:
+            self.peer_client.peer_server.video_callback = self.handle_video_frame
     
     def handle_new_message(self, message):
         """Xử lý khi có tin nhắn mới"""
@@ -406,6 +442,9 @@ class P2PChatGUI:
             if self.peer_client:
                 self.peer_client.stop()
                 
+            if self.video_stream:
+                self.video_stream.stop_streaming()
+
             self.logger.info("Ứng dụng đã đóng")
             self.root.destroy()
 
@@ -422,6 +461,109 @@ class P2PChatGUI:
             messagebox.showinfo("Status Changed", f"Your status is now: {new_status}")
         else:
             messagebox.showerror("Error", "Failed to change status")
+
+
+    def start_streaming(self):
+        """Start streaming video"""
+        
+        if self.peer_client.is_guest:
+            messagebox.showinfo("Info", "Khach khong duoc cho phep!")
+            return
+            
+        if not self.peer_client.current_channel:
+            messagebox.showinfo("Info", "Ban phai tham gia mot kenh truoc khi stream")
+            return
+            
+        # Initialize video stream if not already done
+        if not self.video_stream:
+            self.video_stream = VideoStream(self.peer_client.username, logger=self.logger)
+
+        current = self.peer_client.current_channel
+        if current not in self.host_channels:
+            messagebox.showerror("Error", "Bạn không phải host của kênh này!")
+            return
+        # nếu đúng host mới cho start
+        if not self.video_stream:
+            self.video_stream = VideoStream(self.peer_client.username, logger=self.logger)
+        # Start the video stream
+        started = self.video_stream.start_streaming(self.peer_client.send_video_frame)
+        if not started:
+            messagebox.showerror("Error", "...")
+            return
+
+
+        # Start streaming
+      
+        self.start_stream_button.config(state=tk.DISABLED)
+        self.stop_stream_button.config(state=tk.NORMAL)
+        self.stream_active = True
+        self.current_stream_username = self.peer_client.username
+        self.stream_info_label.config(text=f"Streaming as {self.peer_client.username}")
+        
+        # Start update loop for local preview
+        self.update_video_frame()
+        
+        
+    def stop_streaming(self):
+        """Stop streaming video"""
+        if self.video_stream:
+            self.video_stream.stop_streaming()
+            
+        self.start_stream_button.config(state=tk.NORMAL)
+        self.stop_stream_button.config(state=tk.DISABLED)
+        self.stream_active = False
+        self.current_stream_username = None
+        self.stream_info_label.config(text="No active stream")
+        
+    def update_video_frame(self):
+        """Update the video frame display"""
+        if not self.stream_active:
+            return
+            
+        if self.current_stream_username == self.peer_client.username:
+            # Local preview
+            photo = self.video_stream.get_current_frame_as_tk()
+            if photo:
+                self.video_label.config(image=photo)
+                self.video_label.image = photo  # Keep a reference
+        else:
+            # Remote stream
+            frame_data = self.video_stream.get_next_viewing_frame()
+            if frame_data:
+                frame, username = frame_data
+                img = Image.fromarray(frame)
+                photo = ImageTk.PhotoImage(image=img)
+                self.video_label.config(image=photo)
+                self.video_label.image = photo  # Keep a reference
+                self.stream_info_label.config(text=f"Viewing stream from {username}")
+                
+        # Schedule next update
+        self.root.after(30, self.update_video_frame)  # ~30fps for display
+
+    def handle_video_frame(self, frame_data, sender_username):
+        """Handle incoming video frame"""
+        if not self.video_stream:
+            self.video_stream = VideoStream(self.peer_client.username, logger=self.logger)
+            
+        # Process the frame
+        self.video_stream.process_received_frame(frame_data, sender_username)
+        
+        # If not streaming ourselves, start displaying the received stream
+        if not self.stream_active:
+            self.stream_active = True
+            self.current_stream_username = sender_username
+            self.stream_info_label.config(text=f"Viewing stream from {sender_username}")
+            self.update_video_frame()
+
+    def create_channel_dialog(self):
+        name = simpledialog.askstring("Tạo kênh", "Tên kênh mới:")
+        if name:
+            success = self.peer_client.create_channel(name)
+            if success:
+                self.host_channels.add(name)
+                self.channel_listbox.insert(tk.END, name)
+                self.switch_channel(name)
+                messagebox.showinfo("Thành công", f"Đã tạo kênh '{name}' và bạn là host.")
 
 def main():
     """Hàm chính khởi động ứng dụng"""

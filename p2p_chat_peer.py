@@ -180,6 +180,9 @@ class PeerServer:
         self.message_callback = message_callback  # Callback để hiển thị tin nhắn nhận được lên GUI
         self.running = False
         self.logger = logger or logging.getLogger("PeerServer")
+
+        self.current_channel = None
+
         
     def start(self):
         """Bắt đầu P2P server"""
@@ -205,16 +208,23 @@ class PeerServer:
 
         if self.server_socket:
             self.server_socket.close()
-
-        
-                
+            
+             
     def _handle_connection(self, conn, addr):
         """Xử lý kết nối từ peer khác"""
         with conn:
             try:
-                data = conn.recv(1024).decode().strip()
+                data = conn.recv(65536).decode().strip()
                 if data:
                     self.logger.info(f"Nhận dữ liệu thô từ {addr}: {data}")
+
+                    if data.startswith("CONTROL:"):
+                        parts = data.split(":", 3)
+                        if len(parts) == 4:
+                            _, channel, cmd, sender = parts
+                            if cmd == "REQUEST_STREAM" and self.peer_client.is_host(channel):
+                                self.peer_client.stream_viewers.add(sender)
+                            return
                     if data.startswith("CHANNEL:"):
                         try:
                             # Định dạng tin nhắn mới: 
@@ -259,6 +269,28 @@ class PeerServer:
                             self.logger.error(traceback.format_exc())
                     else:
                         self.logger.info(f"Tin nhắn không đúng định dạng từ {addr}: {data}")
+
+                    if data.startswith("VIDEO_FRAME:"):
+                        try:
+                            parts = data.split(":", 4)
+                            if len(parts) != 5:
+                                self.logger.error(f"Invalid video frame format from {addr}")
+                                return
+                                
+                            channel = parts[1]
+                            sender_username = parts[2]
+                            timestamp = float(parts[3])
+                            frame_data = parts[4]
+                            
+                            # Check if we're in this channel
+                            if self.video_callback and channel == self.current_channel:
+                                self.video_callback(frame_data, sender_username)
+                                
+                        except Exception as e:
+                            self.logger.error(f"Error processing video frame from {addr}: {e}")        
+            
+            
+            
             except Exception as e:
                 self.logger.error(f"Lỗi nhận dữ liệu từ {addr}: {e}")
                 self.logger.error(traceback.format_exc())
@@ -319,6 +351,13 @@ class PeerClient:
         self.message_handler = message_handler
 
         self.user_status = user_status # Initialize user status
+
+        self.stream_viewers = set() # Danh sách các peer đang xem livestream
+
+        self.host_channels = set()  # Danh sách các kênh mà peer này là host
+
+        self.peer_server.peer_client = self # Để có thể gọi lại hàm trong PeerClient từ PeerServer
+
         
     def setup_logger(self):
         """Cài đặt logger"""
@@ -415,7 +454,11 @@ class PeerClient:
         if channel_name in self.channels:
             self.switch_channel(channel_name)
             return True
-            
+        
+
+        # if channel_name in self.host_channels and self.host_channels[channel_name] == True:
+        #     self.send_control_message(channel_name, "REQUEST_STREAM")
+        
         # Đăng ký kênh với tracker
         if self.tracker_conn.join_channel(channel_name):
             # Tạo đối tượng Channel mới
@@ -426,11 +469,18 @@ class PeerClient:
             self.switch_channel(channel_name)
             
             self.logger.info(f"Đã tham gia kênh '{channel_name}'")
+
+            if not self.is_host(channel_name):
+                self.send_control_message(channel_name, "REQUEST_STREAM")
             return True
         else:
             self.logger.error(f"Không thể tham gia kênh '{channel_name}'")
             return False
+        
             
+        
+        
+        
     def switch_channel(self, channel_name):
         """Chuyển sang kênh đã chọn"""
         if channel_name not in self.channels:
@@ -439,6 +489,7 @@ class PeerClient:
             
         # Cập nhật kênh hiện tại
         self.current_channel = channel_name
+        self.peer_server.current_channel = channel_name
         
         # Cập nhật thời gian chuyển kênh
         self.channels[channel_name].switch_time = time.time()
@@ -544,3 +595,68 @@ class PeerClient:
         else:
             self.logger.error("Not connected to tracker.")
             return False
+        
+    def send_video_frame(self, frame_data):
+        if self.is_guest:
+            self.logger.error("Khach khong the livestream video")
+            return False
+            
+        if not self.current_channel:
+            self.logger.error("Vui long chon mot kenh de thuc hien")
+            return False
+            
+        # Create a video frame message
+        message = f"VIDEO_FRAME:{self.current_channel}:{self.username}:{time.time()}:{frame_data}"
+        
+        # Get peers in the current channel
+        peers = self.tracker_conn.get_peers()
+        
+        sent_count = 0
+        for peer in peers:
+            username, ip, port, session_id, mode, status = peer
+            
+            # Skip ourselves
+            if session_id == self.session_id:
+                continue
+                
+            try:
+                with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+                    s.settimeout(1) 
+                    s.connect((ip, int(port)))
+                    s.sendall(message.encode())
+                    sent_count += 1
+            except Exception as e:
+                self.logger.error(f"Error sending video frame to {username} ({ip}:{port}): {e}")
+                
+        return sent_count > 0
+    
+    def send_control_message(self, channel, cmd):
+        # if cmd == "REQUEST_STREAM" and self.is_host(channel):
+        #     # thêm vào danh sách viewer
+        #     self.stream_viewers.add(sender)
+        msg = f"CONTROL:{channel}:{cmd}:{self.username}"
+        peers = self.tracker_conn.get_peers()
+        for username, ip, port, session_id, mode, status in peers:
+            if session_id == self.session_id:
+                continue
+            try:
+                with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+                    s.settimeout(1)
+                    s.connect((ip, int(port)))
+                    s.sendall(msg.encode())
+            except Exception as e:
+                self.logger.error(f"Error sending control message to {username} ({ip}:{port}): {e}")
+
+    def create_channel(self, channel_name):
+        success = self.join_channel(channel_name)
+        if success:
+            self.host_channels.add(channel_name)
+            return success
+    def is_host(self, channel):
+        return channel in self.host_channels
+    
+
+
+    
+        
+        
