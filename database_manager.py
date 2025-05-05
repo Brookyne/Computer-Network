@@ -274,7 +274,21 @@ class DatabaseManager:
         except Exception as e:
             self.logger.error(f"Lỗi khi kiểm tra chủ kênh: {e}")
             return False
+    def get_channel_owner(self, channel_name):
+        """Lấy thông tin chủ kênh"""
+        try:
+            cursor = self.conn.cursor()
+            cursor.execute('''
+            SELECT owner FROM channels WHERE name = ?
+            ''', (channel_name,))
             
+            row = cursor.fetchone()
+            if row:
+                return row['owner']
+            return None
+        except Exception as e:
+            self.logger.error(f"Lỗi khi lấy thông tin chủ kênh: {e}")
+            return None        
     def get_channel_members(self, channel_name):
         """Lấy danh sách thành viên của kênh"""
         try:

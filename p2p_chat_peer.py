@@ -289,8 +289,12 @@ class PeerServer:
                             timestamp = float(parts[3])
                             frame_data = parts[4]
                             
-                            # Check if we're in this channel
-                            if self.video_callback and channel == self.current_channel:
+                            # Verify if the sender is the channel owner
+                            # This check is best effort on the receiver side
+                            if self.peer_client and channel == self.current_channel:
+                                # Only process frames if we're in this channel
+                                # Additional check if possible: Verify that sender is the host
+                                # If we can't verify, we'll trust the sender for now
                                 self.video_callback(frame_data, sender_username)
                                 
                         except Exception as e:
@@ -906,13 +910,18 @@ class PeerClient:
         
     def send_video_frame(self, frame_data):
         if self.is_guest:
-            self.logger.error("Khach khong the livestream video")
+            self.logger.error("Khách không thể phát trực tiếp video")
             return False
             
         if not self.current_channel:
-            self.logger.error("Vui long chon mot kenh de thuc hien")
+            self.logger.error("Vui lòng chọn một kênh để thực hiện")
             return False
             
+        # Kiểm tra xem người dùng có phải là chủ kênh không
+        if not self.is_host(self.current_channel):
+            self.logger.error(f"Không phải chủ kênh {self.current_channel}, không được phép phát trực tiếp")
+            return False
+                
         # Create a video frame message
         message = f"VIDEO_FRAME:{self.current_channel}:{self.username}:{time.time()}:{frame_data}"
         
@@ -976,7 +985,7 @@ class PeerClient:
             return True
             
         # Kiểm tra từ database nếu có
-        if hasattr(self, 'db_manager') and self.db_manager:
+        if hasattr(self, 'data') and self.db_manager:
             is_owner = self.db_manager.is_channel_owner(channel, self.username)
             # Cập nhật lại bộ nhớ nếu cần
             if is_owner and channel not in self.host_channels:

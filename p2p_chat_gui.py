@@ -398,25 +398,24 @@ class P2PChatGUI:
         # Hiển thị tên kênh
         self.current_channel_label.config(text=f"Kênh: {channel_name}")
         
-        # Kiểm tra xem người dùng hiện tại có phải chủ kênh
+        # Kiểm tra xem người dùng hiện tại có phải chủ kênh không
         is_owner = self.peer_client.is_host(channel_name)
         
-        # Tìm thông tin chủ kênh từ database
-        owner_name = None
-        if self.peer_client.db_manager:
-            channels = self.peer_client.db_manager.get_all_user_channels(self.peer_client.username)
-            for channel in channels:
-                if channel['name'] == channel_name:
-                    owner_name = channel['owner']
-                    break
-        
-        # Hiển thị thông tin chủ kênh
+        # Kiểm tra và điều chỉnh trạng thái nút stream dựa trên quyền sở hữu kênh
         if is_owner:
-            self.channel_owner_label.config(text="Bạn là chủ kênh")
-        elif owner_name:
-            self.channel_owner_label.config(text=f"Chủ kênh: {owner_name}")
+            self.start_stream_button.config(state=tk.NORMAL)
+            self.channel_owner_label.config(text="Bạn là chủ kênh (Có quyền phát trực tiếp)")
         else:
-            self.channel_owner_label.config(text="")         
+            self.start_stream_button.config(state=tk.DISABLED)
+            # Tìm thông tin chủ kênh từ database
+            owner_name = None
+            if self.peer_client.db_manager:
+                owner_name = self.peer_client.db_manager.get_channel_owner(channel_name)
+            
+            if owner_name:
+                self.channel_owner_label.config(text=f"Chủ kênh: {owner_name} (Chỉ chủ kênh mới có quyền phát trực tiếp)")
+            else:
+                self.channel_owner_label.config(text="Bạn không phải chủ kênh (Không có quyền phát trực tiếp)")        
             
     def join_channel_dialog(self):
         """Hiển thị hộp thoại để tham gia kênh"""
@@ -683,9 +682,9 @@ class P2PChatGUI:
             
         current = self.peer_client.current_channel
         
-        # Kiểm tra xem có phải host không (sử dụng phương thức is_host đã cải tiến)
+        # Kiểm tra chặt chẽ xem có phải host không
         if not self.peer_client.is_host(current):
-            messagebox.showerror("Lỗi", "Bạn không phải host của kênh này!")
+            messagebox.showerror("Lỗi", "Chỉ chủ kênh mới được phép phát trực tiếp!")
             return
                 
         # Initialize video stream if not already done
