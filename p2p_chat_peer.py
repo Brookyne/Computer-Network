@@ -29,9 +29,6 @@ class Message:
         # Định dạng rõ ràng hơn
         return f"[{time_str}] {display_sender}: {self.content}"
     
-    # def to_network_format(self, sender_ip, sender_port, sender_username):
-    #     """Chuyển đổi tin nhắn sang định dạng để gửi qua mạng"""
-    #     return f"CHANNEL:{self.channel} TIMESTAMP:{self.timestamp} SENDER_IP:{sender_ip} SENDER_PORT:{sender_port} SENDER_USERNAME:{sender_username} MESSAGE_ID:{self.id} MESSAGE:{self.content}"
     def to_network_format(self, sender_ip, sender_port, sender_username):
         """Convert message to network format"""
         return f"CHANNEL:{self.channel} TIMESTAMP:{self.timestamp} SENDER_IP:{sender_ip} SENDER_PORT:{sender_port} SENDER_USERNAME:{sender_username} MESSAGE_ID:{self.id} MESSAGE:{self.content}"
@@ -51,13 +48,10 @@ class Channel:
         if message.id in self.message_ids:
             return False
             
-        # Thêm ID vào danh sách đã xử lý
         self.message_ids.add(message.id)
         
-        # Thêm tin nhắn vào danh sách
         self.messages.append(message)
         
-        # Sắp xếp tin nhắn theo thời gian
         self.messages.sort(key=lambda x: x.timestamp)
         return True
 
@@ -370,13 +364,11 @@ class PeerClient:
         self.host_channels = set()  # Danh sách các kênh mà peer này là host
 
         self.peer_server.peer_client = self # Để có thể gọi lại hàm trong PeerClient từ PeerServer
-         # Khởi tạo database manager
+        
         self.db_manager = DatabaseManager(db_file=f"data/{username}_chat.db", logger=self.logger)
         
-        # Thêm người dùng vào cơ sở dữ liệu
         self.db_manager.add_user(username, self.local_ip, local_port)
         
-        # Tải các kênh đã tham gia từ database
         self._load_joined_channels()
 
     def _load_joined_channels(self):
@@ -388,20 +380,15 @@ class PeerClient:
         for channel_data in channels_data:
             channel_name = channel_data['name']
             
-            # Kiểm tra xem đã có trong danh sách kênh chưa
             if channel_name not in self.channels:
-                # Tạo đối tượng Channel mới
                 channel = Channel(channel_name)
                 self.channels[channel_name] = channel
                 
-                # Đánh dấu là host nếu là chủ kênh
                 if channel_data['is_owner'] or channel_data['owner'] == self.username:
                     self.host_channels.add(channel_name)
                     
-                # Tải tin nhắn cũ từ database
                 self._load_channel_messages(channel_name)
                 
-                # Đăng ký kênh với tracker (chỉ đăng ký sau khi đã đăng nhập thành công)
                 if self.session_id:
                     self.tracker_conn.join_channel(channel_name)
 
@@ -597,67 +584,7 @@ class PeerClient:
         self.logger.info(f"Đã chuyển sang kênh '{channel_name}'")
         return True
         
-    # def send_message(self, message_text):
-    #     """Gửi tin nhắn đến tất cả peer trong kênh hiện tại"""
-    #     if self.is_guest:
-    #         self.logger.error("Bạn đang ở chế độ khách và không thể gửi tin nhắn")
-    #         return False
-            
-    #     if not self.current_channel:
-    #         self.logger.error("Vui lòng chọn một kênh trước khi gửi tin nhắn")
-    #         return False
-            
-    #     if not message_text:
-    #         return False
-        
-    #     # Debug log
-    #     self.logger.info(f"Chuẩn bị gửi tin nhắn trong kênh {self.current_channel}: {message_text}")    
-            
-    #     # Lấy danh sách peer
-    #     peers = self.tracker_conn.get_peers()
-    #     self.logger.info(f"Tìm thấy {len(peers)} peers để gửi tin nhắn")
-        
-    #     # Tạo tin nhắn
-    #     message = Message(
-    #         channel=self.current_channel,
-    #         sender=f"{self.local_ip}:{self.local_port}",
-    #         content=message_text,
-    #         sender_username=self.username
-    #     )
-        
-    #     # Thêm tin nhắn của mình vào kênh hiện tại
-    #     self.channels[self.current_channel].add_message(message)
-        
-    #     # Định dạng tin nhắn để gửi
-    #     formatted_message = message.to_network_format(self.local_ip, self.local_port, self.username)
-    #     self.logger.info(f"Tin nhắn định dạng mạng: {formatted_message}")
-        
-    #     # Gửi tin nhắn đến tất cả peer
-    #     sent_count = 0
-    #     for peer in peers:
-    #         username, ip, port, session_id, mode, status = peer
-            
-    #         # Bỏ qua chính mình
-    #         if session_id == self.session_id:
-    #             self.logger.info(f"Bỏ qua gửi cho chính mình {username} ({ip}:{port})")
-    #             continue
-                
-    #         try:
-    #             with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-    #                 s.settimeout(5)  # Thiết lập timeout để tránh treo
-    #                 s.connect((ip, int(port)))
-    #                 s.sendall(formatted_message.encode())
-    #                 sent_count += 1
-    #                 self.logger.info(f"Đã gửi tin nhắn đến {username} ({ip}:{port})")
-    #         except Exception as e:
-    #             self.logger.error(f"Lỗi gửi tin nhắn đến {username} ({ip}:{port}): {e}")
-                
-    #     # Thông báo cho GUI nếu có message handler
-    #     if self.message_handler:
-    #         self.message_handler(message)
-            
-    #     self.logger.info(f"Đã gửi tin nhắn đến {sent_count} peer: {message_text}")
-    #     return True
+    
         
     def send_message(self, message_text):
         """Gửi tin nhắn đến tất cả peer trong kênh hiện tại hoặc lưu trữ nếu invisible/offline"""
@@ -686,13 +613,13 @@ class PeerClient:
             self.channels[self.current_channel].add_message(message)
             
             # Lưu vào database
-            self.db_manager.add_message(
-                message_id=message.id,
-                channel=self.current_channel,
-                sender=self.username,
-                content=message_text,
-                timestamp=message.timestamp
-            )
+            # self.db_manager.add_message(
+            #     message_id=message.id,
+            #     channel=self.current_channel,
+            #     sender=self.username,
+            #     content=message_text,
+            #     timestamp=message.timestamp
+            # )
             
             # Lưu trữ để gửi sau này
             self.store_offline_message(message_text)
@@ -703,15 +630,11 @@ class PeerClient:
                 
             return True
         
-        # Original code for online mode
-        # Debug log
         self.logger.info(f"Preparing to send message in channel {self.current_channel}: {message_text}")    
             
-        # Get peer list
         peers = self.tracker_conn.get_peers()
         self.logger.info(f"Found {len(peers)} peers to send message")
         
-        # Create message
         message = Message(
             channel=self.current_channel,
             sender=f"{self.local_ip}:{self.local_port}",
@@ -725,19 +648,15 @@ class PeerClient:
         content=message_text,
         timestamp=message.timestamp
         )
-        # Add own message to current channel
         self.channels[self.current_channel].add_message(message)
         
-        # Format message for sending
         formatted_message = message.to_network_format(self.local_ip, self.local_port, self.username)
         self.logger.info(f"Network formatted message: {formatted_message}")
         
-        # Send message to all peers
         sent_count = 0
         for peer in peers:
             username, ip, port, session_id, mode, status = peer
             
-            # Skip self
             if session_id == self.session_id:
                 self.logger.info(f"Skipping send to self {username} ({ip}:{port})")
                 continue
@@ -885,28 +804,7 @@ class PeerClient:
             return []
         return self.channels[channel].messages  
     
-    # def set_user_status(self, new_status):
-    #     if new_status not in ("online", "invisible"):
-    #         self.logger.error(f"Invalid status: {new_status}")
-    #         return False
     
-    #     if self.tracker_conn.tracker_conn:
-    #         try:
-    #             self.tracker_conn.tracker_conn.sendall(f"STATUS_CHANGE {self.session_id} {new_status}\n".encode())
-    #             response = self.tracker_conn.tracker_conn.recv(1024).decode().strip()
-    #             if response == "STATUS_CHANGED":
-    #                 self.user_status = new_status
-    #                 self.logger.info(f"Status changed to {new_status}")
-    #                 return True
-    #             else:
-    #                 self.logger.error(f"Failed to change status: {response}")
-    #                 return False
-    #         except Exception as e:
-    #             self.logger.error(f"Error changing status: {e}")
-    #             return False
-    #     else:
-    #         self.logger.error("Not connected to tracker.")
-    #         return False
         
     def send_video_frame(self, frame_data):
         if self.is_guest:

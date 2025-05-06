@@ -15,7 +15,9 @@ class TrackerServer:
             "alice": "password1",
             "bob": "password2",
             "charlie": "password3",
-            "nguyen":"2212311"
+            "nguyen":"2212311",
+            "phuong":"2212311",
+
         }
         # Setup logger cho tracker
         self.logger = logging.getLogger("TrackerServer")
@@ -67,7 +69,9 @@ class TrackerServer:
                 print("-" * 120)
                 for peer in self.peers:
                     mode = "Guest" if peer[4] else "User"
-                    print("{:<15} {:<15} {:<10} {:<36} {:<10} {:<10}".format(peer[0], peer[1], peer[2], peer[3], mode, peer[5]))
+                    # Sửa lại dòng này để lấy status từ peer[6] thay vì peer[5]
+                    status = peer[6] if len(peer) > 6 else "online"
+                    print("{:<15} {:<15} {:<10} {:<36} {:<10} {:<10}".format(peer[0], peer[1], peer[2], peer[3], mode, status))
                 print("=" * 120 + "\n")
             else:
                 print("[Tracker] Hiện không có peer nào đăng ký.")

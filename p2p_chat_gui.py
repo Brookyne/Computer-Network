@@ -293,7 +293,7 @@ class P2PChatGUI:
         ttk.Button(buttons_frame, text="Đăng nhập với chế độ khách", command=self.login_as_guest).pack(side=tk.LEFT, padx=10)
         
         # Thông tin demo
-        ttk.Label(self.login_frame, text="Các tài khoản mẫu: alice/password1, bob/password2, charlie/password3").pack(pady=10)
+        ttk.Label(self.login_frame, text="Các tài khoản mẫu: alice/password1, bob/password2, charlie/password3,nguyen/2212311,phuong/2212311").pack(pady=10)
         
     def login(self):
         """Xử lý đăng nhập thông thường"""
@@ -488,47 +488,7 @@ class P2PChatGUI:
         else:
             messagebox.showerror("Lỗi", f"Kênh '{channel_name}' không tồn tại hoặc bạn chưa tham gia")
             
-    # def update_messages_display(self):
-    #     """Cập nhật khu vực hiển thị tin nhắn"""
-    #     if not self.peer_client or not self.peer_client.current_channel:
-    #         return
-            
-    #     # Lấy danh sách tin nhắn của kênh hiện tại
-    #     messages = self.peer_client.get_channel_messages()
-        
-    #     # Lưu vị trí cuộn hiện tại
-    #     current_pos = self.messages_text.yview()
-        
-    #     # Xóa và cập nhật tin nhắn
-    #     self.messages_text.config(state=tk.NORMAL)
-    #     self.messages_text.delete(1.0, tk.END)
-        
-    #     self.logger.info(f"Hiển thị {len(messages)} tin nhắn cho kênh {self.peer_client.current_channel}")
-        
-    #     # Tạo tags cho định dạng tin nhắn
-    #     self.messages_text.tag_configure("timestamp", foreground="#888888", font=("Arial", 9, "italic"))
-    #     self.messages_text.tag_configure("username", foreground="#0066CC", font=("Arial", 10, "bold"))
-    #     self.messages_text.tag_configure("content", foreground="#333333", font=("Arial", 10))
-    #     self.messages_text.tag_configure("status_message", foreground="#1E8449", font=("Arial", 9, "italic"))
-        
-    #     for message in messages:
-    #         # Định dạng thời gian
-    #         time_str = message.timestamp
-    #         if isinstance(message.timestamp, (int, float)):
-    #             time_str = datetime.fromtimestamp(message.timestamp).strftime("%H:%M:%S")
-            
-    #         # Hiển thị tin nhắn với định dạng màu sắc
-    #         self.messages_text.insert(tk.END, f"[{time_str}] ", "timestamp")
-    #         self.messages_text.insert(tk.END, f"{message.sender_username}: ", "username")
-    #         self.messages_text.insert(tk.END, f"{message.content}\n", "content")
-        
-    #     self.messages_text.config(state=tk.DISABLED)
-        
-    #     # Cuộn xuống cuối nếu đang ở cuối
-    #     if current_pos[1] == 1.0:
-    #         self.messages_text.see(tk.END)
-    #     else:
-    #         self.messages_text.yview_moveto(current_pos[0])
+    
         
     def update_messages_display(self):
         """Cập nhật khu vực hiển thị tin nhắn"""
@@ -563,24 +523,19 @@ class P2PChatGUI:
                 
             displayed_messages.add(message.id)
             
-            # Định dạng thời gian
             time_str = message.timestamp
             if isinstance(message.timestamp, (int, float)):
                 time_str = datetime.fromtimestamp(message.timestamp).strftime("%H:%M:%S")
             
-            # Hiển thị tin nhắn với định dạng màu sắc
             self.messages_text.insert(tk.END, f"[{time_str}] ", "timestamp")
             
-            # Chỉ hiển thị username một lần
             if message.sender_username:
                 self.messages_text.insert(tk.END, f"{message.sender_username}: ", "username")
             
-            # Nội dung tin nhắn
             self.messages_text.insert(tk.END, f"{message.content}\n", "content")
         
         self.messages_text.config(state=tk.DISABLED)
         
-        # Cuộn xuống cuối nếu đang ở cuối
         if current_pos[1] == 1.0:
             self.messages_text.see(tk.END)
         else:
@@ -602,12 +557,9 @@ class P2PChatGUI:
         if not message_text:
             return
             
-        # Gửi tin nhắn
         if self.peer_client.send_message(message_text):
-            # Xóa ô nhập tin nhắn
             self.message_entry.delete(0, tk.END)
             
-            # Nếu ở chế độ invisible/offline, hiển thị thông báo
             if self.peer_client.user_status in ["invisible", "offline"]:
                 self.messages_text.config(state=tk.NORMAL)
                 self.messages_text.insert(tk.END, "--- Tin nhắn được lưu và sẽ gửi khi trở lại online ---\n", "status_message")
